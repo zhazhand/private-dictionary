@@ -1,0 +1,25 @@
+<div class="modal-header bg-secondary">
+  <h4 class="modal-title">{{ data.title }} list</h4>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross clicked')"
+  ></button>
+</div>
+<div class="modal-body">
+  <p>{{ message }}</p>
+</div>
+<div class="modal-footer d-flex justify-content-between bg-secondary">
+  <div>
+    <button type="button" class="btn btn-dark me-3" (click)="openModal()">
+      Completely
+    </button>
+    <button type="button" class="btn btn-dark" (click)="deleteSelectively()">
+      Selectevely
+    </button>
+  </div>
+  <button type="button" class="btn btn-light" (click)="cancelDelete()">
+    Cancel
+  </button>
+</div>

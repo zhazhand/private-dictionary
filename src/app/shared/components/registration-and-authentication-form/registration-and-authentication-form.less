@@ -1,0 +1,59 @@
+@import "main";
+
+:host {
+  display: block;
+  height: 85vh;
+
+  .form-disabled {
+    .card {
+      .form-group {
+        &:hover {
+          border-bottom: 1px solid @activeMenuBorder;
+          color: @formLoginTitle;
+        }
+      }
+    }
+  }
+}
+
+.card {
+  color: @formLoginTitle;
+  border-bottom-width: 2px !important;
+
+  .form-group {
+    border-bottom: 1px solid @activeMenuBorder;
+    position: relative;
+
+    &:hover {
+      border-bottom-color: @info;
+      color: @info;
+      transition: 0.9s;
+    }
+
+    &.invalid {
+      border-bottom: 2px solid @danger;
+      color: @danger;
+    }
+
+    .label {
+      font-weight: 500;
+    }
+
+    .input-container {
+      flex-grow: 2;
+
+      .inp {
+        color: @formLoginTitle;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .error-helper-text {
+    min-height: 40px;
+    font-size: 0.75rem;
+  }
+}

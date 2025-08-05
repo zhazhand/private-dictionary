@@ -1,0 +1,121 @@
+@import "main.less";
+
+.navbar-nav {
+  .nav-item {
+    margin: -8px 1px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    &:nth-last-of-type(1) {
+      .nav-link.dropdown-toggle {
+        & + .dropdown-menu.show {
+          right: 0;
+          left: initial;
+        }
+      }
+    }
+    .dropdown-menu.show {
+      min-width: 0;
+    }
+
+    &.active {
+      background-color: @activeMenuBackground;
+      margin: -8px 0;
+      padding-top: 8px;
+      padding-bottom: 8px;
+
+      & > .nav-link {
+        &:hover {
+          color: @activeMenuColor;
+        }
+      }
+
+      &:hover {
+        background-color: @activeMenuBackground;
+        margin: -8px 0;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border: 0;
+
+        & > .nav-link {
+          color: @activeMenuColor;
+        }
+      }
+    }
+
+    &:hover {
+      background-color: @white;
+      margin: -9px 0;
+      padding-top: 8px;
+      border: 1px solid @activeMenuBorder;
+      transition: background 0.8s;
+
+      & > .nav-link {
+        color: @primary;
+        transition-duration: 0.3s;
+      }
+
+      // & .show {
+      //   margin-top: calc(.125rem - .5px);
+      // }
+    }
+
+    .nav-link {
+      color: @white;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .navbar.navbar-expand-lg.navbar-light.bg-primary {
+    background-color: transparent !important;
+    position: fixed;
+    opacity: 0.9;
+    z-index: 1060;
+
+    .navbar-toggler {
+      background-color: @white;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .nav-item {
+      margin: 0;
+      background-color: @adaptiveMenuBackground;
+
+      &:first-of-type {
+        border-radius: 0 5px 0 0;
+      }
+
+      &:last-of-type {
+        border-radius: 0 0 5px 5px;
+      }
+
+      &:hover {
+        background-color: @white;
+        margin: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        border: 0;
+        transition: background 0.8s;
+
+        & > .nav-link {
+          color: @primary;
+          transition-duration: 0.3s;
+        }
+      }
+
+      .nav-link {
+        color: @adaptiveMenuColor;
+        font-weight: bolder;
+        padding-left: 0.8rem;
+      }
+    }
+  }
+}

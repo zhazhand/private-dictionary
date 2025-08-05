@@ -1,0 +1,37 @@
+@if (items) {
+  <div class="vocabulary-page">
+    <h5 class="ps-5 pt-3">{{ pageTitle }}</h5>
+    <app-control-panel
+      [pageTitle]="pageTitle"
+      [choiceAbility]="choiceAbility"
+      [excludePush]="excludePush"
+      [isPopoverShown]="isWarningShown()"
+      [isDisabled]="isDeleteButtonDisabled()"
+      (takenWord)="onSearchWord($event)"
+      (takenType)="changeOrderBy($event)"
+      (removingMethode)="onProcessRemoving($event)"
+    />
+    @if (items.length) {
+      <app-base-table
+        [items]="items"
+        [choiceAbility]="choiceAbility"
+        [thName]="thName"
+        [search]="search"
+        [paramSearch]="paramSearch"
+        [orderBy]="orderBy"
+        (removeCandidate)="setRemovable($event)"
+        (changeAllState)="changeAll($event)"
+        (removing)="onProcessRemoving($event)"
+      />
+    } @else {
+      <app-empty-list-block
+        [hideLoader]="hideLoader"
+        (downloadDefault)="downloadDefaultList()"
+      />
+    }
+  </div>
+} @else {
+  <div class="mt-5">
+    <app-loader />
+  </div>
+}

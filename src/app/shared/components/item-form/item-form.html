@@ -1,0 +1,81 @@
+<div class="container-fluid mt-5">
+  <h2 class="text-center">{{ isNew ? "Add new " : "Edit (/delete) " }}word</h2>
+  <div class="alert-info pt-3 pb-1">
+    <p class="text-center">
+      <a href=" " target="_blank"> Convenient resource </a>
+      where you can learn the English or American pronunciation (transcription)
+      of the word
+    </p>
+  </div>
+  <form>
+    <table class="table table-responsive-md">
+      <tr>
+        <th class="text-center">Word</th>
+        <th class="text-center">Transcription</th>
+        <th class="text-center">Translation</th>
+      </tr>
+      <tr>
+        <td class="border-bottom text-center">
+          <div class="input-group">
+            <input
+              class="form-control text-center pl-0 pr-0"
+              placeholder=" new word"
+              id="name"
+              type="text"
+            />
+          </div>
+          <span class="text-danger helper-text">
+            <span>Данное поле не может быть пустым</span>
+          </span>
+        </td>
+        <td class="border-bottom text-center">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">[</span>
+            </div>
+            <input
+              type="text"
+              class="form-control text-center pl-0 pr-0"
+              placeholder="transcription"
+              id="transcription"
+            />
+            <div class="input-group-append">
+              <span class="input-group-text">]</span>
+            </div>
+          </div>
+          <span class="text-danger helper-text">
+            <span>Данное поле не может быть пустым</span>
+          </span>
+        </td>
+        <td class="border-bottom text-center">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control text-center pl-0 pr-0"
+              placeholder="translation"
+              id="translation"
+            />
+          </div>
+          <span class="text-danger helper-text">
+            <span>Данное поле не может быть пустым</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <div class="row">
+      <div class="d-flex justify-content-around">
+        <div>
+          <button type="button" class="btn btn-success">Save</button>
+        </div>
+        <div>
+          <button type="button" class="btn btn-primary" (click)="goBack()">
+            Return
+          </button>
+        </div>
+        <div>
+          <button type="button" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

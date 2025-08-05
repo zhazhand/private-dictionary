@@ -1,0 +1,126 @@
+<div class="container d-flex justify-content-center align-items-center h-100">
+  <form
+    [formGroup]="form"
+    [class]="{ 'form-disabled': form.disabled }"
+    (submit)="submitForm()"
+  >
+    <div class="card shadow-sm p-3 mb-5 bg-white rounded">
+      <div class="card-body">
+        <h4 class="card-title">{{ formTitle() }}</h4>
+        <div
+          class="form-group pt-2 mb-0 d-flex"
+          [class]="{
+            invalid: form.get('email')!.invalid && form.get('email')!.touched,
+          }"
+        >
+          <div class="label-container d-flex align-items-center">
+            <svg width="18px" height="16px" viewBox="0 0 24 24">
+              <use href="assets/svg/envelope.svg"></use>
+            </svg>
+            <label for="email" class="label pe-0 ps-1">Email:</label>
+          </div>
+          <div class="input-container">
+            <input
+              formControlName="email"
+              id="email"
+              type="email"
+              autocomplete="off"
+              class="w-100 border-0 ps-1 inp"
+            />
+          </div>
+        </div>
+        <div class="text-danger error-helper-text row">
+          @if (form.get("email")!.invalid && form.get("email")!.touched) {
+            <span>
+              @if (form.get("email")!.errors!["required"]) {
+                <span>{{ errorMessage.email.empty }}</span>
+              }
+              @if (form.get("email")!.errors!["email"]) {
+                <span> {{ errorMessage.email.invalid }} </span>
+              }
+            </span>
+          }
+        </div>
+        <div
+          class="form-group pt-2 mb-0 d-flex"
+          [class]="{
+            invalid:
+              form.get('password')!.invalid && form.get('password')!.touched,
+          }"
+        >
+          <div class="label-container d-flex align-items-center">
+            <svg width="18px" height="16px" viewBox="0 0 24 24">
+              <use href="assets/svg/key.svg"></use>
+            </svg>
+            <label for="password" class="label pe-0 ps-1">Password:</label>
+          </div>
+          <div class="input-container">
+            <input
+              formControlName="password"
+              id="password"
+              [type]="isPassVisible ? 'text' : 'password'"
+              class="w-100 border-0 ps-1 inp"
+            />
+            <app-pass-visibility-switcher
+              [isDisabled]="form.disabled"
+              (passVisibilityState)="setPassVisibility($event)"
+            />
+          </div>
+        </div>
+        <div class="text-danger error-helper-text row">
+          @if (form.get("password")!.invalid && form.get("password")!.touched) {
+            <span>
+              @if (form.get("password")!.errors!["required"]) {
+                <span>{{ errorMessage.password.empty }}</span>
+              }
+              @if (
+                form.get("password")!.errors!["minlength"] &&
+                form.get("password")!.errors!["minlength"]["requiredLength"]
+              ) {
+                <span>
+                  {{ errorMessage.password.minLengthStart
+                  }}{{
+                    form.get("password")!.errors!["minlength"][
+                      "requiredLength"
+                    ]
+                  }}{{ errorMessage.password.minLengthEnd }}<br />
+                  {{ errorMessage.password.currentSymbolsAmount
+                  }}{{
+                    form.get("password")!.errors!["minlength"]["actualLength"]
+                  }}
+                </span>
+              }
+              @if (
+                form.get("password")!.errors!["maxlength"] &&
+                form.get("password")!.errors!["maxlength"]["requiredLength"]
+              ) {
+                <span>
+                  {{ errorMessage.password.maxLength
+                  }}{{
+                    form.get("password")!.errors!["maxlength"][
+                      "requiredLength"
+                    ]
+                  }}<br />
+                  {{ errorMessage.password.currentSymbolsAmount
+                  }}{{
+                    form.get("password")!.errors!["maxlength"]["actualLength"]
+                  }}
+                </span>
+              }
+            </span>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button
+          type="submit"
+          class="btn btn-block btn-success w-100"
+          [disabled]="form.invalid || form.disabled"
+        >
+          Enter
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

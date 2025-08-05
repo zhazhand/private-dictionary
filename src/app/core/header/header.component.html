@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <button
+    class="navbar-toggler"
+    type="button"
+    (click)="isMenuCollapsed = !isMenuCollapsed"
+  >
+    &#9776;
+  </button>
+  <div
+    [ngbCollapse]="isMenuCollapsed"
+    class="collapse navbar-collapse justify-content-end"
+  >
+    <ul class="navbar-nav">
+      @for (item of menu; track $index) {
+        <li
+          class="nav-item"
+          [routerLinkActive]="item.children ? '' : 'active'"
+          ngbDropdown
+        >
+          @if (item.children) {
+            <a class="nav-link" [id]="[item.name]" ngbDropdownToggle
+              >{{ item.name }}
+              <div
+                ngbDropdownMenu
+                aria-labelledby="[item.name]"
+                class="dropdown-menu"
+              >
+                @for (child of item.children; track $index) {
+                  <a
+                    ngbDropdownItem
+                    [routerLink]="[child.path]"
+                    (click)="isMenuCollapsed = true"
+                  >
+                    {{ child.name }}
+                  </a>
+                }
+              </div>
+            </a>
+          } @else {
+            <a
+              class="nav-link"
+              [routerLink]="[item.path]"
+              (click)="checkAbilityToEscape(item.abilityToEscape)"
+              >{{ item.name }}</a
+            >
+          }
+        </li>
+      } @empty {
+        <li>No items available.</li>
+      }
+    </ul>
+  </div>
+</nav>

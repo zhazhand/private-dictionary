@@ -1,0 +1,90 @@
+<div class="container control-panel p-2">
+  <div class="row">
+    <div class="d-flex align-items-center">
+      <div class="d-flex w-50 pe-3">
+        <div class="d-flex align-items-center justify-content-end w-50">
+          <label for="orderList" class="label-for-select pe-1"
+            >Order by:
+          </label>
+        </div>
+        <div class="h-100 w-50">
+          <select
+            class="form-control"
+            id="orderList"
+            [disabled]="isDisabled()"
+            [ngModel]="selectedCategory"
+            (ngModelChange)="onSelect($event)"
+          >
+            @for (l of category; track $index) {
+              <option [value]="l.value">
+                {{ l.type }}
+              </option>
+            }
+          </select>
+        </div>
+      </div>
+      <div class="py-1 input-group h-100 w-50 ps-3">
+        <input
+          type="text"
+          class="form-control h-100"
+          autocomplete="off"
+          id="searchFilter"
+          placeholder="search"
+          [disabled]="isDisabled()"
+          [(ngModel)]="searchWord"
+          (ngModelChange)="onFieldChange($event)"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-primary"
+            type="button"
+            id="button-addon2"
+            [disabled]="!searchWord || isDisabled()"
+            (click)="clearField()"
+          >
+            <app-brush-icon />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="d-flex justify-content-end">
+      <div class="pt-1 ms-5 d-flex justify-content-end">
+        <button
+          class="btn btn-danger"
+          type="button"
+          [disabled]="isDisabled()"
+          [ngbPopover]="popoverContent"
+          [disablePopover]="!isPopoverShown()"
+          (click)="onProcessRemoving()"
+        >
+          Delete list
+        </button>
+      </div>
+      <div class="pt-1 ms-5 d-flex justify-content-end">
+        <button
+          type="button"
+          class="btn btn-success"
+          [routerLink]="linkName"
+          [disabled]="excludePush()"
+        >
+          Add new
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #popoverContent>
+  <div>
+    <p>
+      {{ popoverMsg.proceedWay }} <br />
+      {{ popoverMsg.proceedCondition }} <br />
+      {{ popoverMsg.cancelWay }} <br />
+      {{ popoverMsg.cancelCondition }}
+      <button class="btn btn-dark btn-sm ms-2" (click)="deleteCancel()">
+        Cancel removing
+      </button>
+    </p>
+  </div>
+</ng-template>

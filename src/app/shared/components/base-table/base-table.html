@@ -1,0 +1,145 @@
+@let words = items();
+
+<div class="table-container">
+  <table class="table table-striped table-hover table-bordered">
+    <thead class="table-dark">
+      <tr>
+        @if (choiceAbility()) {
+          <th class="mw-40 checkbox-container">
+            <label class="input-label">
+              <input
+                #chkbxMain
+                type="checkbox"
+                class="input"
+                [indeterminate]="isIndeterminate()"
+                [checked]="isChecked()"
+                [disabled]="isDisabled()"
+                (change)="selectAll(chkbxMain.checked)"
+              />
+            </label>
+          </th>
+        }
+        @if ("name" in words![0]) {
+          <th class="text-center">{{ thName() }}</th>
+          @if ("transcription" in words![0]) {
+            <th class="text-center">TRANSCRIPTION</th>
+          }
+        } @else {
+          <ng-template #thIrregular>
+            <th><span class="me-1">1</span>FORM</th>
+            <th><span class="me-1">2</span>FORM</th>
+            <th><span class="me-1">3</span>FORM</th>
+          </ng-template>
+          <ng-container *ngTemplateOutlet="thIrregular" />
+        }
+        <th class="text-center">TRANSLATION</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (
+        item of words!
+          | listFilter: search() : paramSearch()
+          | OrderBy: orderBy();
+        track item._id
+      ) {
+        <tr
+          class="table-hover"
+          [class]="{ 'hover-active': !choiceAbility() }"
+          [routerLink]="choiceAbility() ? null : [linkName, item._id]"
+        >
+          @if (choiceAbility()) {
+            <td class="mw-40 checkbox-container">
+              <label class="input-label">
+                <input
+                  #chkbx
+                  class="input"
+                  type="checkbox"
+                  [checked]="item.removable ? 'checked' : null"
+                  (change)="saveChanges(item._id, chkbx.checked)"
+                />
+              </label>
+            </td>
+          }
+          @if ("name" in item) {
+            <td
+              class="text-center"
+              [ngbPopover]="popoverContent"
+              [disablePopover]="!choiceAbility()"
+              popoverClass="base-table-popover"
+              container="body"
+            >
+              {{ item.name }}
+            </td>
+            @if ("transcription" in item) {
+              <td
+                class="text-center"
+                [ngbPopover]="popoverContent"
+                [disablePopover]="!choiceAbility()"
+                popoverClass="base-table-popover"
+                container="body"
+              >
+                {{ item.transcription }}
+              </td>
+            }
+          } @else {
+            <ng-template #tdIrregular>
+              <td
+                class="text-center"
+                [ngbPopover]="popoverContent"
+                [disablePopover]="!choiceAbility()"
+                popoverClass="base-table-popover"
+                container="body"
+              >
+                {{ item.firstForm
+                }}<span class="ms-1">{{ item.firstFormTranscription }}</span>
+              </td>
+              <td
+                class="text-center"
+                [ngbPopover]="popoverContent"
+                [disablePopover]="!choiceAbility()"
+                popoverClass="base-table-popover"
+                container="body"
+              >
+                {{ item.secondForm
+                }}<span class="ms-1">{{ item.secondFormTranscription }}</span>
+              </td>
+              <td
+                class="text-center"
+                [ngbPopover]="popoverContent"
+                [disablePopover]="!choiceAbility()"
+                popoverClass="base-table-popover"
+                container="body"
+              >
+                {{ item.thirdForm
+                }}<span class="ms-1">{{ item.thirdFormTranscription }}</span>
+              </td>
+            </ng-template>
+            <ng-container *ngTemplateOutlet="tdIrregular" />
+          }
+          <td
+            class="text-center"
+            [ngbPopover]="popoverContent"
+            [disablePopover]="!choiceAbility()"
+            popoverClass="base-table-popover"
+            container="body"
+          >
+            {{ item.translation }}
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+<ng-template #popoverContent
+  ><div>
+    <p>
+      {{ popoverMsg.editWay }} <br />
+      {{ popoverMsg.editWayCondition }} <br />
+      {{ popoverMsg.cancelWay }} <br />
+      {{ popoverMsg.cancelCondition }}
+      <button class="btn btn-dark btn-sm ms-2" (click)="deleteCancel()">
+        Cancel removing
+      </button>
+    </p>
+  </div>
+</ng-template>

@@ -1,0 +1,11 @@
+<button
+  type="button"
+  [disabled]="isDisabled()"
+  class="icon-btn"
+  (click)="switchPassVisibility()"
+>
+  <svg width="18px" height="18px" viewBox="0 0 24 24">
+    <use href="assets/svg/eye.svg" [class.d-none]="!isPassVisible"></use>
+    <use href="assets/svg/crossed-eye.svg" [class.d-none]="isPassVisible"></use>
+  </svg>
+</button>
