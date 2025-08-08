@@ -21,6 +21,15 @@ export const warningPopoverMessage = {
   cancelCondition: "press this button",
 };
 
+export const convenientResourse = {
+  baseURL: "https://dictionary.cambridge.org/",
+  translationDefaultURL:
+    "https://dictionary.cambridge.org/dictionary/english-ukrainian/",
+  pronunciationDefaultURL: "https://dictionary.cambridge.org/pronunciation/",
+  pronunciationTargetURL:
+    "https://dictionary.cambridge.org/pronunciation/english/",
+};
+
 export const defaultSearchParametr = "name";
 export const irregularSearchParametr = "firstForm";
 export const defaultColumnName = "WORD / PHRASE";
@@ -55,4 +64,14 @@ export enum PageTitle {
   separable = "Separable phrasal verbs",
   phrases = "Phrases",
   stative = "Stative verbs",
+  guide = "Guide",
+  login = "Login",
+  registration = "Registration",
 }
+
+export const validationPattern = {
+  word: /^([A-Za-z\'\-\`]+\s?(\-|\.{0,3}|\,|\;|\:|\?{0,3}|\!{0,3})?\s?)+$/,
+  transcription: /\D+/,
+  translation:
+    /^([А-Яа-яЁёа-щсьіїєґА-ЩЬІЇЄҐ\'\-\`]+\s?(\-|\.{0,3}|\,|\;|\:|\?{0,3}|\!{0,3})?\s?)+$/,
+};

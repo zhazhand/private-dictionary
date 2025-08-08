@@ -10,12 +10,12 @@ export class CommonCRUDService {
 
   //To get all list
   fetch(category: string): Observable<ListItem[]> {
-    return this.http.get<ListItem[]>(`/api${category}`);
+    return this.http.get<ListItem[]>(`/api/${category}`);
   }
 
   //To get just one item (for editing or removing)
   getById(id: string, category: string): Observable<ListItem> {
-    return this.http.get<ListItem>(`/api${category}/${id}`);
+    return this.http.get<ListItem>(`/api/${category}/${id}`);
   }
 
   create(
@@ -26,14 +26,14 @@ export class CommonCRUDService {
   ): Observable<ListItem> {
     const fd = { name, transcription, translation };
 
-    return this.http.post<ListItem>(`/api${category}`, fd);
+    return this.http.post<ListItem>(`/api/${category}`, fd);
   }
 
   createCollection(
     category: string,
     collection: ListItem[],
   ): Observable<ListItem[]> {
-    return this.http.post<ListItem[]>(`/api${category}`, collection);
+    return this.http.post<ListItem[]>(`/api/${category}`, collection);
   }
 
   update(
@@ -46,10 +46,10 @@ export class CommonCRUDService {
   ): Observable<ListItem> {
     const fd = { name, transcription, translation, removable };
 
-    return this.http.patch<ListItem>(`/api${category}/${id}`, fd);
+    return this.http.patch<ListItem>(`/api/${category}/${id}`, fd);
   }
 
   delete(category: string, id: string): Observable<Message> {
-    return this.http.delete<Message>(`/api${category}/${id}`);
+    return this.http.delete<Message>(`/api/${category}/${id}`);
   }
 }

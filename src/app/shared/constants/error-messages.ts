@@ -10,4 +10,9 @@ export const validationErrorMessage = {
     empty: "Email cannot be empty",
     invalid: "Enter a valid Email",
   },
+  required: {
+    one: "This field is required! ",
+    all: "All fields are required! ",
+  },
+  pattern: "Check the spelling! ",
 };

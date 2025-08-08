@@ -1,0 +1,28 @@
+@import "main.less";
+.item-form {
+  .btn {
+    width: 75px;
+  }
+
+  .link {
+    text-decoration: none;
+    color: @activeMenuBackground;
+    font-weight: 500;
+    &:hover {
+      color: @adaptiveMenuColor;
+    }
+  }
+
+  .form-control {
+    &.invalid {
+      border: 1px solid @danger;
+      box-shadow: inset 0 0 2px @danger;
+    }
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  .error-container {
+    height: 43px;
+  }
+}

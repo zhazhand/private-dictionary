@@ -1,81 +1,263 @@
-<div class="container-fluid mt-5">
-  <h2 class="text-center">{{ isNew ? "Add new " : "Edit (/delete) " }}word</h2>
-  <div class="alert-info pt-3 pb-1">
-    <p class="text-center">
-      <a href=" " target="_blank"> Convenient resource </a>
-      where you can learn the English or American pronunciation (transcription)
-      of the word
-    </p>
+<div class="item-form mt-5">
+  <h5 class="ps-5">{{ pageTitle }}:</h5>
+  <div class="container">
+    <h2 class="text-center">
+      {{ isNew ? "Add new " : "Edit (/delete) " }}word
+    </h2>
+    @if (isNew && !isIrregular && !isTranscriptionHidden()) {
+      <div class="form-check py-3 ps-4">
+        <label class="form-check-label">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            [checked]="isTranscriptionShown"
+            (change)="toggleTranscriptionState()"
+          />
+          Do you need a transcription?
+        </label>
+      </div>
+    }
+    @if (isNew && !isTranscriptionHidden()) {
+      <div
+        [@showHide]="isTranscriptionShown ? 'shown' : 'hidden'"
+        class="alert alert-info pt-3 pb-1"
+      >
+        <p class="text-center">
+          A <a class="link" href="{{ baseURL }}">convenient resource</a>, where
+          you can see the appropriate
+          <a
+            class="link"
+            href="{{ translationDefaultURL }}{{ word }}"
+            target="_blank"
+            >transcription</a
+          >.<br />
+          In addition, you can find the English or American
+          <a class="link" [href]="getPronunciationLink()" target="_blank"
+            >pronunciation</a
+          >
+          of the selected word there.
+        </p>
+      </div>
+    }
   </div>
-  <form>
-    <table class="table table-responsive-md">
-      <tr>
-        <th class="text-center">Word</th>
-        <th class="text-center">Transcription</th>
-        <th class="text-center">Translation</th>
-      </tr>
-      <tr>
-        <td class="border-bottom text-center">
-          <div class="input-group">
-            <input
-              class="form-control text-center pl-0 pr-0"
-              placeholder=" new word"
-              id="name"
-              type="text"
-            />
+  <div class="container-fluid">
+    <form [formGroup]="form" autocomplete="off">
+      <table class="table table-responsive">
+        @if (isIrregular) {
+          <ng-template #irregular>
+            <tr>
+              <th class="text-center"><span class="mr-1">1</span>FORM</th>
+              <th class="text-center"><span class="mr-1">2</span>FORM</th>
+              <th class="text-center"><span class="mr-1">3</span>FORM</th>
+              <th class="text-center">TRANSLATION</th>
+            </tr>
+            <tr>
+              <td class="border-bottom text-center">
+                <div class="input-group">
+                  <input
+                    class="form-control text-center px-0"
+                    placeholder=" first form"
+                    id="first_form"
+                    formControlName="firstForm"
+                    [class]="{
+                      invalid:
+                        form.get('firstForm')?.invalid &&
+                        form.get('firstForm')?.touched,
+                    }"
+                  />
+                  <input
+                    class="form-control text-center px-0"
+                    placeholder="transcription"
+                    id="first_form_transcription"
+                    type="text"
+                    formControlName="firstFormTranscription"
+                    [class]="{
+                      invalid:
+                        form.get('firstFormTranscription')?.invalid &&
+                        form.get('firstFormTranscription')?.touched,
+                    }"
+                  />
+                </div>
+              </td>
+              <td class="border-bottom text-center">
+                <div class="input-group">
+                  <input
+                    class="form-control text-center px-0"
+                    placeholder="second form"
+                    id="second_form"
+                    type="text"
+                    formControlName="secondForm"
+                    [class]="{
+                      invalid:
+                        form.get('secondForm')?.invalid &&
+                        form.get('secondForm')?.touched,
+                    }"
+                  />
+                  <input
+                    class="form-control text-center px-0"
+                    placeholder="transcription"
+                    id="second_form_transcription"
+                    type="text"
+                    formControlName="secondFormTranscription"
+                    [class]="{
+                      invalid:
+                        form.get('secondFormTranscription')?.invalid &&
+                        form.get('secondFormTranscription')?.touched,
+                    }"
+                  />
+                </div>
+              </td>
+              <td class="border-bottom text-center">
+                <div class="input-group">
+                  <input
+                    class="form-control text-center px-0"
+                    placeholder="third form"
+                    id="third_form"
+                    type="text"
+                    formControlName="thirdForm"
+                    [class]="{
+                      invalid:
+                        form.get('thirdForm')?.invalid &&
+                        form.get('thirdForm')?.touched,
+                    }"
+                  />
+                  <input
+                    class="form-control text-center px-0"
+                    placeholder="transcription"
+                    id="third_form_transcription"
+                    type="text"
+                    formControlName="thirdFormTranscription"
+                    [class]="{
+                      invalid:
+                        form.get('thirdFormTranscription')?.invalid &&
+                        form.get('thirdFormTranscription')?.touched,
+                    }"
+                  />
+                </div>
+              </td>
+              <td class="border-bottom text-center">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control text-center px-0"
+                    placeholder="translation"
+                    id="translation"
+                    formControlName="translation"
+                    [class]="{
+                      invalid:
+                        form.get('translation')?.invalid &&
+                        form.get('translation')?.touched,
+                    }"
+                  />
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-container *ngTemplateOutlet="irregular" />
+        } @else {
+          <tr>
+            <th class="text-center">Word</th>
+            @if (isTranscriptionShown && !isTranscriptionHidden()) {
+              <th @showHide class="text-center transcription">Transcription</th>
+            }
+            <th class="text-center">Translation</th>
+          </tr>
+          <tr>
+            <td class="border-bottom text-center">
+              <div class="input-group">
+                <input
+                  class="form-control text-center px-0"
+                  placeholder="new word"
+                  id="wordName"
+                  type="text"
+                  formControlName="name"
+                  [class]="{
+                    invalid:
+                      form.get('name')?.invalid && form.get('name')?.touched,
+                  }"
+                />
+              </div>
+            </td>
+            @if (isTranscriptionShown && !isTranscriptionHidden()) {
+              <td @showHide class="border-bottom text-center transcription">
+                <div class="input-group">
+                  <span class="input-group-text">[</span>
+                  <input
+                    type="text"
+                    class="form-control text-center px-0"
+                    placeholder="transcription"
+                    id="transcription"
+                    formControlName="transcription"
+                    [class]="{
+                      invalid:
+                        form.get('transcription')?.invalid &&
+                        form.get('transcription')?.touched,
+                    }"
+                  />
+                  <span class="input-group-text">]</span>
+                </div>
+              </td>
+            }
+            <td class="border-bottom text-center">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control text-center px-0"
+                  placeholder="translation"
+                  id="translation"
+                  formControlName="translation"
+                  [class]="{
+                    invalid:
+                      form.get('translation')?.invalid &&
+                      form.get('translation')?.touched,
+                  }"
+                />
+              </div>
+            </td>
+          </tr>
+        }
+        <tr class="error-container">
+          <td [attr.colspan]="calculateColspan()">
+            @if (form.invalid && form.touched) {
+              <div @showHide class="text-danger text-center">
+                {{ getFormValidationErrors() }}
+              </div>
+            }
+          </td>
+        </tr>
+      </table>
+      <div class="row">
+        <div class="d-flex justify-content-around">
+          <div>
+            <button
+              type="button"
+              class="btn btn-success"
+              [disabled]="form.invalid || form.disabled"
+              (ckick)="onSaveClick()"
+            >
+              Save
+            </button>
           </div>
-          <span class="text-danger helper-text">
-            <span>Данное поле не может быть пустым</span>
-          </span>
-        </td>
-        <td class="border-bottom text-center">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">[</span>
+          <div class="d-flex justify-content-around">
+            <div class="px-2">
+              <button type="button" class="btn btn-primary" (click)="goBack()">
+                Return
+              </button>
             </div>
-            <input
-              type="text"
-              class="form-control text-center pl-0 pr-0"
-              placeholder="transcription"
-              id="transcription"
-            />
-            <div class="input-group-append">
-              <span class="input-group-text">]</span>
-            </div>
+            @if (!isNew) {
+              <div class="px-2">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  (click)="openConfirmationModal()"
+                >
+                  Delete
+                </button>
+              </div>
+            }
           </div>
-          <span class="text-danger helper-text">
-            <span>Данное поле не может быть пустым</span>
-          </span>
-        </td>
-        <td class="border-bottom text-center">
-          <div class="input-group">
-            <input
-              type="text"
-              class="form-control text-center pl-0 pr-0"
-              placeholder="translation"
-              id="translation"
-            />
-          </div>
-          <span class="text-danger helper-text">
-            <span>Данное поле не может быть пустым</span>
-          </span>
-        </td>
-      </tr>
-    </table>
-    <div class="row">
-      <div class="d-flex justify-content-around">
-        <div>
-          <button type="button" class="btn btn-success">Save</button>
-        </div>
-        <div>
-          <button type="button" class="btn btn-primary" (click)="goBack()">
-            Return
-          </button>
-        </div>
-        <div>
-          <button type="button" class="btn btn-danger">Delete</button>
         </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
