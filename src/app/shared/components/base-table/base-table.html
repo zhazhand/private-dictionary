@@ -25,11 +25,6 @@
             <th class="text-center">TRANSCRIPTION</th>
           }
         } @else {
-          <ng-template #thIrregular>
-            <th><span class="me-1">1</span>FORM</th>
-            <th><span class="me-1">2</span>FORM</th>
-            <th><span class="me-1">3</span>FORM</th>
-          </ng-template>
           <ng-container *ngTemplateOutlet="thIrregular" />
         }
         <th class="text-center">TRANSLATION</th>
@@ -82,39 +77,10 @@
               </td>
             }
           } @else {
-            <ng-template #tdIrregular>
-              <td
-                class="text-center"
-                [ngbPopover]="popoverContent"
-                [disablePopover]="!choiceAbility()"
-                popoverClass="base-table-popover"
-                container="body"
-              >
-                {{ item.firstForm
-                }}<span class="ms-1">{{ item.firstFormTranscription }}</span>
-              </td>
-              <td
-                class="text-center"
-                [ngbPopover]="popoverContent"
-                [disablePopover]="!choiceAbility()"
-                popoverClass="base-table-popover"
-                container="body"
-              >
-                {{ item.secondForm
-                }}<span class="ms-1">{{ item.secondFormTranscription }}</span>
-              </td>
-              <td
-                class="text-center"
-                [ngbPopover]="popoverContent"
-                [disablePopover]="!choiceAbility()"
-                popoverClass="base-table-popover"
-                container="body"
-              >
-                {{ item.thirdForm
-                }}<span class="ms-1">{{ item.thirdFormTranscription }}</span>
-              </td>
-            </ng-template>
-            <ng-container *ngTemplateOutlet="tdIrregular" />
+            <ng-container
+              [ngTemplateOutlet]="tdIrregular"
+              [ngTemplateOutletContext]="{ item }"
+            />
           }
           <td
             class="text-center"
@@ -130,6 +96,46 @@
     </tbody>
   </table>
 </div>
+
+<ng-template #thIrregular>
+  <th><span class="me-1">1</span>FORM</th>
+  <th><span class="me-1">2</span>FORM</th>
+  <th><span class="me-1">3</span>FORM</th>
+</ng-template>
+
+<ng-template #tdIrregular let-templateItem="item">
+  <td
+    class="text-center"
+    [ngbPopover]="popoverContent"
+    [disablePopover]="!choiceAbility()"
+    popoverClass="base-table-popover"
+    container="body"
+  >
+    {{ templateItem.firstForm
+    }}<span class="ms-1">{{ templateItem.firstFormTranscription }}</span>
+  </td>
+  <td
+    class="text-center"
+    [ngbPopover]="popoverContent"
+    [disablePopover]="!choiceAbility()"
+    popoverClass="base-table-popover"
+    container="body"
+  >
+    {{ templateItem.secondForm
+    }}<span class="ms-1">{{ templateItem.secondFormTranscription }}</span>
+  </td>
+  <td
+    class="text-center"
+    [ngbPopover]="popoverContent"
+    [disablePopover]="!choiceAbility()"
+    popoverClass="base-table-popover"
+    container="body"
+  >
+    {{ templateItem.thirdForm
+    }}<span class="ms-1">{{ templateItem.thirdFormTranscription }}</span>
+  </td>
+</ng-template>
+
 <ng-template #popoverContent
   ><div>
     <p>
