@@ -34,9 +34,9 @@ export class ControlPanel implements OnInit {
 
   searchWord!: string;
   linkName!: string;
-  category: SelectCategory[] = selectOptions;
+  category: SelectCategory[] | null = null;
   selectedCategory!: string;
-  defaultSelectedCategory: string = defaultSelectedValue;
+  defaultSelectedCategory!: string;
   popoverMsg = warningPopoverMessage;
 
   takenWord = output<string>();
@@ -45,11 +45,16 @@ export class ControlPanel implements OnInit {
 
   ngOnInit() {
     const currentRoute = this.route.snapshot.url[0].path;
+    this.category = selectOptions;
 
     if (currentRoute === routePath.irregular) {
       this.defaultSelectedCategory = reservedSelectedValue;
-      this.category.find((item) => item.value === defaultSelectedValue)!.value =
+      this.category.find((item) => item.type === "alphabet")!.value =
         reservedSelectedValue;
+    } else {
+      this.defaultSelectedCategory = defaultSelectedValue;
+      this.category.find((item) => item.type === "alphabet")!.value =
+        this.defaultSelectedCategory = defaultSelectedValue;
     }
 
     this.onSelect(this.defaultSelectedCategory);

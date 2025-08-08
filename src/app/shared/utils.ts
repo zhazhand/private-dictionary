@@ -24,5 +24,5 @@ export function searchSubstringMatches(
 
 export function getClearWord(val: string): string {
   const regex = /^\(to\)\s|^to\s|^a\s/i;
-  return val.replace(regex, "");
+  return !val ? val : val.replace(regex, "");
 }
