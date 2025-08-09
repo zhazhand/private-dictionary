@@ -10,6 +10,7 @@ export interface ListItem {
   thirdFormTranscription?: string;
   translation: string;
   removable?: boolean;
+  type?: string;
   user?: string;
   date?: string;
   _id: string;

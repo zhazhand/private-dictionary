@@ -180,6 +180,7 @@ export class ItemForm implements OnInit {
     this.crudService
       .delete(this.parentRoute, this.id!)
       .subscribe((val) => console.log(val));
+    this.goBack(); // should rework
   }
 
   openConfirmationModal(): void {
