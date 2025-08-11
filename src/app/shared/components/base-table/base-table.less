@@ -19,7 +19,11 @@
         height: 100%;
         cursor: pointer;
 
-        .input {
+        &.disabled {
+          cursor: default;
+        }
+
+        .input:not([disabled]) {
           cursor: pointer;
         }
       }

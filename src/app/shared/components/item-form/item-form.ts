@@ -95,7 +95,10 @@ export class ItemForm implements OnInit {
   }
 
   isTranscriptionHidden(): boolean {
-    return this.parentRoute === routePath.phrases;
+    return (
+      this.parentRoute === routePath.phrases ||
+      this.parentRoute === routePath.separable
+    );
   }
 
   toggleTranscriptionState(): void {

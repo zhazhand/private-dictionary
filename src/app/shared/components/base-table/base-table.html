@@ -6,7 +6,7 @@
       <tr>
         @if (choiceAbility()) {
           <th class="mw-40 checkbox-container">
-            <label class="input-label">
+            <label class="input-label" [class]="{ disabled: isDisabled() }">
               <input
                 #chkbxMain
                 type="checkbox"
