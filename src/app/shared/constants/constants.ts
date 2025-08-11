@@ -59,8 +59,8 @@ export const routePath = {
 export enum PageTitle {
   vocabulary = "Vocabulary",
   irregular = "Irregular verbs",
-  gerund = "Gerund",
-  infinitive = "Infinitive",
+  gerund = "Verbs followed by Gerunds",
+  infinitive = "Verbs followed by nfinitives",
   separable = "Separable phrasal verbs",
   phrases = "Phrases",
   stative = "Stative verbs",
@@ -70,8 +70,8 @@ export enum PageTitle {
 }
 
 export const validationPattern = {
-  word: /^([A-Za-z\'\-\`]+\s?(\-|\.{0,3}|\,|\;|\:|\?{0,3}|\!{0,3})?\s?)+$/,
+  word: /^(\(to\)\s)?([a-z\'\-\`]+\s?(\-|\.{0,3}|\,|\;|\:|\?{0,3}|\!{0,3})?\s?)+$/i,
   transcription: /\D+/,
   translation:
-    /^([А-Яа-яЁёа-щсьіїєґА-ЩЬІЇЄҐ\'\-\`]+\s?(\-|\.{0,3}|\,|\;|\:|\?{0,3}|\!{0,3})?\s?)+$/,
+    /^([а-яёа-щсьіїєґ\'\-\`\(\)]+\s?(\-|\.{0,3}|\,|\;|\:|\?{0,3}|\!{0,3})?\s?)+$/i,
 };
