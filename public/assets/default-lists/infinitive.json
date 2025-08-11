@@ -1,202 +1,252 @@
 [
   {
     "name": "agree",
-    "translation": "соглашаться"
+    "transcription": "əˈɡriː",
+    "translation": "погоджуватися"
   },
   {
     "name": "appear",
-    "translation": "казаться, производить впечатление"
+    "transcription": "əˈpiə",
+    "translation": "показуватися, з'являтися"
   },
   {
     "name": "arrange",
-    "translation": "организовать, устроить, принимать меры"
+    "transcription": "əˈreindʒ",
+    "translation": "влаштовувати, розташовувати, класифікувати"
   },
   {
     "name": "ask",
-    "translation": "просить, попросить"
+    "transcription": "aːsk",
+    "translation": "питати, просити"
   },
   {
     "name": "begin",
-    "translation": "начинать"
+    "transcription": "biˈɡin",
+    "translation": "починати(ся)"
   },
   {
     "name": "can't bear",
-    "translation": "не выносить, не терпеть"
+    "transcription": "beə",
+    "translation": "не виносити, не терпіти"
   },
   {
     "name": "can't stand",
-    "translation": "не выносить, не терпеть"
+    "transcription": "stӕnd",
+    "translation": "не виносити, не терпіти"
   },
   {
     "name": "care",
-    "translation": "иметь желание"
+    "transcription": "keə",
+    "translation": "мати бажання"
   },
   {
     "name": "cease",
-    "translation": "приостанавливать, прекращать"
+    "transcription": "siːs",
+    "translation": "переставати, припиняти"
   },
   {
     "name": "choose",
-    "translation": "решить, предпочитать"
+    "transcription": "tʃuːz",
+    "translation": "віддавати перевагу, воліти"
   },
   {
     "name": "claim",
-    "translation": "утверждать, заявлять"
+    "transcription": "kleim",
+    "translation": "твердити, заявляти"
   },
   {
     "name": "continue",
-    "translation": "продолжать"
+    "transcription": "kənˈtinjuː",
+    "translation": "продолпродовжувати(ся), простягатисяжать"
   },
   {
     "name": "decide",
-    "translation": "решить"
+    "transcription": "diˈsaid",
+    "translation": "прийняти рішення"
   },
   {
     "name": "demand",
-    "translation": "требовать"
+    "transcription": "diˈmaːnd",
+    "translation": "вимагати, потребувати"
   },
   {
     "name": "deserve",
-    "translation": "заслужить"
+    "transcription": "diˈzəːv",
+    "translation": "заслуговувати, бути гідним"
   },
   {
     "name": "expect",
-    "translation": "ожидать, рассчитывать, полагать"
+    "transcription": "ikˈspekt",
+    "translation": "чекати, сподіватися"
   },
   {
     "name": "fail",
-    "translation": "не исполнить, не сделать, не суметь, не иметь успеха"
+    "transcription": "feil",
+    "translation": "зазнати невдачі, не зробити, провалюватися"
   },
   {
     "name": "forget",
-    "translation": "забывать сделать что-либо"
+    "transcription": "fəˈɡet",
+    "translation": "забувати"
   },
   {
     "name": "get (be allowed to)",
-    "translation": "мочь, разрешаться, позволяться"
+    "transcription": "ɡet",
+    "translation": "могти, дозволятись"
   },
   {
     "name": "happen",
-    "translation": "случаться, оказываться"
+    "transcription": "ˈhӕpən",
+    "translation": "відбуватися, ставатися, траплятися"
   },
   {
     "name": "hate",
-    "translation": "не любить, ненавидеть"
+    "transcription": "heit",
+    "translation": "ненавидіти"
   },
   {
     "name": "hesitate",
-    "translation": "колебаться, не решаться"
+    "transcription": "ˈheziteit",
+    "translation": "вагатися, затинатися"
   },
   {
     "name": "hope",
-    "translation": "надеяться"
+    "transcription": "həup",
+    "translation": "надіятися, сподіватися"
   },
   {
     "name": "intend",
-    "translation": "намереваться, собираться"
+    "transcription": "inˈtend",
+    "translation": "мати намір, збиратися"
   },
   {
     "name": "learn",
-    "translation": "научиться"
+    "transcription": "ləːn",
+    "translation": "навчитися"
   },
   {
-    "name": "like",
-    "translation": "любить, нравиться"
+    "name": "like ",
+    "transcription": "laik",
+    "translation": "подобатися, любити"
   },
   {
     "name": "love",
-    "translation": "любить, обожать"
+    "transcription": "lav",
+    "translation": "любити, кохати"
   },
   {
     "name": "manage",
-    "translation": "получаться, удаваться"
+    "transcription": "ˈmӕnidʒ",
+    "translation": "справитися, впоратися"
   },
   {
     "name": "need",
-    "translation": "нуждаться, требоваться, иметь надобность"
+    "transcription": "niːd",
+    "translation": "потребувати"
   },
   {
-    "name": "neglect",
-    "translation": "упускать, не делать чего-либо нужного"
+    "name": "neglect ",
+    "transcription": "niˈɡlekt",
+    "translation": "нехтувати, зневажати, не турбуватися про"
   },
   {
     "name": "offer",
-    "translation": "предлагать, вызваться сделать что-либо"
+    "transcription": "ˈofə",
+    "translation": "пропонувати"
   },
   {
     "name": "plan",
-    "translation": "планировать, намереваться"
+    "transcription": "plan",
+    "translation": "планувати"
   },
   {
     "name": "prefer",
-    "translation": "предпочитать"
+    "transcription": "priˈfəː",
+    "translation": "віддавати перевагу"
   },
   {
     "name": "prepare",
-    "translation": "готовить, приготовить"
+    "transcription": "priˈpeə",
+    "translation": "готуватися, підготовлюватися"
   },
   {
     "name": "pretend",
-    "translation": "притворяться, делать вид, прикидываться"
+    "transcription": "priˈtend",
+    "translation": "робити вигляд, симулювати"
   },
   {
     "name": "promise",
-    "translation": "обещать"
+    "transcription": "ˈpromis",
+    "translation": "обіцяти"
   },
   {
     "name": "propose ",
-    "translation": "предлагать"
+    "transcription": "prəˈpəuz",
+    "translation": "пропонувати"
   },
   {
     "name": "refuse",
-    "translation": "отказывать, отказываться"
+    "transcription": "rəˈfjuːz",
+    "translation": "відмовляти, відмовлятися"
   },
   {
     "name": "regret",
-    "translation": "жалеть, сожалеть (о том, что говорящий собирается сказать)"
+    "transcription": "rəˈɡret",
+    "translation": "жалкувати, шкодувати"
   },
   {
     "name": "remember",
-    "translation": "помнить, не забыть сделать что-либо"
+    "transcription": "riˈmembə",
+    "translation": "пам'ятати, згадувати"
   },
   {
     "name": "seem",
-    "translation": "казаться, выглядеть"
+    "transcription": "siːm",
+    "translation": "здаватися, уявляти"
   },
   {
     "name": "start",
-    "translation": "начинать"
+    "transcription": "stɑːt",
+    "translation": "починати"
   },
   {
     "name": "swear",
-    "translation": "пообещать, поклясться"
+    "transcription": "sweə",
+    "translation": "клястися, присягатися"
   },
   {
     "name": "tend",
-    "translation": "иметь склонность к чему-либо"
+    "transcription": "tend",
+    "translation": "схилятися, мати тенденцію"
   },
   {
     "name": "threaten",
-    "translation": "грозить, угрожать"
+    "transcription": "ˈθret(ə)n",
+    "translation": "погрожувати"
   },
   {
     "name": "try",
-    "translation": "пытаться, стараться"
+    "transcription": "trai",
+    "translation": "старатися, намагатися"
   },
   {
     "name": "wait",
-    "translation": "ждать"
+    "transcription": "weit",
+    "translation": "чекати, ждати"
   },
   {
     "name": "want ",
-    "translation": "хотеть"
+    "transcription": "wont",
+    "translation": "хотіти, бажати"
   },
   {
     "name": "wish",
-    "translation": "желать, хотеть"
+    "transcription": "wish",
+    "translation": "бажати, хотіти"
   },
   {
     "name": "would like",
-    "translation": "желать, хотеть (обычно переводится с частицей “бы”)"
+    "transcription": "wud laik",
+    "translation": "хотіти"
   }
 ]

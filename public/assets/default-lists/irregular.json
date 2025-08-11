@@ -6,7 +6,7 @@
     "secondFormTranscription": "[ə'rəuz]",
     "thirdForm": "arisen ",
     "thirdFormTranscription": "[ə'riz(ə)n]",
-    "translation": "возникать, появляться"
+    "translation": "виникати, з'являтися"
   },
   {
     "firstForm": "awake ",
@@ -15,7 +15,7 @@
     "secondFormTranscription": "[ə'wəuk]",
     "thirdForm": "awoken ",
     "thirdFormTranscription": "[ə'wəukən]",
-    "translation": "будить"
+    "translation": "будити, прокидатися"
   },
   {
     "firstForm": "be ",
@@ -24,7 +24,7 @@
     "secondFormTranscription": "[wɔz], were [wз:]",
     "thirdForm": "been ",
     "thirdFormTranscription": "[bi:n]",
-    "translation": "быть"
+    "translation": "бути"
   },
   {
     "firstForm": "bear ",
@@ -33,7 +33,7 @@
     "secondFormTranscription": "[bɔ:]",
     "thirdForm": "born ",
     "thirdFormTranscription": "[bɔ:n]",
-    "translation": "носить"
+    "translation": "терпіти, зносити"
   },
   {
     "firstForm": "beat ",
@@ -42,7 +42,7 @@
     "secondFormTranscription": "[bi:t]",
     "thirdForm": "beaten ",
     "thirdFormTranscription": "['bi:tn]",
-    "translation": "бить"
+    "translation": "бити, вдаряти, перемагати"
   },
   {
     "firstForm": "become ",
@@ -51,7 +51,7 @@
     "secondFormTranscription": "[bi:keim]",
     "thirdForm": "become",
     "thirdFormTranscription": "[bi:kʌm]",
-    "translation": "становиться"
+    "translation": "робитися, ставати"
   },
   {
     "firstForm": "begin ",
@@ -60,7 +60,7 @@
     "secondFormTranscription": "[bi'gæn] ",
     "thirdForm": "begun ",
     "thirdFormTranscription": "[bi'gʌn] ",
-    "translation": "начинать"
+    "translation": "починати(ся)"
   },
   {
     "firstForm": "bend ",
@@ -69,7 +69,7 @@
     "secondFormTranscription": "[bent] ",
     "thirdForm": "bent ",
     "thirdFormTranscription": "[bent] ",
-    "translation": "сгибать; гнуть"
+    "translation": "згинати(ся), гнути(ся)"
   },
   {
     "firstForm": "bet ",
@@ -78,7 +78,7 @@
     "secondFormTranscription": "[bet]",
     "thirdForm": "bet ",
     "thirdFormTranscription": "[bet]",
-    "translation": "держать пари"
+    "translation": "піти на парі"
   },
   {
     "firstForm": "bind ",
@@ -87,7 +87,7 @@
     "secondFormTranscription": "[baund] ",
     "thirdForm": "bound ",
     "thirdFormTranscription": "[baund]",
-    "translation": "вязать; связывать"
+    "translation": "зв'язувати, перев'язувати"
   },
   {
     "firstForm": "bite ",
@@ -96,7 +96,7 @@
     "secondFormTranscription": "[bit] ",
     "thirdForm": "bitten ",
     "thirdFormTranscription": "['bitn] ",
-    "translation": "кусать, жалить "
+    "translation": "кусати(ся), жалити"
   },
   {
     "firstForm": "bleed ",
@@ -105,7 +105,7 @@
     "secondFormTranscription": "[bled]",
     "thirdForm": "bled ",
     "thirdFormTranscription": "[bled]",
-    "translation": "кровоточить"
+    "translation": "кровоточити, стікати кров'ю"
   },
   {
     "firstForm": "blow ",
@@ -114,7 +114,7 @@
     "secondFormTranscription": "[blu:]",
     "thirdForm": "blown ",
     "thirdFormTranscription": "[bloun]",
-    "translation": "дуть"
+    "translation": "дути"
   },
   {
     "firstForm": "break ",
@@ -123,7 +123,7 @@
     "secondFormTranscription": "[brouk]",
     "thirdForm": "broken ",
     "thirdFormTranscription": "['brouk(e)n]",
-    "translation": "ломать"
+    "translation": "ламати(ся), розривати(ся)"
   },
   {
     "firstForm": "breed ",
@@ -132,7 +132,7 @@
     "secondFormTranscription": "[bred] ",
     "thirdForm": "bred ",
     "thirdFormTranscription": "[bred]",
-    "translation": "воспитывать, вынашивать "
+    "translation": "народжувати, висиджувати (пташенят)"
   },
   {
     "firstForm": "bring ",
@@ -141,7 +141,7 @@
     "secondFormTranscription": "[brɔ:t]",
     "thirdForm": "brought ",
     "thirdFormTranscription": "[brɔ:t]",
-    "translation": "приносить"
+    "translation": "приносити"
   },
   {
     "firstForm": "broadcast ",
@@ -150,7 +150,7 @@
     "secondFormTranscription": "['brɔ:dka:st]",
     "thirdForm": "broadcast ",
     "thirdFormTranscription": "['brɔ:dka:st]",
-    "translation": "вещать, транслировать"
+    "translation": "передавати, транслювати"
   },
   {
     "firstForm": "browbeat ",
@@ -159,7 +159,7 @@
     "secondFormTranscription": "['braubi:tn]",
     "thirdForm": "browbeaten ",
     "thirdFormTranscription": "['braubi:tn]",
-    "translation": "запугивать, пугать"
+    "translation": "залякувати, лякати"
   },
   {
     "firstForm": "build ",
@@ -168,7 +168,7 @@
     "secondFormTranscription": "[bilt]",
     "thirdForm": "built ",
     "thirdFormTranscription": "[bilt]",
-    "translation": "строить"
+    "translation": "будувати"
   },
   {
     "firstForm": "burn ",
@@ -177,7 +177,7 @@
     "secondFormTranscription": "[bз:nt] ",
     "thirdForm": "burnt ",
     "thirdFormTranscription": "[bз:nt] ",
-    "translation": "гореть"
+    "translation": "горіти"
   },
   {
     "firstForm": "burst ",
@@ -186,7 +186,7 @@
     "secondFormTranscription": "[bз:st]",
     "thirdForm": "burst ",
     "thirdFormTranscription": "[bз:st]",
-    "translation": "разразиться"
+    "translation": "лопатися, розриватися"
   },
   {
     "firstForm": "bust ",
@@ -195,7 +195,7 @@
     "secondFormTranscription": "[bʌst]",
     "thirdForm": "bust ",
     "thirdFormTranscription": "[bʌst]",
-    "translation": "сломать, разрушать "
+    "translation": "зламати"
   },
   {
     "firstForm": "buy ",
@@ -204,7 +204,7 @@
     "secondFormTranscription": "[bɔ:t] ",
     "thirdForm": "bought ",
     "thirdFormTranscription": "[bɔ:t]",
-    "translation": "покупать"
+    "translation": "купувати, придбати"
   },
   {
     "firstForm": "catch ",
@@ -213,7 +213,7 @@
     "secondFormTranscription": "[kɔ:t]",
     "thirdForm": "caught ",
     "thirdFormTranscription": "[kɔ:t]",
-    "translation": "ловить, хватать, успеть"
+    "translation": "ловити, спіймати, встигнути"
   },
   {
     "firstForm": "choose ",
@@ -222,7 +222,7 @@
     "secondFormTranscription": "[ʃəuz]",
     "thirdForm": "chosen ",
     "thirdFormTranscription": "[tʃəuz(ə)n]",
-    "translation": "выбирать"
+    "translation": "вибирати"
   },
   {
     "firstForm": "come ",
@@ -231,7 +231,7 @@
     "secondFormTranscription": "[keim] ",
     "thirdForm": "come ",
     "thirdFormTranscription": "[kʌm]",
-    "translation": "приходить"
+    "translation": "приходити, приїжджати"
   },
   {
     "firstForm": "cost ",
@@ -240,7 +240,7 @@
     "secondFormTranscription": "[cɔst]",
     "thirdForm": "cost ",
     "thirdFormTranscription": "[cɔst]",
-    "translation": "стоить"
+    "translation": "коштувати"
   },
   {
     "firstForm": "creep ",
@@ -249,7 +249,7 @@
     "secondFormTranscription": "[krept]",
     "thirdForm": "crept ",
     "thirdFormTranscription": "[krept]",
-    "translation": "ползать"
+    "translation": "крастися, підкрадатися, повзати"
   },
   {
     "firstForm": "cut ",
@@ -258,7 +258,7 @@
     "secondFormTranscription": "[kʌt]",
     "thirdForm": "cut ",
     "thirdFormTranscription": "[kʌt]",
-    "translation": "резать"
+    "translation": "різати"
   },
   {
     "firstForm": "do ",
@@ -267,7 +267,7 @@
     "secondFormTranscription": "[did]",
     "thirdForm": "done ",
     "thirdFormTranscription": "[dʌn]",
-    "translation": "делать"
+    "translation": "робити"
   },
   {
     "firstForm": "draw ",
@@ -276,7 +276,7 @@
     "secondFormTranscription": "[dru:] ",
     "thirdForm": "drawn ",
     "thirdFormTranscription": "[drɔ:n] ",
-    "translation": "рисовать, тащить"
+    "translation": "креслити, малювати, тягти"
   },
   {
     "firstForm": "dream ",
@@ -285,7 +285,7 @@
     "secondFormTranscription": "[dremt]",
     "thirdForm": "dreamt ",
     "thirdFormTranscription": "[dremt]",
-    "translation": "мечтать, дремать"
+    "translation": "бачити сон, мріяти"
   },
   {
     "firstForm": "drink ",
@@ -294,7 +294,7 @@
     "secondFormTranscription": "[dræŋk] ",
     "thirdForm": "drunk ",
     "thirdFormTranscription": "[drʌŋk] ",
-    "translation": "пить"
+    "translation": "пити"
   },
   {
     "firstForm": "drive ",
@@ -303,7 +303,7 @@
     "secondFormTranscription": "[drouv]",
     "thirdForm": "driven ",
     "thirdFormTranscription": "['drivn]",
-    "translation": "водить"
+    "translation": "водити"
   },
   {
     "firstForm": "eat ",
@@ -312,7 +312,7 @@
     "secondFormTranscription": "[et]",
     "thirdForm": "eaten ",
     "thirdFormTranscription": "['i:tn]",
-    "translation": "есть"
+    "translation": "їсти"
   },
   {
     "firstForm": "fall ",
@@ -321,7 +321,7 @@
     "secondFormTranscription": "[fel] ",
     "thirdForm": "fallen ",
     "thirdFormTranscription": "['fɔ:lən] ",
-    "translation": "падать"
+    "translation": "падати"
   },
   {
     "firstForm": "feed ",
@@ -330,7 +330,7 @@
     "secondFormTranscription": "[fed]",
     "thirdForm": "fed ",
     "thirdFormTranscription": "[fed]",
-    "translation": "кормить"
+    "translation": "годувати"
   },
   {
     "firstForm": "feel ",
@@ -339,7 +339,7 @@
     "secondFormTranscription": "[felt]",
     "thirdForm": "felt ",
     "thirdFormTranscription": "[felt]",
-    "translation": "чувствовать"
+    "translation": "відчувати"
   },
   {
     "firstForm": "fight ",
@@ -348,7 +348,7 @@
     "secondFormTranscription": "[fɔ:t] ",
     "thirdForm": "fought ",
     "thirdFormTranscription": "[fɔ:t]",
-    "translation": "бороться"
+    "translation": "боротися"
   },
   {
     "firstForm": "find ",
@@ -357,7 +357,7 @@
     "secondFormTranscription": "[faund]",
     "thirdForm": "found ",
     "thirdFormTranscription": "[faund]",
-    "translation": "находить"
+    "translation": "(з)находити"
   },
   {
     "firstForm": "fit ",
@@ -366,7 +366,7 @@
     "secondFormTranscription": "[fit]",
     "thirdForm": "fit ",
     "thirdFormTranscription": "[fit]",
-    "translation": "подходить по размеру"
+    "translation": "підходити за розміром"
   },
   {
     "firstForm": "fly ",
@@ -375,7 +375,7 @@
     "secondFormTranscription": "[flu:]",
     "thirdForm": "flown ",
     "thirdFormTranscription": "[floun]",
-    "translation": "летать"
+    "translation": "літати"
   },
   {
     "firstForm": "forget ",
@@ -384,7 +384,7 @@
     "secondFormTranscription": "[fə'gɔt]",
     "thirdForm": "forgotten ",
     "thirdFormTranscription": "[fə'gɔt(ə)n] ",
-    "translation": "забывать"
+    "translation": "забувати"
   },
   {
     "firstForm": "forgive ",
@@ -393,7 +393,7 @@
     "secondFormTranscription": "[fo'geiv]",
     "thirdForm": "forgiven ",
     "thirdFormTranscription": "[fo'givn]",
-    "translation": "прощать"
+    "translation": "прощати"
   },
   {
     "firstForm": "freeze ",
@@ -402,7 +402,7 @@
     "secondFormTranscription": "[frouz]",
     "thirdForm": "frozen ",
     "thirdFormTranscription": "['frouzn]",
-    "translation": "замерзать"
+    "translation": "замерзати"
   },
   {
     "firstForm": "get ",
@@ -411,7 +411,7 @@
     "secondFormTranscription": "[gɔt]",
     "thirdForm": "got ",
     "thirdFormTranscription": "[gɔt]",
-    "translation": "получать"
+    "translation": "одержувати"
   },
   {
     "firstForm": "give ",
@@ -420,7 +420,7 @@
     "secondFormTranscription": "[geiv]",
     "thirdForm": "given ",
     "thirdFormTranscription": "[givn]",
-    "translation": "давать"
+    "translation": "давати"
   },
   {
     "firstForm": "go ",
@@ -429,7 +429,7 @@
     "secondFormTranscription": "[went]",
     "thirdForm": "gone ",
     "thirdFormTranscription": "[gɔn]",
-    "translation": "идти"
+    "translation": "йти"
   },
   {
     "firstForm": "grow ",
@@ -438,7 +438,7 @@
     "secondFormTranscription": "[gru:]",
     "thirdForm": "grown ",
     "thirdFormTranscription": "[groun]",
-    "translation": "расти"
+    "translation": "рости"
   },
   {
     "firstForm": "hang ",
@@ -447,7 +447,7 @@
     "secondFormTranscription": "[hʌŋ]",
     "thirdForm": "hung ",
     "thirdFormTranscription": "[hʌŋ]",
-    "translation": "висеть, развешивать "
+    "translation": "висіти, вішати"
   },
   {
     "firstForm": "have ",
@@ -456,7 +456,7 @@
     "secondFormTranscription": "[hæd]",
     "thirdForm": "had ",
     "thirdFormTranscription": "[hæd]",
-    "translation": "иметь"
+    "translation": "мати"
   },
   {
     "firstForm": "hear ",
@@ -465,7 +465,7 @@
     "secondFormTranscription": "[hз:d] ",
     "thirdForm": "heard ",
     "thirdFormTranscription": "[hз:d]",
-    "translation": "слышать"
+    "translation": "чути"
   },
   {
     "firstForm": "hide ",
@@ -474,7 +474,7 @@
     "secondFormTranscription": "[hid]",
     "thirdForm": "hidden ",
     "thirdFormTranscription": "['hidn]",
-    "translation": "прятать"
+    "translation": "ховати(ся)"
   },
   {
     "firstForm": "hit ",
@@ -483,7 +483,7 @@
     "secondFormTranscription": "[hit]",
     "thirdForm": "hit ",
     "thirdFormTranscription": "[hit]",
-    "translation": "попадать в цель"
+    "translation": "ударяти, влучати в ціль"
   },
   {
     "firstForm": "hold ",
@@ -492,7 +492,7 @@
     "secondFormTranscription": "[held]",
     "thirdForm": "held ",
     "thirdFormTranscription": "[held]",
-    "translation": "держать"
+    "translation": "тримати"
   },
   {
     "firstForm": "hurt ",
@@ -501,7 +501,7 @@
     "secondFormTranscription": "[hз:t]",
     "thirdForm": "hurt ",
     "thirdFormTranscription": "[hз:t]",
-    "translation": "ушибить"
+    "translation": "забити, поранити"
   },
   {
     "firstForm": "keep ",
@@ -510,7 +510,7 @@
     "secondFormTranscription": "[kept]",
     "thirdForm": "kept ",
     "thirdFormTranscription": "[kept]",
-    "translation": "содержать"
+    "translation": "тримати, зберігати"
   },
   {
     "firstForm": "kneel ",
@@ -519,7 +519,7 @@
     "secondFormTranscription": "[nelt]",
     "thirdForm": "knelt ",
     "thirdFormTranscription": "[nelt]",
-    "translation": "стоять на коленях"
+    "translation": "стояти, ставати навколішки"
   },
   {
     "firstForm": "know ",
@@ -528,7 +528,7 @@
     "secondFormTranscription": "[nju:]",
     "thirdForm": "known ",
     "thirdFormTranscription": "[noun]",
-    "translation": "знать"
+    "translation": "знати"
   },
   {
     "firstForm": "lay ",
@@ -537,7 +537,7 @@
     "secondFormTranscription": "[leid]",
     "thirdForm": "laid ",
     "thirdFormTranscription": "[leid]",
-    "translation": "класть"
+    "translation": "класти"
   },
   {
     "firstForm": "lead ",
@@ -546,7 +546,7 @@
     "secondFormTranscription": "[led]",
     "thirdForm": "led ",
     "thirdFormTranscription": "[led]",
-    "translation": "вести"
+    "translation": "вести, приводити"
   },
   {
     "firstForm": "lean ",
@@ -555,7 +555,7 @@
     "secondFormTranscription": "[lent]",
     "thirdForm": "leant ",
     "thirdFormTranscription": "[lent]",
-    "translation": "наклоняться"
+    "translation": "нахилятися"
   },
   {
     "firstForm": "learn ",
@@ -564,7 +564,7 @@
     "secondFormTranscription": "[lз:nt]",
     "thirdForm": "learnt ",
     "thirdFormTranscription": "[lз:nt]",
-    "translation": "учить"
+    "translation": "вчитися, вчити (що)"
   },
   {
     "firstForm": "leave ",
@@ -573,7 +573,7 @@
     "secondFormTranscription": "[left]",
     "thirdForm": "left ",
     "thirdFormTranscription": "[left]",
-    "translation": "оставлять"
+    "translation": "покидати; залишати"
   },
   {
     "firstForm": "lend ",
@@ -582,7 +582,7 @@
     "secondFormTranscription": "[lent]",
     "thirdForm": "lent ",
     "thirdFormTranscription": "[lent]",
-    "translation": "занимать"
+    "translation": "позичати"
   },
   {
     "firstForm": "let ",
@@ -591,7 +591,7 @@
     "secondFormTranscription": "[let]",
     "thirdForm": "let ",
     "thirdFormTranscription": "[let]",
-    "translation": "позволять"
+    "translation": "дозволяти"
   },
   {
     "firstForm": "lie ",
@@ -600,7 +600,7 @@
     "secondFormTranscription": "[lei]",
     "thirdForm": "lain ",
     "thirdFormTranscription": "[lein]",
-    "translation": "лежать"
+    "translation": "лежати"
   },
   {
     "firstForm": "light ",
@@ -609,7 +609,7 @@
     "secondFormTranscription": "[lit]",
     "thirdForm": "lit ",
     "thirdFormTranscription": "[lit]",
-    "translation": "освещать"
+    "translation": "освітлювати"
   },
   {
     "firstForm": "lose ",
@@ -618,7 +618,7 @@
     "secondFormTranscription": "[lɔst]",
     "thirdForm": "lost ",
     "thirdFormTranscription": "[lɔst]",
-    "translation": "терять"
+    "translation": "губити, втрачати"
   },
   {
     "firstForm": "make ",
@@ -627,7 +627,7 @@
     "secondFormTranscription": "[meid]",
     "thirdForm": "made ",
     "thirdFormTranscription": "[meid]",
-    "translation": "производить"
+    "translation": "утворювати"
   },
   {
     "firstForm": "mean ",
@@ -636,7 +636,7 @@
     "secondFormTranscription": "[ment]",
     "thirdForm": "meant ",
     "thirdFormTranscription": "[ment]",
-    "translation": "значить"
+    "translation": "означати, мати значення"
   },
   {
     "firstForm": "meet ",
@@ -645,7 +645,7 @@
     "secondFormTranscription": "[met]",
     "thirdForm": "met ",
     "thirdFormTranscription": "[met]",
-    "translation": "встречать"
+    "translation": "зустрічати(ся)"
   },
   {
     "firstForm": "mistake ",
@@ -654,7 +654,7 @@
     "secondFormTranscription": "[mis'tuk]",
     "thirdForm": "mistaken ",
     "thirdFormTranscription": "[mis'teik(e)n]",
-    "translation": "ошибаться"
+    "translation": "помилятися"
   },
   {
     "firstForm": "pay ",
@@ -663,7 +663,7 @@
     "secondFormTranscription": "[peid]",
     "thirdForm": "paid ",
     "thirdFormTranscription": "[peid]",
-    "translation": "платить"
+    "translation": "платити"
   },
   {
     "firstForm": "prove ",
@@ -672,7 +672,7 @@
     "secondFormTranscription": "[pru:vd]",
     "thirdForm": "proven ",
     "thirdFormTranscription": "[pru:vn]",
-    "translation": "доказывать"
+    "translation": "доводити, підтверджувати"
   },
   {
     "firstForm": "put ",
@@ -681,7 +681,7 @@
     "secondFormTranscription": "[put]",
     "thirdForm": "put ",
     "thirdFormTranscription": "[put]",
-    "translation": "положить"
+    "translation": "(по)класти"
   },
   {
     "firstForm": "quit ",
@@ -690,7 +690,7 @@
     "secondFormTranscription": "[kwit]",
     "thirdForm": "quit ",
     "thirdFormTranscription": "[kwit]",
-    "translation": "выходить"
+    "translation": "залишати, припиняти"
   },
   {
     "firstForm": "read ",
@@ -699,7 +699,7 @@
     "secondFormTranscription": "[red]",
     "thirdForm": "read ",
     "thirdFormTranscription": "[red]",
-    "translation": "читать"
+    "translation": "читати"
   },
   {
     "firstForm": "ride ",
@@ -708,7 +708,7 @@
     "secondFormTranscription": "[roud]",
     "thirdForm": "ridden ",
     "thirdFormTranscription": "['ridn]",
-    "translation": "ездить верхом"
+    "translation": "їздити верхи"
   },
   {
     "firstForm": "ring ",
@@ -717,7 +717,7 @@
     "secondFormTranscription": "[ræŋ]",
     "thirdForm": "rung ",
     "thirdFormTranscription": "[rʌŋ]",
-    "translation": "звенеть"
+    "translation": "дзвеніти, дзвонити"
   },
   {
     "firstForm": "rise ",
@@ -726,7 +726,7 @@
     "secondFormTranscription": "[rouz]",
     "thirdForm": "risen ",
     "thirdFormTranscription": "['rizn]",
-    "translation": "подниматься"
+    "translation": "підніматися"
   },
   {
     "firstForm": "run ",
@@ -735,7 +735,7 @@
     "secondFormTranscription": "[ræŋ]",
     "thirdForm": "run ",
     "thirdFormTranscription": "[rʌŋ]",
-    "translation": "бежать"
+    "translation": "бігати"
   },
   {
     "firstForm": "say ",
@@ -744,7 +744,7 @@
     "secondFormTranscription": "[sed]",
     "thirdForm": "said ",
     "thirdFormTranscription": "[sed]",
-    "translation": "говорить"
+    "translation": "говорити"
   },
   {
     "firstForm": "see ",
@@ -753,7 +753,7 @@
     "secondFormTranscription": "[sɔ:]",
     "thirdForm": "seen ",
     "thirdFormTranscription": "[si:n]",
-    "translation": "видеть"
+    "translation": "бачити"
   },
   {
     "firstForm": "seek ",
@@ -762,7 +762,7 @@
     "secondFormTranscription": "[sɔ:t]",
     "thirdForm": "sought ",
     "thirdFormTranscription": "[sɔ:t]",
-    "translation": "искать"
+    "translation": "шукати"
   },
   {
     "firstForm": "sell ",
@@ -771,7 +771,7 @@
     "secondFormTranscription": "[sould]",
     "thirdForm": "sold ",
     "thirdFormTranscription": "[sould]",
-    "translation": "продавать"
+    "translation": "продавати"
   },
   {
     "firstForm": "send ",
@@ -780,7 +780,7 @@
     "secondFormTranscription": "[sent]",
     "thirdForm": "sent ",
     "thirdFormTranscription": "[sent]",
-    "translation": "посылать"
+    "translation": "посилати"
   },
   {
     "firstForm": "set ",
@@ -789,7 +789,7 @@
     "secondFormTranscription": "[set]",
     "thirdForm": "set ",
     "thirdFormTranscription": "[set]",
-    "translation": "ставить"
+    "translation": "ставити"
   },
   {
     "firstForm": "sew ",
@@ -798,7 +798,7 @@
     "secondFormTranscription": "[soud]",
     "thirdForm": "sewn ",
     "thirdFormTranscription": "[soun]",
-    "translation": "шить"
+    "translation": "шити"
   },
   {
     "firstForm": "shake ",
@@ -807,7 +807,7 @@
     "secondFormTranscription": "[ʃuk]",
     "thirdForm": "shaken ",
     "thirdFormTranscription": "['ʃeik(ə)n]",
-    "translation": "встряхивать"
+    "translation": "трясти, струшувати"
   },
   {
     "firstForm": "show ",
@@ -816,7 +816,7 @@
     "secondFormTranscription": "[ʃəud]",
     "thirdForm": "shown ",
     "thirdFormTranscription": "[ʃəun]",
-    "translation": "показывать"
+    "translation": "показувати"
   },
   {
     "firstForm": "shrink ",
@@ -825,7 +825,7 @@
     "secondFormTranscription": "[ʃræŋk] ",
     "thirdForm": "shrunk ",
     "thirdFormTranscription": "[ʃrʌŋk] ",
-    "translation": "уменьшать"
+    "translation": "зменшувати"
   },
   {
     "firstForm": "shut ",
@@ -834,7 +834,7 @@
     "secondFormTranscription": "[ʃʌt]",
     "thirdForm": "shut ",
     "thirdFormTranscription": "[ʃʌt]",
-    "translation": "закрывать"
+    "translation": "зачиняти"
   },
   {
     "firstForm": "sing ",
@@ -843,7 +843,7 @@
     "secondFormTranscription": "[sæŋ]",
     "thirdForm": "sung ",
     "thirdFormTranscription": "[sʌŋ]",
-    "translation": "петь"
+    "translation": "співати"
   },
   {
     "firstForm": "sink ",
@@ -852,7 +852,7 @@
     "secondFormTranscription": "[sæŋk], sunk [sʌŋk]",
     "thirdForm": "sunk ",
     "thirdFormTranscription": "[sʌŋk]",
-    "translation": "тонуть"
+    "translation": "тонути"
   },
   {
     "firstForm": "sit ",
@@ -861,7 +861,7 @@
     "secondFormTranscription": "[sæt]",
     "thirdForm": "sat ",
     "thirdFormTranscription": "[sæt]",
-    "translation": "сидеть"
+    "translation": "сидіти"
   },
   {
     "firstForm": "sleep ",
@@ -870,7 +870,7 @@
     "secondFormTranscription": "[slept]",
     "thirdForm": "slept ",
     "thirdFormTranscription": "[slept]",
-    "translation": "спать"
+    "translation": "спати"
   },
   {
     "firstForm": "slide ",
@@ -879,7 +879,7 @@
     "secondFormTranscription": "[slid]",
     "thirdForm": "slid ",
     "thirdFormTranscription": "[slid]",
-    "translation": "скользить"
+    "translation": "ковзати(ся)"
   },
   {
     "firstForm": "sow ",
@@ -888,7 +888,7 @@
     "secondFormTranscription": "[soud]",
     "thirdForm": "sown ",
     "thirdFormTranscription": "[soun]",
-    "translation": "сеять"
+    "translation": "сіяти"
   },
   {
     "firstForm": "speak ",
@@ -897,7 +897,7 @@
     "secondFormTranscription": "[spouk]",
     "thirdForm": "spoken ",
     "thirdFormTranscription": "['spouk(e)n]",
-    "translation": "говорить"
+    "translation": "говорити"
   },
   {
     "firstForm": "spell ",
@@ -906,7 +906,7 @@
     "secondFormTranscription": "[spelt]",
     "thirdForm": "spelt ",
     "thirdFormTranscription": "[spelt]",
-    "translation": "произносить по буквам"
+    "translation": "вимовляти по літерах"
   },
   {
     "firstForm": "spend ",
@@ -915,7 +915,7 @@
     "secondFormTranscription": "[spent]",
     "thirdForm": "spent ",
     "thirdFormTranscription": "[spent]",
-    "translation": "тратить"
+    "translation": "витрачати"
   },
   {
     "firstForm": "spill ",
@@ -924,7 +924,7 @@
     "secondFormTranscription": "[spilt]",
     "thirdForm": "spilt ",
     "thirdFormTranscription": "[spilt]",
-    "translation": "проливать"
+    "translation": "розливати(ся)"
   },
   {
     "firstForm": "spoil ",
@@ -933,7 +933,7 @@
     "secondFormTranscription": "[spɔilt]",
     "thirdForm": "spoilt ",
     "thirdFormTranscription": "[spɔilt]",
-    "translation": "портить"
+    "translation": "псувати"
   },
   {
     "firstForm": "spread ",
@@ -942,7 +942,7 @@
     "secondFormTranscription": "[spred]",
     "thirdForm": "spread ",
     "thirdFormTranscription": "[spred]",
-    "translation": "расстилать"
+    "translation": "поширювати(ся), розносити(ся)"
   },
   {
     "firstForm": "spring ",
@@ -951,7 +951,7 @@
     "secondFormTranscription": "[spræŋ]",
     "thirdForm": "sprung ",
     "thirdFormTranscription": "[sprʌŋ]",
-    "translation": "прыгать"
+    "translation": "стрибати"
   },
   {
     "firstForm": "stand ",
@@ -960,7 +960,7 @@
     "secondFormTranscription": "[stu:d]",
     "thirdForm": "stood ",
     "thirdFormTranscription": "[stu:d]",
-    "translation": "стоять"
+    "translation": "стояти"
   },
   {
     "firstForm": "steal ",
@@ -969,7 +969,7 @@
     "secondFormTranscription": "[stoul]",
     "thirdForm": "stolen ",
     "thirdFormTranscription": "['stəulən]",
-    "translation": "красть"
+    "translation": "красти"
   },
   {
     "firstForm": "stick ",
@@ -978,7 +978,7 @@
     "secondFormTranscription": "[stʌk]",
     "thirdForm": "stuck ",
     "thirdFormTranscription": "[stʌk]",
-    "translation": "колоть"
+    "translation": "встромляти, вколювати"
   },
   {
     "firstForm": "sting ",
@@ -987,7 +987,7 @@
     "secondFormTranscription": "[stʌŋ]",
     "thirdForm": "stung ",
     "thirdFormTranscription": "[stʌŋ]",
-    "translation": "жалить"
+    "translation": "жалити"
   },
   {
     "firstForm": "sweep ",
@@ -996,7 +996,7 @@
     "secondFormTranscription": "[swept]",
     "thirdForm": "swept ",
     "thirdFormTranscription": "[swept]",
-    "translation": "выметать"
+    "translation": "мести, підмітати"
   },
   {
     "firstForm": "swell ",
@@ -1005,7 +1005,7 @@
     "secondFormTranscription": "[sweld]",
     "thirdForm": "swollen ",
     "thirdFormTranscription": "['swoul(e)n]",
-    "translation": "разбухать"
+    "translation": "роздуватися"
   },
   {
     "firstForm": "swim ",
@@ -1014,7 +1014,7 @@
     "secondFormTranscription": "[swem]",
     "thirdForm": "swum ",
     "thirdFormTranscription": "[swʌm]",
-    "translation": "плавать"
+    "translation": "плавати"
   },
   {
     "firstForm": "swing ",
@@ -1023,7 +1023,7 @@
     "secondFormTranscription": "[swʌŋ]",
     "thirdForm": "swung ",
     "thirdFormTranscription": "[swʌŋ]",
-    "translation": "качать"
+    "translation": "гойдати(ся); хитати(ся)"
   },
   {
     "firstForm": "take ",
@@ -1032,7 +1032,7 @@
     "secondFormTranscription": "[tuk]",
     "thirdForm": "taken ",
     "thirdFormTranscription": "['teik(ə)n]",
-    "translation": "брать, взять"
+    "translation": "брати"
   },
   {
     "firstForm": "teach ",
@@ -1041,7 +1041,7 @@
     "secondFormTranscription": "[tɔ:t]",
     "thirdForm": "taught ",
     "thirdFormTranscription": "[tɔ:t]",
-    "translation": "учить"
+    "translation": "вчити, викладати"
   },
   {
     "firstForm": "tear ",
@@ -1050,7 +1050,7 @@
     "secondFormTranscription": "[tɔ:]",
     "thirdForm": "torn ",
     "thirdFormTranscription": "[tɔ:n]",
-    "translation": "рвать"
+    "translation": "рвати(ся)"
   },
   {
     "firstForm": "tell ",
@@ -1059,7 +1059,7 @@
     "secondFormTranscription": "[tould]",
     "thirdForm": "told ",
     "thirdFormTranscription": "[tould]",
-    "translation": "рассказывать"
+    "translation": "розповідати"
   },
   {
     "firstForm": "think ",
@@ -1068,7 +1068,7 @@
     "secondFormTranscription": "[θɔ:t]",
     "thirdForm": "thought ",
     "thirdFormTranscription": "[θɔ:t]",
-    "translation": "думать"
+    "translation": "думати"
   },
   {
     "firstForm": "throw ",
@@ -1077,7 +1077,7 @@
     "secondFormTranscription": "[θru:] ",
     "thirdForm": "thrown ",
     "thirdFormTranscription": "[θrəun]",
-    "translation": "бросать"
+    "translation": "кидати"
   },
   {
     "firstForm": "understand ",
@@ -1086,7 +1086,7 @@
     "secondFormTranscription": "[ʌndə'stud]",
     "thirdForm": "understood ",
     "thirdFormTranscription": "[ʌndə'stud]",
-    "translation": "понимать"
+    "translation": "розуміти"
   },
   {
     "firstForm": "wake ",
@@ -1095,7 +1095,7 @@
     "secondFormTranscription": "[wouk]",
     "thirdForm": "woken ",
     "thirdFormTranscription": "['wouk(e)n]",
-    "translation": "просыпаться"
+    "translation": "прокидатися, будити"
   },
   {
     "firstForm": "wear ",
@@ -1104,7 +1104,7 @@
     "secondFormTranscription": "[wɔ:] ",
     "thirdForm": "worn ",
     "thirdFormTranscription": "[wɔ:n]",
-    "translation": "носить"
+    "translation": "носити"
   },
   {
     "firstForm": "weep ",
@@ -1113,7 +1113,7 @@
     "secondFormTranscription": "[wept]",
     "thirdForm": "wept ",
     "thirdFormTranscription": "[wept]",
-    "translation": "плакать"
+    "translation": "плакати, ридати"
   },
   {
     "firstForm": "wet ",
@@ -1122,7 +1122,7 @@
     "secondFormTranscription": "[wet]",
     "thirdForm": "wet ",
     "thirdFormTranscription": "[wet]",
-    "translation": "мочить"
+    "translation": "мочити, зволожувати"
   },
   {
     "firstForm": "win ",
@@ -1131,16 +1131,7 @@
     "secondFormTranscription": "[wʌn]",
     "thirdForm": "won ",
     "thirdFormTranscription": "[wʌn]",
-    "translation": "выигрывать"
-  },
-  {
-    "firstForm": "wind ",
-    "firstFormTranscription": "[waind]",
-    "secondForm": "wound ",
-    "secondFormTranscription": "[waund]",
-    "thirdForm": "wound ",
-    "thirdFormTranscription": "[waund]",
-    "translation": "извиваться"
+    "translation": "перемагати"
   },
   {
     "firstForm": "write ",
@@ -1149,6 +1140,6 @@
     "secondFormTranscription": "[rout]",
     "thirdForm": "written ",
     "thirdFormTranscription": "['ritn]",
-    "translation": "писать"
+    "translation": "писати"
   }
 ]
