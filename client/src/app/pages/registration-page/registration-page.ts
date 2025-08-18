@@ -1,5 +1,4 @@
 import { Component } from "@angular/core";
-import { FormGroup } from "@angular/forms";
 import { RegistrationAndAuthenticationForm } from "app/shared/components/registration-and-authentication-form/registration-and-authentication-form";
 
 @Component({
@@ -10,7 +9,7 @@ import { RegistrationAndAuthenticationForm } from "app/shared/components/registr
       [formTitle]="formTitle"
       [passwordMinLength]="passwordMinLength"
       [passwordMaxLength]="passwordMaxLength"
-      (formData)="onSubmit($event)"
+      (formData)="onSubmit()"
     />
   </div>`,
   styleUrl: "./registration-page.less",
@@ -20,7 +19,5 @@ export class RegistrationPage {
   passwordMinLength: number = 6;
   passwordMaxLength: number = 12;
 
-  onSubmit(data: FormGroup): void {
-    console.log("data", data);
-  }
+  onSubmit(): void {}
 }

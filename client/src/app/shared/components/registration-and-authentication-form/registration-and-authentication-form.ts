@@ -22,7 +22,7 @@ export class RegistrationAndAuthenticationForm implements OnInit {
   formTitle = input<string>("Form title");
   passwordMinLength = input<number>(8);
   passwordMaxLength = input<number>(12);
-  formData = output<FormGroup>();
+  formData = output<void>();
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -40,7 +40,6 @@ export class RegistrationAndAuthenticationForm implements OnInit {
   }
 
   submitForm(): void {
-    this.form.disable();
-    this.formData.emit(this.form);
+    this.formData.emit();
   }
 }
