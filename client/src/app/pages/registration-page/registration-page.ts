@@ -1,5 +1,9 @@
-import { Component } from "@angular/core";
+import { Component, OnDestroy, ViewChild } from "@angular/core";
+import { Router } from "@angular/router";
+import { PageTitle, routePath } from "@constants/constants";
+import { AuthService } from "@services/auth.service";
 import { RegistrationAndAuthenticationForm } from "app/shared/components/registration-and-authentication-form/registration-and-authentication-form";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-registration-page",
@@ -14,10 +18,40 @@ import { RegistrationAndAuthenticationForm } from "app/shared/components/registr
   </div>`,
   styleUrl: "./registration-page.less",
 })
-export class RegistrationPage {
-  formTitle: string = "Registration";
+export class RegistrationPage implements OnDestroy {
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+  ) {}
+
+  @ViewChild(RegistrationAndAuthenticationForm)
+  registrationForm!: RegistrationAndAuthenticationForm;
+
+  aSub: Subscription | null = null;
+  formTitle: string = PageTitle.registration;
   passwordMinLength: number = 6;
   passwordMaxLength: number = 12;
 
-  onSubmit(): void {}
+  onSubmit(): void {
+    this.registrationForm.form.disable();
+    this.aSub = this.auth.register(this.registrationForm.form.value).subscribe({
+      next: () => {
+        this.router.navigate([`/${routePath.login}`], {
+          queryParams: {
+            registered: true,
+          },
+        });
+      },
+      error: (error) => {
+        console.info(error);
+        this.registrationForm.form.enable();
+      },
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.aSub) {
+      this.aSub.unsubscribe();
+    }
+  }
 }

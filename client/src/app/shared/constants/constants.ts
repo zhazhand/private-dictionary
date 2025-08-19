@@ -56,6 +56,12 @@ export const routePath = {
   id: ":id",
 };
 
+export enum QueryParams {
+  registered = "registered",
+  accessDenied = "accessDenied",
+  sessionFailed = "sessionFailed",
+}
+
 export enum PageTitle {
   vocabulary = "Vocabulary",
   irregular = "Irregular verbs",
