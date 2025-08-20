@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router";
+import { AuthGuard } from "@services/auth-guard.guard";
 import { routePath } from "@constants/constants";
 import { GuidePage } from "@pages/guide-page/guide-page";
-import { TemporaryPage } from "@pages/temporary-page/temporary-page";
 import { NotFoundPage } from "@pages/not-found-page/not-found-page";
 import { LoginPage } from "@pages/login-page/login-page";
 import { RegistrationPage } from "@pages/registration-page/registration-page";
@@ -25,27 +25,63 @@ const {
 export const routes: Routes = [
   { path: "", redirectTo: guide, pathMatch: "full" },
   { path: guide, component: GuidePage },
-  { path: irregular, component: BasePage },
-  { path: `${irregular}/${routePath.new}`, component: ItemForm },
-  { path: `${irregular}/${id}`, component: ItemForm },
-  { path: vocabulary, component: BasePage },
-  { path: `${vocabulary}/${routePath.new}`, component: ItemForm },
-  { path: `${vocabulary}/${id}`, component: ItemForm },
-  { path: separable, component: BasePage },
-  { path: `${separable}/${routePath.new}`, component: ItemForm },
-  { path: `${separable}/${id}`, component: ItemForm },
-  { path: gerund, component: BasePage },
-  { path: `${gerund}/${routePath.new}`, component: ItemForm },
-  { path: `${gerund}/${id}`, component: ItemForm },
-  { path: infinitive, component: BasePage },
-  { path: `${infinitive}/${routePath.new}`, component: ItemForm },
-  { path: `${infinitive}/${id}`, component: ItemForm },
-  { path: phrases, component: BasePage },
-  { path: `${phrases}/${routePath.new}`, component: ItemForm },
-  { path: `${phrases}/${id}`, component: ItemForm },
-  { path: stative, component: BasePage },
-  { path: `${stative}/${routePath.new}`, component: ItemForm },
-  { path: `${stative}/${id}`, component: ItemForm },
+  { path: irregular, component: BasePage, canActivate: [AuthGuard] },
+  {
+    path: `${irregular}/${routePath.new}`,
+    component: ItemForm,
+    canActivate: [AuthGuard],
+  },
+  { path: `${irregular}/${id}`, component: ItemForm, canActivate: [AuthGuard] },
+  { path: vocabulary, component: BasePage, canActivate: [AuthGuard] },
+  {
+    path: `${vocabulary}/${routePath.new}`,
+    component: ItemForm,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: `${vocabulary}/${id}`,
+    component: ItemForm,
+    canActivate: [AuthGuard],
+  },
+  { path: separable, component: BasePage, canActivate: [AuthGuard] },
+  {
+    path: `${separable}/${routePath.new}`,
+    component: ItemForm,
+    canActivate: [AuthGuard],
+  },
+  { path: `${separable}/${id}`, component: ItemForm, canActivate: [AuthGuard] },
+  { path: gerund, component: BasePage, canActivate: [AuthGuard] },
+  {
+    path: `${gerund}/${routePath.new}`,
+    component: ItemForm,
+    canActivate: [AuthGuard],
+  },
+  { path: `${gerund}/${id}`, component: ItemForm, canActivate: [AuthGuard] },
+  { path: infinitive, component: BasePage, canActivate: [AuthGuard] },
+  {
+    path: `${infinitive}/${routePath.new}`,
+    component: ItemForm,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: `${infinitive}/${id}`,
+    component: ItemForm,
+    canActivate: [AuthGuard],
+  },
+  { path: phrases, component: BasePage, canActivate: [AuthGuard] },
+  {
+    path: `${phrases}/${routePath.new}`,
+    component: ItemForm,
+    canActivate: [AuthGuard],
+  },
+  { path: `${phrases}/${id}`, component: ItemForm, canActivate: [AuthGuard] },
+  { path: stative, component: BasePage, canActivate: [AuthGuard] },
+  {
+    path: `${stative}/${routePath.new}`,
+    component: ItemForm,
+    canActivate: [AuthGuard],
+  },
+  { path: `${stative}/${id}`, component: ItemForm, canActivate: [AuthGuard] },
   { path: login, component: LoginPage },
   { path: registration, component: RegistrationPage },
   { path: "**", component: NotFoundPage },
