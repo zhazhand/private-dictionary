@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const keys = require("../config/keys");
 const errorHandler = require("../utils/errorHandler");
+const message = require("../utils/messages");
 
 module.exports.login = async function (req, res) {
   const candidate = await User.findOne({ email: req.body.email });
@@ -31,12 +32,12 @@ module.exports.login = async function (req, res) {
     } else {
       res.status(401).json({
         //401 - ctatus unauthorized
-        message: "Пароли не совпали. Попробуйте снова.",
+        message: message.clientError.unauthorized,
       });
     }
   } else {
     res.status(404).json({
-      message: "Пользователь с таким email не найден!",
+      message: message.clientError.notFound,
     });
   }
 };
@@ -47,7 +48,7 @@ module.exports.register = async function (req, res) {
 
   if (candidate) {
     res.status(409).json({
-      message: "Такой email уже существует!",
+      message: message.clientError.conflict,
     });
   } else {
     const salt = bcrypt.genSaltSync(10);

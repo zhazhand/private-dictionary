@@ -1,0 +1,41 @@
+@import "main.less";
+
+:host {
+  position: fixed;
+  width: 350px;
+  top: 50px;
+  left: calc(50% - 350px / 2);
+  z-index: 1200;
+
+  .ordinary {
+    background-color: @secondary;
+  }
+
+  .success {
+    background-color: @success;
+    color: @white;
+    .btn-close {
+      filter: invert(100%);
+    }
+  }
+
+  .error {
+    background-color: @danger;
+    color: @white;
+    .btn-close {
+      filter: invert(100%);
+    }
+  }
+
+  .warning {
+    background-color: @warning;
+    color: @white;
+    .btn-close {
+      filter: invert(100%);
+    }
+  }
+
+  .info {
+    background-color: @info;
+  }
+}

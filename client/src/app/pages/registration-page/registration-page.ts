@@ -1,7 +1,8 @@
 import { Component, OnDestroy, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
-import { PageTitle, routePath } from "@constants/constants";
+import { PageTitle, routePath, ToastClassName } from "@constants/constants";
 import { AuthService } from "@services/auth.service";
+import { ToastService } from "@services/toast.service";
 import { RegistrationAndAuthenticationForm } from "app/shared/components/registration-and-authentication-form/registration-and-authentication-form";
 import { Subscription } from "rxjs";
 
@@ -22,6 +23,7 @@ export class RegistrationPage implements OnDestroy {
   constructor(
     private auth: AuthService,
     private router: Router,
+    private toastService: ToastService,
   ) {}
 
   @ViewChild(RegistrationAndAuthenticationForm)
@@ -42,14 +44,18 @@ export class RegistrationPage implements OnDestroy {
           },
         });
       },
-      error: (error) => {
-        console.info(error);
+      error: (resp) => {
+        this.toastService.show({
+          text: resp.error.message,
+          className: ToastClassName.error,
+        });
         this.registrationForm.form.enable();
       },
     });
   }
 
   ngOnDestroy() {
+    this.toastService.clear();
     if (this.aSub) {
       this.aSub.unsubscribe();
     }

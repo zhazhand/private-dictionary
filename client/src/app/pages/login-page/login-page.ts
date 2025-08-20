@@ -1,8 +1,15 @@
 import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute, Params, Router } from "@angular/router";
-import { PageTitle, QueryParams, routePath } from "@constants/constants";
+import {
+  PageTitle,
+  QueryParams,
+  routePath,
+  ToastClassName,
+} from "@constants/constants";
+import { toastMessage } from "@constants/toast-messages";
 import { RegistrationAndAuthenticationForm } from "@reusable/registration-and-authentication-form/registration-and-authentication-form";
 import { AuthService } from "@services/auth.service";
+import { ToastService } from "@services/toast.service";
 import { Subscription } from "rxjs";
 
 @Component({
@@ -23,6 +30,7 @@ export class LoginPage implements OnInit, OnDestroy {
     private auth: AuthService,
     private router: Router,
     private route: ActivatedRoute,
+    private toastService: ToastService,
   ) {}
 
   @ViewChild(RegistrationAndAuthenticationForm)
@@ -36,12 +44,23 @@ export class LoginPage implements OnInit, OnDestroy {
   ngOnInit() {
     this.route.queryParams.subscribe((params: Params) => {
       if (params[QueryParams.registered]) {
-        console.log("Теперь вы можете зайти в систему, используя свои данные"); //should be reworked
-        this.goToIrregular();
+        this.toastService.show({
+          text: toastMessage.success.registration,
+          className: ToastClassName.success,
+          delay: 12,
+          optionalText: toastMessage.success.quickJump,
+          cb: this.goToIrregular.bind(this),
+        });
       } else if (params[QueryParams.accessDenied]) {
-        console.log("Для начала авторизуйтесь в системе"); //should be reworked
+        this.toastService.show({
+          text: toastMessage.warning.accessDenied,
+          className: ToastClassName.warning,
+        });
       } else if (params[QueryParams.sessionFailed]) {
-        console.log("Пожалуйста, войдите в систему заново"); //should be reworked
+        this.toastService.show({
+          text: toastMessage.info.sessionFailed,
+          className: ToastClassName.info,
+        });
       }
     });
   }
@@ -52,8 +71,11 @@ export class LoginPage implements OnInit, OnDestroy {
       next: () => {
         this.goToIrregular();
       },
-      error: (error) => {
-        console.info(error);
+      error: (resp) => {
+        this.toastService.show({
+          text: resp.error.message,
+          className: ToastClassName.error,
+        });
         this.authenticationForm.form.enable();
       },
     });
@@ -64,6 +86,7 @@ export class LoginPage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.toastService.clear();
     if (this.aSub) {
       this.aSub.unsubscribe();
     }

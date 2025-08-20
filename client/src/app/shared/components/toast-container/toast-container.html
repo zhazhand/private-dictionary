@@ -1,0 +1,28 @@
+@for (toast of toastService.toasts(); track toast) {
+  <ngb-toast
+    [class]="toast.className"
+    [autohide]="true"
+    [delay]="toast.delay || 6000"
+    (hidden)="toastService.remove(toast)"
+  >
+    <div class="d-flex justify-content-between">
+      <div>
+        {{ toast.text }}
+      </div>
+      <button
+        type="button"
+        class="btn-close"
+        (click)="toastService.remove(toast)"
+      ></button>
+    </div>
+    @if (toast.cb) {
+      <hr />
+      <div class="d-flex justify-content-between">
+        <div>{{ toast.optionalText }}</div>
+        <button class="btn btn-sm btn-secondary" (click)="toast.cb()">
+          Enter
+        </button>
+      </div>
+    }
+  </ngb-toast>
+}

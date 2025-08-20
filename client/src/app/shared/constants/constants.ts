@@ -75,6 +75,14 @@ export enum PageTitle {
   registration = "Registration",
 }
 
+export enum ToastClassName {
+  ordinary = "ordinary",
+  success = "success",
+  error = "error",
+  warning = "warning",
+  info = "info",
+}
+
 export const validationPattern = {
   word: /^(\(to\)\s)?([a-z\'\-\`]+\s?(\-|\.{0,3}|\,|\;|\:|\?{0,3}|\!{0,3})?\s?)+$/i,
   transcription: /\D+/,

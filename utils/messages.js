@@ -6,9 +6,9 @@ module.exports = {
   },
   redirection: {},
   clientError: {
-    unauthorized: "Пароли не совпали. Попробуйте снова.",
-    notFound: "Пользователь с таким email не найден!",
-    conflict: "Такой email уже существует!",
+    unauthorized: "Паролі не співпадають. Спробуйте ще раз.",
+    notFound: "Користувача з таким email не знайдено!",
+    conflict: "Такий email вже існує!",
   },
   serverError: {},
 };
