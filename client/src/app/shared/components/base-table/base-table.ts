@@ -83,4 +83,13 @@ export class BaseTable implements OnInit {
     const option = { isDeleteCancel: true };
     this.removing.emit(option);
   }
+
+  calculateColspan(): number {
+    const baseColspan = this.items()[0].name
+      ? this.items()[0].transcription
+        ? 3
+        : 2
+      : 4;
+    return baseColspan + Number(this.choiceAbility());
+  }
 }

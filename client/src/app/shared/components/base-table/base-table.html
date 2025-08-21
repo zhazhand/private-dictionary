@@ -92,6 +92,16 @@
             {{ item.translation }}
           </td>
         </tr>
+      } @empty {
+        <tr>
+          <td [attr.colspan]="calculateColspan()">
+            <div class="container mt-3">
+              <div class="alert alert-info text-center">
+                There are no search matches in this list.
+              </div>
+            </div>
+          </td>
+        </tr>
       }
     </tbody>
   </table>
