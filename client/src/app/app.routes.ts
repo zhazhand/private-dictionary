@@ -1,5 +1,5 @@
 import { Routes } from "@angular/router";
-import { AuthGuard } from "@services/auth-guard.guard";
+import { AuthGuard } from "app/core/classes/auth-guard.guard";
 import { routePath } from "@constants/constants";
 import { GuidePage } from "@pages/guide-page/guide-page";
 import { NotFoundPage } from "@pages/not-found-page/not-found-page";

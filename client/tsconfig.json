@@ -16,7 +16,7 @@
     "module": "preserve",
     "baseUrl": "./src",
     "paths": {
-      "@components/*": ["app/components/*"],
+      "@components/*": ["app/core/components/*"],
       "@reusable/*": ["app/shared/components/*"],
       "@pages/*": ["app/pages/*"],
       "@services/*": ["app/shared/services/*"],

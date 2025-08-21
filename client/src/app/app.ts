@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { FooterComponent } from "./core/footer/footer.component";
-import { HeaderComponent } from "./core/header/header.component";
-import { ToastContainer } from "@reusable/toast-container/toast-container";
+import { FooterComponent } from "@components/footer/footer.component";
+import { HeaderComponent } from "@components/header/header.component";
+import { ToastContainer } from "@components/toast-container/toast-container";
 
 @Component({
   selector: "app-root",
