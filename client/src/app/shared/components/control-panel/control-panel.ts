@@ -41,7 +41,7 @@ export class ControlPanel implements OnInit {
 
   takenWord = output<string>();
   takenType = output<string>();
-  removingMethode = output<RemovingOption>();
+  removingMethod = output<RemovingOption>();
 
   ngOnInit() {
     const currentRoute = this.route.snapshot.url[0].path;
@@ -91,7 +91,7 @@ export class ControlPanel implements OnInit {
     modalRef.result
       .then((result) => {
         if (result) {
-          this.removingMethode.emit(result);
+          this.removingMethod.emit(result);
         }
       })
       .catch((e) => console.log(e));
@@ -102,14 +102,14 @@ export class ControlPanel implements OnInit {
     modalRef.componentInstance.word = removing.item.selectedItems;
     modalRef.result.then((result) => {
       if (result) {
-        this.removingMethode.emit(result);
+        this.removingMethod.emit(result);
       }
     });
   }
 
   deleteCancel(): void {
     const option = { isDeleteCancel: true };
-    this.removingMethode.emit(option);
+    this.removingMethod.emit(option);
   }
 
   clearField(): void {

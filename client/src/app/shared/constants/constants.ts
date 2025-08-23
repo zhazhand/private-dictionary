@@ -2,7 +2,7 @@ export const standardProposition =
   "There are no words in this section. Do you want to download the default list?";
 
 export const removing = {
-  methodeSelect: "Do you want to delete this list completely or selectively?",
+  methodSelect: "Do you want to delete this list completely or selectively?",
   confirmation: "Are you sure you want to delete",
   item: {
     list: "this list?",

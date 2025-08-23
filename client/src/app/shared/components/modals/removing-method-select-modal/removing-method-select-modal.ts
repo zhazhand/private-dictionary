@@ -22,7 +22,7 @@ export class RemovingMethodSelectModal {
   @Input()
   data: any;
 
-  message: string = removing.methodeSelect;
+  message: string = removing.methodSelect;
 
   openModal() {
     const modalRef = this.modalService.open(ConfirmationModal);
