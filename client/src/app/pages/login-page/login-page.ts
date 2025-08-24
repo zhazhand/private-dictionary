@@ -73,7 +73,7 @@ export class LoginPage implements OnInit, OnDestroy {
       },
       error: (resp) => {
         this.toastService.show({
-          text: resp.error.message,
+          text: "error!!!",
           className: ToastClassName.error,
         });
         this.authenticationForm.form.enable();

@@ -5,8 +5,9 @@ const router = express.Router();
 
 router.get('/', passport.authenticate('jwt', {session: false}), controller.getAll);
 router.get('/:id', passport.authenticate('jwt', {session: false}), controller.getById);
-router.delete('/:id', passport.authenticate('jwt', {session: false}), controller.remove);
+router.delete('/', passport.authenticate('jwt', {session: false}), controller.remove);
 router.post('/', passport.authenticate('jwt', {session: false}), controller.create);
+router.patch('/', passport.authenticate('jwt', {session: false}), controller.updateGroupe);
 router.patch('/:id', passport.authenticate('jwt', {session: false}), controller.update);
 
 module.exports = router;

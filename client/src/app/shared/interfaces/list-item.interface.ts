@@ -9,7 +9,7 @@ export interface ListItem {
   thirdForm?: string;
   thirdFormTranscription?: string;
   translation: string;
-  removable?: boolean;
+  removable: boolean;
   type?: string;
   user?: string;
   date?: string;

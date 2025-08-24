@@ -30,6 +30,9 @@
       />
     }
   </div>
+  @if (isProtectiveScreen) {
+    <app-protective-screen />
+  }
 } @else {
   <div class="mt-5">
     <app-loader />

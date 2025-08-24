@@ -2,7 +2,8 @@ import { Injectable } from "@angular/core";
 import { ListItem } from "@interfaces/list-item.interface";
 import { Message } from "@interfaces/message.interface";
 import { Observable } from "rxjs";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
+import { GroupeOption } from "@interfaces/groupe-option.interface";
 
 @Injectable({ providedIn: "root" })
 export class CommonCRUDService {
@@ -32,24 +33,33 @@ export class CommonCRUDService {
   createCollection(
     category: string,
     collection: ListItem[],
-  ): Observable<ListItem[]> {
-    return this.http.post<ListItem[]>(`/api/${category}`, collection);
+  ): Observable<Message> {
+    return this.http.post<Message>(`/api/${category}`, collection);
   }
 
   update(
     category: string,
     id: string,
+    removable: boolean,
     name: string,
     translation: string,
     transcription?: string,
-    removable?: boolean,
   ): Observable<ListItem> {
     const fd = { name, transcription, translation, removable };
 
     return this.http.patch<ListItem>(`/api/${category}/${id}`, fd);
   }
 
-  delete(category: string, id: string): Observable<Message> {
-    return this.http.delete<Message>(`/api/${category}/${id}`);
+  updateGroupe(category: string, option: GroupeOption[]): Observable<Message> {
+    return this.http.patch<Message>(`/api/${category}/`, option);
+  }
+
+  delete(category: string, id?: string): Observable<Message> {
+    let params = new HttpParams();
+    if (id) {
+      params.set("id", id);
+    }
+
+    return this.http.delete<Message>(`/api/${category}`, { params });
   }
 }

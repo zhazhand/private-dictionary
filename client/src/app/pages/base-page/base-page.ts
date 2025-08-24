@@ -7,26 +7,39 @@ import { LoaderComponent } from "@reusable/loader/loader.component";
 import { EmptyListBlock } from "@reusable/empty-list-block/empty-list-block";
 import {
   PageTitle,
+  ToastClassName,
   defaultColumnName,
   defaultSearchParametr,
   irregularSearchParametr,
   routePath,
 } from "@constants/constants";
 import { ListItem } from "@interfaces/list-item.interface";
-import { map } from "rxjs/operators";
+import { switchMap } from "rxjs/operators";
 import { searchSubstringMatches } from "app/shared/utils";
 import { RemovingOption } from "@interfaces/removing-option.interface";
+import { CommonCRUDService } from "@services/common-crud.service";
+import { ToastService } from "@services/toast.service";
+import { GroupeOption } from "@interfaces/groupe-option.interface";
+import { ProtectiveScreen } from "@reusable/protective-screen/protective-screen";
 
 @Component({
   selector: "app-base-page",
-  imports: [LoaderComponent, BaseTable, ControlPanel, EmptyListBlock],
+  imports: [
+    LoaderComponent,
+    BaseTable,
+    ControlPanel,
+    EmptyListBlock,
+    ProtectiveScreen,
+  ],
   templateUrl: "./base-page.html",
   styleUrl: "./base-page.less",
 })
 export class BasePage implements OnInit {
   constructor(
     private route: ActivatedRoute,
+    private commonCRUDService: CommonCRUDService,
     private defauitListService: DefaultListService,
+    private toastService: ToastService,
   ) {}
 
   @ViewChild(ControlPanel) controlPanel!: ControlPanel;
@@ -35,6 +48,7 @@ export class BasePage implements OnInit {
   choiceAbility: boolean = false;
   excludePush: boolean = false;
   hideLoader: boolean = true;
+  isProtectiveScreen: boolean = false;
   thName: string = defaultColumnName;
   search: string = "";
   paramSearch!: string;
@@ -49,7 +63,7 @@ export class BasePage implements OnInit {
       this.parentRoutePath === routePath.irregular
         ? irregularSearchParametr
         : defaultSearchParametr;
-    this.downloadDefaultList(); //temporary
+    this.fetchList();
   }
 
   onSearchWord(word: string): void {
@@ -90,43 +104,103 @@ export class BasePage implements OnInit {
     this.choiceAbility = true;
   }
 
+  fetchList(): void {
+    this.commonCRUDService.fetch(this.parentRoutePath).subscribe({
+      next: (resp) => (this.items = resp),
+      error: (resp) => {
+        this.toastService.show({
+          text: resp.error.message ? resp.error.message : resp.error,
+          className: ToastClassName.error,
+        });
+        this.isProtectiveScreen = false;
+      },
+      complete: () => {
+        this.hideLoader = true;
+        this.isProtectiveScreen = false;
+      },
+    });
+  }
+
   downloadDefaultList(): void {
-    //should be deleted
-    const base = Date.now();
+    this.hideLoader = false;
+    this.isProtectiveScreen = true;
     this.defauitListService
       .getList(this.parentRoutePath)
       .pipe(
-        map((response: ListItem[]) => {
-          return response.map((item: ListItem, index: number) => {
-            return <any>{
-              ...item,
-              ...{ ["_id"]: (base + index).toString() },
-              ...{ removable: false },
-            };
-          });
+        switchMap((response) => {
+          const list = response;
+          return this.commonCRUDService.createCollection(
+            this.parentRoutePath,
+            list as ListItem[],
+          );
         }),
       )
-      .subscribe((val) => (this.items = val));
-
-    // this.defauitListService
-    //   .getList(this.parentRoutePath)
-    //   .subscribe((val) => (this.items = val));
+      .subscribe({
+        next: (resp) => {
+          this.toastService.show({
+            text: resp.message,
+            className: ToastClassName.success,
+          });
+        },
+        error: (resp) => {
+          this.toastService.show({
+            text: resp.error.message || resp.error,
+            className: ToastClassName.error,
+          });
+          this.isProtectiveScreen = false;
+        },
+        complete: () => this.fetchList(),
+      });
   }
 
   deleteCompletely(): void {
-    const removingItemIDs = searchSubstringMatches(
+    const option = searchSubstringMatches(
       this.items,
       this.search,
       this.paramSearch,
-    ).map((item) => item._id);
+    ).map((item) => {
+      return { ...{ id: item._id }, ...{ removable: true } };
+    });
 
-    this.items = this.items.filter(
-      (item) => !removingItemIDs.includes(item._id),
-    );
+    this.isProtectiveScreen = true;
+    this.deleteGroupe(option);
   }
 
   deleteSelectively(): void {
-    this.items = this.items.filter((item) => !item.removable); //temporary
+    const option = this.items
+      .filter((item) => item.removable)
+      .map((item) => {
+        return { ...{ id: item._id }, ...{ removable: item.removable } };
+      });
+
+    this.isProtectiveScreen = true;
+    this.deleteGroupe(option);
+  }
+
+  deleteGroupe(option: GroupeOption[]): void {
+    this.commonCRUDService
+      .updateGroupe(this.parentRoutePath, option)
+      .pipe(
+        switchMap(() => {
+          return this.commonCRUDService.delete(this.parentRoutePath);
+        }),
+      )
+      .subscribe({
+        next: (resp) => {
+          this.toastService.show({
+            text: resp.message,
+            className: ToastClassName.success,
+          });
+        },
+        error: (resp) => {
+          this.toastService.show({
+            text: resp.error.message || resp.error || resp,
+            className: ToastClassName.error,
+          });
+          this.isProtectiveScreen = false;
+        },
+        complete: () => this.fetchList(),
+      });
   }
 
   setRemovable(data: { id: string; isRemovable: boolean }): void {
@@ -151,8 +225,6 @@ export class BasePage implements OnInit {
 
   isDeleteButtonDisabled(): boolean {
     return !this.items.length;
-    //  ||
-    // (this.choiceAbility && !this.items.some((item) => item.removable))
   }
 
   isWarningShown(): boolean {

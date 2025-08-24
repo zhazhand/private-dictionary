@@ -14,8 +14,4 @@ export class DefaultListService {
   getList(fileName: string): Observable<ListItem[]> {
     return this.http.get<ListItem[]>(`${this.apiHost}${fileName}.json`);
   }
-
-  //  downloadDefault(): Observable<ListItem[]> {
-  //   return this.http.post<ListItem[]>("/api/list", data.list);
-  // }
 }
