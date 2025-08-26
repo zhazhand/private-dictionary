@@ -11,7 +11,7 @@
       (takenType)="changeOrderBy($event)"
       (removingMethod)="onProcessRemoving($event)"
     />
-    @if (items.length) {
+    @if (items.length && !isProtectiveScreen) {
       <app-base-table
         [items]="items"
         [choiceAbility]="choiceAbility"

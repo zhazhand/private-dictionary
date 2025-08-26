@@ -9,7 +9,7 @@ import { LoaderComponent } from "@reusable/loader/loader.component";
   styleUrl: "./empty-list-block.less",
 })
 export class EmptyListBlock {
-  hideLoader = input<boolean>();
+  hideLoader = input.required<boolean>();
   downloadDefault = output<void>();
   standardProposition: string = standardProposition;
 

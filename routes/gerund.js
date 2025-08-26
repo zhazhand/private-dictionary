@@ -1,7 +1,9 @@
 const express = require("express");
+const multer = require("multer");
 const passport = require("passport");
 const controller = require("../controllers/gerund");
 const router = express.Router();
+const upload = multer();
 
 router.get(
   "/",
@@ -21,6 +23,7 @@ router.delete(
 router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
+  upload.none(),
   controller.create,
 );
 router.patch(
@@ -31,6 +34,7 @@ router.patch(
 router.patch(
   "/:id",
   passport.authenticate("jwt", { session: false }),
+  upload.none(),
   controller.update,
 );
 

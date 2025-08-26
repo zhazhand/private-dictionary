@@ -6,6 +6,10 @@ module.exports = new Schema({
     type: String,
     required: true,
   },
+  transcription: {
+    type: String,
+    required: false,
+  },
   translation: {
     type: String,
     required: true,

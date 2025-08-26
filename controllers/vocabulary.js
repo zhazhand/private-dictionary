@@ -30,14 +30,15 @@ module.exports.create = async function (req, res) {
     }
   } else {
     try {
-      const word = await new Word({
-        name: req.body.name,
-        transcription: req.body.transcription,
-        translation: req.body.translation,
+      const { name, transcription, translation } = req.body;
+      await new Word({
+        name,
+        transcription,
+        translation,
         user: req.user.id,
       }).save();
 
-      res.status(201).json(word);
+      res.status(201).json({ message: "Слово додано" });
     } catch (e) {
       errorHandler(res, e);
     }
@@ -84,12 +85,14 @@ module.exports.updateGroupe = async function (req, res) {
 
 module.exports.update = async function (req, res) {
   try {
-    const word = await Word.findOneAndUpdate(
+    await Word.findOneAndUpdate(
       { _id: req.params.id },
       { $set: req.body },
       { new: true },
     );
-    res.status(200).json(word);
+    res.status(200).json({
+      message: "Слово было оновлено",
+    });
   } catch (e) {
     errorHandler(res, e);
   }

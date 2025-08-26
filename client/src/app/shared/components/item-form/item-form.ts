@@ -13,6 +13,7 @@ import {
   PageTitle,
   removing,
   routePath,
+  ToastClassName,
   validationPattern,
 } from "@constants/constants";
 import {
@@ -26,6 +27,8 @@ import { validationErrorMessage } from "@constants/error-messages";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ConfirmationModal } from "@reusable/modals/confirmation-modal/confirmation-modal";
 import { CommonCRUDService } from "@services/common-crud.service";
+import { ListItem } from "@interfaces/list-item.interface";
+import { ToastService } from "@services/toast.service";
 
 @Component({
   selector: "app-item-form",
@@ -60,6 +63,7 @@ import { CommonCRUDService } from "@services/common-crud.service";
 export class ItemForm implements OnInit {
   constructor(
     private crudService: CommonCRUDService,
+    private toastService: ToastService,
     private route: ActivatedRoute,
     private location: Location,
   ) {}
@@ -75,8 +79,7 @@ export class ItemForm implements OnInit {
   baseURL: string = convenientResourse.baseURL;
   translationDefaultURL: string = convenientResourse.translationDefaultURL;
   pattern: ValidationPattern = validationPattern;
-
-  word: string = "";
+  item: ListItem | null = null;
 
   ngOnInit() {
     const currentRoute =
@@ -88,30 +91,41 @@ export class ItemForm implements OnInit {
     this.pageTitle = PageTitle[this.parentRoute as keyof typeof PageTitle];
     this.form = this.createForm();
     this.actualizeTranscriptionValidator();
+    if (this.id) {
+      this.crudService.getById(this.id, this.parentRoute).subscribe({
+        next: (resp) => {
+          this.item = resp;
+        },
+        error: (resp) => {
+          this.toastService.show({
+            text: resp.error.message || resp.statusText || resp,
+            className: ToastClassName.error,
+          });
+        },
+        complete: () => this.patchValue(),
+      });
+    }
   }
 
   goBack(): void {
     this.location.back();
   }
 
-  isTranscriptionHidden(): boolean {
-    return (
-      this.parentRoute === routePath.phrases ||
-      this.parentRoute === routePath.separable
-    );
-  }
-
   toggleTranscriptionState(): void {
     this.isTranscriptionShown = !this.isTranscriptionShown;
     if (!this.isTranscriptionShown) {
-      this.form.controls["transcription"].setValue("");
+      this.form.controls["transcription"].setValue("-");
       this.form.controls["transcription"].markAsUntouched();
+    } else {
+      this.form.controls["transcription"].setValue(this.item?.transcription);
     }
     this.actualizeTranscriptionValidator(true, this.isTranscriptionShown);
   }
 
-  getErrorMessage() {
-    this.form.controls;
+  getWord(): string {
+    return this.isIrregular
+      ? this.form.controls["firstForm"].value
+      : this.form.controls["name"].value;
   }
 
   calculateColspan(): number {
@@ -122,8 +136,8 @@ export class ItemForm implements OnInit {
   }
 
   getPronunciationLink(): string {
-    return this.word
-      ? `${convenientResourse.pronunciationTargetURL}${this.word}`
+    return !!this.getWord()
+      ? `${convenientResourse.pronunciationTargetURL}${this.getWord()}`
       : `${convenientResourse.pronunciationDefaultURL}`;
   }
 
@@ -177,13 +191,111 @@ export class ItemForm implements OnInit {
     });
   }
 
-  onSaveClick(): void {}
+  createFormData(): FormData {
+    const formData = new FormData();
+    const keys = Object.keys(this.form.controls);
+    for (const key of keys) {
+      formData.append(key, this.form.controls[key].value);
+    }
+    return formData;
+  }
+
+  patchValue(): void {
+    const keys = Object.keys(this.form.controls);
+    for (const key of keys) {
+      this.form.controls[key].patchValue(this.item![key]);
+    }
+  }
+
+  onSaveClick(): void {
+    this.form.disable();
+    if (this.isNew) {
+      this.crudService
+        .create(this.parentRoute, this.createFormData())
+        .subscribe({
+          next: (resp) => {
+            this.toastService.show({
+              text: resp.message,
+              className: ToastClassName.success,
+              delay: 3000,
+            });
+          },
+          error: (resp) => {
+            this.form.enable();
+            this.toastService.show({
+              text: resp.error.message || resp.statusText || resp,
+              className: ToastClassName.error,
+            });
+          },
+          complete: () => this.goBack(),
+        });
+    } else {
+      this.crudService
+        .update(this.parentRoute, this.id!, this.createFormData())
+        .subscribe({
+          next: (resp) => {
+            this.toastService.show({
+              text: resp.message,
+              className: ToastClassName.success,
+              delay: 3000,
+            });
+          },
+          error: (resp) => {
+            this.form.enable();
+            this.toastService.show({
+              text: resp.error.message || resp.statusText || resp,
+              className: ToastClassName.error,
+            });
+          },
+          complete: () => this.goBack(),
+        });
+    }
+  }
+
+  checkIsEdited(): boolean {
+    const keys = this.isTranscriptionShown
+      ? Object.keys(this.form.controls)
+      : Object.keys(this.form.controls).filter(
+          (item) => item !== "transcription",
+        );
+
+    for (const key of keys) {
+      if (
+        (this.item![key] as string).trim() !==
+        this.form.controls[key].value.trim()
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  isSaveButtonDisabled(): boolean {
+    if (this.isNew) {
+      return this.form.invalid || this.form.disabled;
+    }
+    return this.form.invalid || this.form.disabled || !this.checkIsEdited();
+  }
 
   removeWord(): void {
-    this.crudService
-      .delete(this.parentRoute, this.id!)
-      .subscribe((val) => console.log(val));
-    this.goBack(); // should rework
+    this.form.disable();
+    this.crudService.delete(this.parentRoute, this.id!).subscribe({
+      next: (resp) => {
+        this.toastService.show({
+          text: resp.message,
+          className: ToastClassName.success,
+          delay: 3000,
+        });
+      },
+      error: (resp) => {
+        this.form.enable();
+        this.toastService.show({
+          text: resp.error.message || resp.statusText || resp,
+          className: ToastClassName.error,
+        });
+      },
+      complete: () => this.goBack(),
+    });
   }
 
   openConfirmationModal(): void {
@@ -232,7 +344,7 @@ export class ItemForm implements OnInit {
     if (this.isIrregular) {
       return;
     }
-    if (this.isTranscriptionHidden()) {
+    if (!this.isTranscriptionShown) {
       this.form.controls["transcription"].removeValidators(Validators.required);
       this.form.controls["transcription"].updateValueAndValidity();
       return;

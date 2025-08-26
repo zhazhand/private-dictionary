@@ -109,7 +109,7 @@ export class BasePage implements OnInit {
       next: (resp) => (this.items = resp),
       error: (resp) => {
         this.toastService.show({
-          text: resp.error.message ? resp.error.message : resp.error,
+          text: resp.error.message || resp.statusText || resp,
           className: ToastClassName.error,
         });
         this.isProtectiveScreen = false;
@@ -140,11 +140,12 @@ export class BasePage implements OnInit {
           this.toastService.show({
             text: resp.message,
             className: ToastClassName.success,
+            delay: 3000,
           });
         },
         error: (resp) => {
           this.toastService.show({
-            text: resp.error.message || resp.error,
+            text: resp.error.message || resp.statusText || resp,
             className: ToastClassName.error,
           });
           this.isProtectiveScreen = false;
@@ -163,6 +164,7 @@ export class BasePage implements OnInit {
     });
 
     this.isProtectiveScreen = true;
+    this.hideLoader=false;
     this.deleteGroupe(option);
   }
 
@@ -174,6 +176,7 @@ export class BasePage implements OnInit {
       });
 
     this.isProtectiveScreen = true;
+    this.hideLoader=false;
     this.deleteGroupe(option);
   }
 
@@ -190,14 +193,16 @@ export class BasePage implements OnInit {
           this.toastService.show({
             text: resp.message,
             className: ToastClassName.success,
+            delay: 3000,
           });
         },
         error: (resp) => {
           this.toastService.show({
-            text: resp.error.message || resp.error || resp,
+            text: resp.error.message || resp.statusText || resp,
             className: ToastClassName.error,
           });
           this.isProtectiveScreen = false;
+          this.hideLoader=true;
         },
         complete: () => this.fetchList(),
       });

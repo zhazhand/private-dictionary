@@ -34,18 +34,27 @@ module.exports.create = async function (req, res) {
     }
   } else {
     try {
-      const verb = await new IrgVerb({
-        firstForm: req.body.firstForm,
-        firstFormTranscription: req.body.firstFormTranscription,
-        secondForm: req.body.secondForm,
-        secondFormTranscription: req.body.secondFormTranscription,
-        thirdForm: req.body.thirdForm,
-        thirdFormTranscription: req.body.thirdFormTranscription,
-        translation: req.body.translation,
+      const {
+        firstForm,
+        firstFormTranscription,
+        secondForm,
+        secondFormTranscription,
+        thirdForm,
+        thirdFormTranscription,
+        translation,
+      } = req.body;
+      await new IrgVerb({
+        firstForm,
+        firstFormTranscription,
+        secondForm,
+        secondFormTranscription,
+        thirdForm,
+        thirdFormTranscription,
+        translation,
         user: req.user.id,
       }).save();
 
-      res.status(201).json(verb);
+      res.status(201).json({ message: "Слово додано" });
     } catch (e) {
       errorHandler(res, e);
     }
@@ -55,7 +64,7 @@ module.exports.create = async function (req, res) {
 module.exports.remove = async function (req, res) {
   if (req.query.id) {
     try {
-      await Word.findByIdAndDelete({ _id: req.query.id });
+      await IrgVerb.findByIdAndDelete({ _id: req.query.id });
       res.status(200).json({
         message: "Слово было удалена.",
       });
@@ -64,7 +73,7 @@ module.exports.remove = async function (req, res) {
     }
   } else {
     try {
-      await Word.deleteMany({ user: req.user, removable: true });
+      await IrgVerb.deleteMany({ user: req.user, removable: true });
       res.status(200).json({
         message: "Выбранные слова из списка были удалены.",
       });
@@ -78,7 +87,7 @@ module.exports.updateGroupe = async function (req, res) {
   const list = req.body;
   try {
     for (const item of list) {
-      await Word.findOneAndUpdate(
+      await IrgVerb.findOneAndUpdate(
         { _id: item.id },
         { $set: item },
         { new: true },
@@ -92,12 +101,14 @@ module.exports.updateGroupe = async function (req, res) {
 
 module.exports.update = async function (req, res) {
   try {
-    const verb = await IrgVerb.findOneAndUpdate(
+    await IrgVerb.findOneAndUpdate(
       { _id: req.params.id },
       { $set: req.body },
       { new: true },
     );
-    res.status(200).json(verb);
+    res.status(200).json({
+      message: "Слово было оновлено",
+    });
   } catch (e) {
     errorHandler(res, e);
   }

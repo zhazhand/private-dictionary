@@ -27,13 +27,15 @@ module.exports.create = async function (req, res) {
     }
   } else {
     try {
-      const verb = await new Phrase({
-        name: req.body.name,
-        translation: req.body.translation,
+      const { name, transcription, translation } = req.body;
+      await new Phrase({
+        name,
+        transcription,
+        translation,
         user: req.user.id,
       }).save();
 
-      res.status(201).json(verb);
+      res.status(201).json({ message: "Слово додано" });
     } catch (e) {
       errorHandler(res, e);
     }
@@ -80,12 +82,14 @@ module.exports.updateGroupe = async function (req, res) {
 
 module.exports.update = async function (req, res) {
   try {
-    const verb = await Phrase.findOneAndUpdate(
+    await Phrase.findOneAndUpdate(
       { _id: req.params.id },
       { $set: req.body },
       { new: true },
     );
-    res.status(200).json(verb);
+    res.status(200).json({
+      message: "Слово было оновлено",
+    });
   } catch (e) {
     errorHandler(res, e);
   }

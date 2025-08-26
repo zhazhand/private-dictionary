@@ -9,25 +9,16 @@ import { GroupeOption } from "@interfaces/groupe-option.interface";
 export class CommonCRUDService {
   constructor(private http: HttpClient) {}
 
-  //To get all list
   fetch(category: string): Observable<ListItem[]> {
     return this.http.get<ListItem[]>(`/api/${category}`);
   }
 
-  //To get just one item (for editing or removing)
   getById(id: string, category: string): Observable<ListItem> {
     return this.http.get<ListItem>(`/api/${category}/${id}`);
   }
 
-  create(
-    category: string,
-    name?: string,
-    transcription?: string,
-    translation?: string,
-  ): Observable<ListItem> {
-    const fd = { name, transcription, translation };
-
-    return this.http.post<ListItem>(`/api/${category}`, fd);
+  create(category: string, formData: FormData): Observable<Message> {
+    return this.http.post<Message>(`/api/${category}`, formData);
   }
 
   createCollection(
@@ -40,14 +31,9 @@ export class CommonCRUDService {
   update(
     category: string,
     id: string,
-    removable: boolean,
-    name: string,
-    translation: string,
-    transcription?: string,
-  ): Observable<ListItem> {
-    const fd = { name, transcription, translation, removable };
-
-    return this.http.patch<ListItem>(`/api/${category}/${id}`, fd);
+    formData: FormData,
+  ): Observable<Message> {
+    return this.http.patch<Message>(`/api/${category}/${id}`, formData);
   }
 
   updateGroupe(category: string, option: GroupeOption[]): Observable<Message> {
@@ -55,9 +41,10 @@ export class CommonCRUDService {
   }
 
   delete(category: string, id?: string): Observable<Message> {
-    let params = new HttpParams();
+    const httpParams = new HttpParams();
+    let params;
     if (id) {
-      params.set("id", id);
+      params = httpParams.set("id", id);
     }
 
     return this.http.delete<Message>(`/api/${category}`, { params });
