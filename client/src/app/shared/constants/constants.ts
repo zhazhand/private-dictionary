@@ -66,13 +66,27 @@ export enum PageTitle {
   vocabulary = "Vocabulary",
   irregular = "Irregular verbs",
   gerund = "Verbs followed by Gerunds",
-  infinitive = "Verbs followed by nfinitives",
+  infinitive = "Verbs followed by Infinitives",
   separable = "Separable phrasal verbs",
   phrases = "Phrases",
   stative = "Stative verbs",
   guide = "Guide",
   login = "Login",
   registration = "Registration",
+}
+
+export enum MenuItemName {
+  vocabulary = "Private vocabulary",
+  irregular = "Irregular verbs",
+  gerund = "Gerund",
+  infinitive = "Infinitive",
+  separable = "Separable phrasal verbs",
+  phrases = "Phrases",
+  stative = "Stative verbs",
+  guide = "Guide",
+  login = "Login",
+  registration = "Registration",
+  additionally = "Additionally",
 }
 
 export enum ToastClassName {

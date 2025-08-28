@@ -1,90 +1,71 @@
-import { Component, OnInit, OnDestroy, inject } from "@angular/core";
-import { MenuItem } from "./menu-item.interface";
-import { Subscription } from "rxjs";
+import { Component } from "@angular/core";
+import { Observable } from "rxjs";
 import { AuthService } from "@services/auth.service";
-import { UserInfoService } from "@services/user-info.service";
 import {
   NgbCollapseModule,
   NgbDropdownModule,
 } from "@ng-bootstrap/ng-bootstrap";
-import { RouterLink, RouterModule } from "@angular/router";
+import { Router, RouterLink, RouterModule } from "@angular/router";
+import { AsyncPipe } from "@angular/common";
+import { MenuItemName, routePath } from "@constants/constants";
 
 @Component({
   selector: "app-header",
-  imports: [NgbDropdownModule, NgbCollapseModule, RouterModule, RouterLink],
+  imports: [
+    NgbDropdownModule,
+    NgbCollapseModule,
+    RouterModule,
+    RouterLink,
+    AsyncPipe,
+  ],
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.less"],
 })
-export class HeaderComponent implements OnInit, OnDestroy {
-  private subscription: Subscription = new Subscription();
-  public menu: MenuItem[] = [
-    { name: "Irregular verbs", path: "irregular", abilityToEscape: false },
-    { name: "Private vocabulary", path: "vocabulary", abilityToEscape: false },
-    {
-      name: "Additionally",
-      path: "additionally",
-      abilityToEscape: false,
-      children: [
-        { name: "Separable", path: "separable", abilityToEscape: false },
-        { name: "Gerund", path: "gerund", abilityToEscape: false },
-        { name: "Infinitive", path: "infinitive", abilityToEscape: false },
-        { name: "Phrases", path: "phrases", abilityToEscape: false },
-        { name: "Stative", path: "stative", abilityToEscape: false },
-      ],
-    },
-    { name: "Guide", path: "guide", abilityToEscape: false },
-    {
-      name: "Enter",
-      path: "enter",
-      abilityToEscape: false,
-      children: [
-        { name: "Login", path: "login", abilityToEscape: false },
-        { name: "Registration", path: "registration", abilityToEscape: false },
-      ],
-    },
-  ];
-  exitMenuItem: MenuItem = {
-    name: "Exit",
-    path: "login",
-    abilityToEscape: true,
-  };
-  enterMenuItem: MenuItem = {
-    name: "Enter",
-    path: "enter",
-    abilityToEscape: false,
-    children: [
-      { name: "Login", path: "login", abilityToEscape: false },
-      { name: "Registration", path: "registration", abilityToEscape: false },
-    ],
-  };
-
+export class HeaderComponent {
+  public isUserAuthenticated!: Observable<boolean>;
   public isMenuCollapsed: boolean = true;
 
-  private readonly auth = inject(AuthService);
-  private readonly userInfoService = inject(UserInfoService);
-
-  ngOnInit(): void {
-    if (localStorage.getItem("auth-token")) {
-      this.menu.splice(-1, 1, this.exitMenuItem);
-    }
-    this.subscription.add(
-      this.userInfoService.getUserInfo().subscribe((info) => {
-        if (info) {
-          this.menu.splice(-1, 1, this.exitMenuItem);
-        }
-      }),
-    );
+  constructor(
+    private readonly auth: AuthService,
+    private router: Router,
+  ) {
+    this.isUserAuthenticated = this.auth.getAuthenticationState();
   }
 
-  checkAbilityToEscape(param: boolean): void {
-    this.isMenuCollapsed = true;
-    if (param) {
-      this.menu.splice(-1, 1, this.enterMenuItem);
-      this.auth.logOut();
+  additionallyMenu: string[] = [
+    routePath.gerund,
+    routePath.infinitive,
+    routePath.phrases,
+    routePath.separable,
+    routePath.stative,
+  ];
+
+  defaultMenu: string[] = [
+    routePath.guide,
+    routePath.login,
+    routePath.registration,
+  ];
+
+  authenticatedUserMenu: Array<string | string[]> = [
+    routePath.guide,
+    routePath.irregular,
+    routePath.vocabulary,
+    this.additionallyMenu,
+  ];
+
+  getMenuItemName(key: string | string[]): string {
+    if (this.hasChildren(key)) {
+      return MenuItemName.additionally;
     }
+    return MenuItemName[key as keyof typeof MenuItemName];
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+  hasChildren(item: string | string[]): boolean {
+    return Array.isArray(item);
+  }
+
+  logout(): void {
+    this.auth.logOut();
+    this.router.navigate([routePath.login]);
   }
 }

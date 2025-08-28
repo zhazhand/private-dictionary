@@ -7,6 +7,7 @@ import {
   ToastClassName,
 } from "@constants/constants";
 import { toastMessage } from "@constants/toast-messages";
+import { User } from "@interfaces/user";
 import { RegistrationAndAuthenticationForm } from "@reusable/registration-and-authentication-form/registration-and-authentication-form";
 import { AuthService } from "@services/auth.service";
 import { ToastService } from "@services/toast.service";
@@ -47,9 +48,9 @@ export class LoginPage implements OnInit, OnDestroy {
         this.toastService.show({
           text: toastMessage.success.registration,
           className: ToastClassName.success,
-          delay: 12,
+          delay: 10000,
           optionalText: toastMessage.success.quickJump,
-          cb: this.goToIrregular.bind(this),
+          cb: this.quickEnter.bind(this),
         });
       } else if (params[QueryParams.accessDenied]) {
         this.toastService.show({
@@ -67,7 +68,15 @@ export class LoginPage implements OnInit, OnDestroy {
 
   onSubmit(): void {
     this.authenticationForm.form.disable();
-    this.aSub = this.auth.login(this.authenticationForm.form.value).subscribe({
+    this.submitForm(this.authenticationForm.form.value);
+  }
+
+  goToIrregular(): void {
+    this.router.navigate([`/${routePath.irregular}`]);
+  }
+
+  submitForm(user: User): void {
+    this.aSub = this.auth.login(user).subscribe({
       next: () => {
         this.goToIrregular();
       },
@@ -81,8 +90,12 @@ export class LoginPage implements OnInit, OnDestroy {
     });
   }
 
-  goToIrregular(): void {
-    this.router.navigate([`/${routePath.irregular}`]);
+  quickEnter(): void {
+    const user = this.auth.getUser();
+    if (!user) {
+      return;
+    }
+    this.submitForm(user);
   }
 
   ngOnDestroy() {
