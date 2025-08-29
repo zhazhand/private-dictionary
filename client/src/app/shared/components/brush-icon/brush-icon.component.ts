@@ -4,7 +4,7 @@ import { Component } from "@angular/core";
   selector: "app-brush-icon",
   template: ` <svg
     viewBox="0 0 52 20"
-    width="104px"
+    width="52px"
     height="20px"
     class="icon"
     fill="currentColor"

@@ -10,15 +10,7 @@ import { DatePipe } from "@angular/common";
       <span class="text-white current-year">© {{ now | date: "yyyy" }}</span>
     </div>
   </div>`,
-  styles: `
-    .book {
-      max-width: 1.6rem;
-      vertical-align: baseline;
-    }
-    .current-year {
-      cursor: default;
-    }
-  `,
+  styleUrls: ["./footer.component.less"],
 })
 export class FooterComponent {
   now: number = Date.now();
