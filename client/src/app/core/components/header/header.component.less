@@ -97,6 +97,20 @@
         padding: 0;
         background-color: @adaptiveMenuBackground;
 
+        &.active {
+          background-color: @adaptiveMenuColor;
+
+          .nav-link {
+            color: @adaptiveMenuBackground;
+          }
+
+          &:hover {
+            .nav-link {
+              color: @white;
+            }
+          }
+        }
+
         &:first-of-type {
           border-radius: 0 5px 0 0;
         }
