@@ -5,7 +5,7 @@
     type="button"
     (click)="isMenuCollapsed = !isMenuCollapsed"
   >
-    &#9776;
+    <span class="navbar-toggler-icon"></span>
   </button>
   <div
     [ngbCollapse]="isMenuCollapsed"
@@ -13,11 +13,7 @@
   >
     <ul class="navbar-nav">
       @for (item of menu; track $index) {
-        <li
-          class="nav-item"
-          [routerLinkActive]="hasChildren(item) ? '' : 'active'"
-          ngbDropdown
-        >
+        <li class="nav-item" [routerLinkActive]="'active'" ngbDropdown>
           @if (hasChildren(item)) {
             <a class="nav-link" [id]="[getMenuItemName(item)]" ngbDropdownToggle
               >{{ getMenuItemName(item) }}
@@ -38,15 +34,22 @@
               </div>
             </a>
           } @else {
-            <a class="nav-link" [routerLink]="[item]">{{
-              getMenuItemName(item)
-            }}</a>
+            <a
+              class="nav-link"
+              [routerLink]="[item]"
+              (click)="isMenuCollapsed = true"
+              >{{ getMenuItemName(item) }}</a
+            >
           }
         </li>
       }
       @if (isUserAuthenticated | async) {
         <li class="nav-item">
-          <button class="btn" (click)="logout()">Logout</button>
+          <button type="button" class="logout-btn" (click)="logOut()">
+            <svg width="30px" height="30px" viewBox="110 0 300 300">
+              <use href="assets/svg/logout.svg"></use>
+            </svg>
+          </button>
         </li>
       }
     </ul>

@@ -50,22 +50,25 @@
       border: 1px solid @activeMenuBorder;
       transition: background 0.8s;
 
-      & > .nav-link {
+      & > .nav-link,
+      .logout-btn {
         color: @primary;
         transition-duration: 0.3s;
       }
-
-      // & .show {
-      //   margin-top: calc(.125rem - .5px);
-      // }
     }
 
-    .nav-link {
+    .nav-link,
+    .logout-btn {
       color: @white;
 
       &:hover {
         cursor: pointer;
       }
+    }
+    .logout-btn {
+      border: none;
+      background-color: transparent;
+      padding: 0;
     }
   }
 }
@@ -74,8 +77,9 @@
   .navbar.navbar-expand-lg.navbar-light.bg-primary {
     background-color: transparent !important;
     position: fixed;
+    left: 1%;
     top: 0;
-    opacity: 0.9;
+    opacity: 0.98;
     z-index: 1060;
 
     .navbar-toggler {
@@ -88,6 +92,7 @@
 
     .nav-item {
       margin: 0;
+      padding: 0;
       background-color: @adaptiveMenuBackground;
 
       &:first-of-type {
@@ -96,26 +101,58 @@
 
       &:last-of-type {
         border-radius: 0 0 5px 5px;
+        padding-bottom: 10px;
+        margin-top: -4px;
+        &:hover {
+          padding-bottom: 10px;
+          margin-top: -4px;
+        }
       }
 
       &:hover {
-        background-color: @white;
+        background-color: @adaptiveMenuColor;
         margin: 0;
         padding-top: 0;
         padding-bottom: 0;
         border: 0;
         transition: background 0.8s;
 
-        & > .nav-link {
+        & > .nav-link,
+        .logout-btn {
           color: @primary;
           transition-duration: 0.3s;
         }
       }
 
-      .nav-link {
+      .nav-link,
+      .logout-btn {
         color: @adaptiveMenuColor;
         font-weight: bolder;
         padding-left: 0.8rem;
+        &:hover {
+          color: @adaptiveMenuBackground;
+        }
+      }
+
+      .logout-btn {
+        padding-left: 0.6rem;
+        padding-right: 77%;
+      }
+
+      &.dropdown {
+        .dropdown-item {
+          color: @adaptiveMenuNestedItemColor;
+          font-weight: 600;
+          &:hover {
+            color: @white;
+            background-color: @adaptiveMenuNestedItemColor;
+            transition-duration: 0.3s;
+          }
+        }
+        .dropdown-menu {
+          max-height: 124px;
+          overflow-y: scroll;
+        }
       }
     }
   }

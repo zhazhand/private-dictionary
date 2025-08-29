@@ -64,7 +64,8 @@ export class HeaderComponent {
     return Array.isArray(item);
   }
 
-  logout(): void {
+  logOut(): void {
+    this.isMenuCollapsed = true;
     this.auth.logOut();
     this.router.navigate([routePath.login]);
   }
