@@ -8,6 +8,7 @@ import {
 import { Router, RouterLink, RouterModule } from "@angular/router";
 import { AsyncPipe } from "@angular/common";
 import { MenuItemName, routePath } from "@constants/constants";
+import { ClickOutsideDirective } from "@directives/click-outside";
 
 @Component({
   selector: "app-header",
@@ -17,6 +18,7 @@ import { MenuItemName, routePath } from "@constants/constants";
     RouterModule,
     RouterLink,
     AsyncPipe,
+    ClickOutsideDirective,
   ],
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.less"],
@@ -62,6 +64,12 @@ export class HeaderComponent {
 
   hasChildren(item: string | string[]): boolean {
     return Array.isArray(item);
+  }
+  onClickOutside() {
+    if (this.isMenuCollapsed) {
+      return;
+    }
+    this.isMenuCollapsed = true;
   }
 
   logOut(): void {

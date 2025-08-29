@@ -22,7 +22,8 @@
       "@services/*": ["app/shared/services/*"],
       "@interfaces/*": ["app/shared/interfaces/*"],
       "@constants/*": ["app/shared/constants/*"],
-      "@pipes/*": ["app/shared/pipes/*"]
+      "@pipes/*": ["app/shared/pipes/*"],
+      "@directives/*": ["app/shared/directives/*"]
     }
   },
   "angularCompilerOptions": {
