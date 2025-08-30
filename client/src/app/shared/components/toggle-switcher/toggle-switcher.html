@@ -1,0 +1,34 @@
+<div class="toggle-switcher">
+  <input
+    type="radio"
+    name="toggleSwitcher"
+    [value]="val1()"
+    class="input"
+    id="toggleSwitcher1"
+    [(ngModel)]="selectedValue"
+    (ngModelChange)="onChange($event)"
+  />
+  <input
+    type="radio"
+    name="toggleSwitcher"
+    [value]="val2()"
+    class="input"
+    id="toggleSwitcher2"
+    [(ngModel)]="selectedValue"
+    (ngModelChange)="onChange($event)"
+  />
+  <div class="d-flex toggle-switcher-wrapper">
+    <label
+      for="toggleSwitcher1"
+      class="label ps-2"
+      [class.active]="selectedValue === val1()"
+      >{{ val1() | uppercase }}</label
+    >
+    <label
+      for="toggleSwitcher2"
+      class="label pe-2"
+      [class.active]="selectedValue === val2()"
+      >{{ val2() | uppercase }}</label
+    >
+  </div>
+</div>

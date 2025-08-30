@@ -1,0 +1,39 @@
+@import "main.less";
+
+.toggle-switcher {
+  .input {
+    display: none;
+  }
+  .toggle-switcher-wrapper {
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2px;
+    background-color: @white;
+    width: 7.4em;
+    height: calc(1.6em + 6px);
+    border: 1px solid @primary;
+    border-radius: calc(0.8em + 3px);
+
+    .label {
+      height: 1.6em;
+      width: 3.5em;
+      font-weight: 500;
+      color: @primary;
+      background-color: @white;
+      border: 1px solid @white;
+      opacity: 0.6;
+      border-radius: 0.8em;
+      cursor: pointer;
+
+      &.active {
+        color: @white;
+        background-color: @primary;
+        border: 1px solid @primary;
+        opacity: 1;
+      }
+      &:last-of-type {
+        text-align: end;
+      }
+    }
+  }
+}

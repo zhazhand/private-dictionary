@@ -1,5 +1,9 @@
-<div class="container pl-3 pr-3">
-  <!-- <div @ngIf = "!isAuthorized"> -->
+<div class="container pl-3 pr-3 pt-1">
+  <app-toggle-switcher
+    [val1]="'ua'"
+    [val2]="'eng'"
+    (takenValue)="setLanguage($event)"
+  />
   <div>
     <h2>О приложении</h2>
     <section class="mt-sm-5 mb-sm-5">
