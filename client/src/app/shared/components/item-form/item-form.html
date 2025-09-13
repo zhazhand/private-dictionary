@@ -4,7 +4,7 @@
     <h2 class="text-center">
       {{ isNew ? "Add new " : "Edit (/delete) " }}word
     </h2>
-    @if (!isIrregular) {
+    @if (!isIrregular && !isTranscriptionSkipped) {
       <div class="form-check py-3 ps-4">
         <label class="form-check-label">
           <input
@@ -17,26 +17,28 @@
         </label>
       </div>
     }
-    <div
-      [@showHide]="isTranscriptionShown ? 'shown' : 'hidden'"
-      class="alert alert-info pt-3 pb-1"
-    >
-      <p class="text-center">
-        A <a class="link" href="{{ baseURL }}">convenient resource</a>, where
-        you can see the appropriate
-        <a
-          class="link"
-          href="{{ translationDefaultURL }}{{ getWord() }}"
-          target="_blank"
+    @if (!isTranscriptionSkipped) {
+      <div
+        [@showHide]="isTranscriptionShown ? 'shown' : 'hidden'"
+        class="alert alert-info pt-3 pb-1"
+      >
+        <p class="text-center">
+          A <a class="link" href="{{ baseURL }}">convenient resource</a>, where
+          you can see the appropriate
+          <a
+            class="link"
+            href="{{ translationDefaultURL }}{{ getWord() }}"
+            target="_blank"
           >transcription</a
-        >.<br />
-        In addition, you can find the English or American
-        <a class="link" [href]="getPronunciationLink()" target="_blank"
+          >.<br />
+          In addition, you can find the English or American
+          <a class="link" [href]="getPronunciationLink()" target="_blank"
           >pronunciation</a
-        >
-        of the selected word there.
-      </p>
-    </div>
+          >
+          of the selected word there.
+        </p>
+      </div>
+    }
   </div>
   <div class="container-fluid">
     <form [formGroup]="form" autocomplete="off">
@@ -155,7 +157,7 @@
         } @else {
           <tr>
             <th class="text-center">Word</th>
-            @if (isTranscriptionShown) {
+            @if (isTranscriptionShown && !isTranscriptionSkipped) {
               <th @showHide class="text-center transcription">Transcription</th>
             }
             <th class="text-center">Translation</th>
@@ -176,7 +178,7 @@
                 />
               </div>
             </td>
-            @if (isTranscriptionShown) {
+            @if (isTranscriptionShown && !isTranscriptionSkipped) {
               <td @showHide class="border-bottom text-center transcription">
                 <div class="input-group">
                   <span class="input-group-text">[</span>

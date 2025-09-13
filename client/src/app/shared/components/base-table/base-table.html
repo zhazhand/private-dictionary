@@ -21,7 +21,7 @@
         }
         @if ("name" in words![0]) {
           <th class="text-center">{{ thName() }}</th>
-          @if ("transcription" in words![0]) {
+          @if (hasTranscription(words)) {
             <th class="text-center">TRANSCRIPTION</th>
           }
         } @else {
@@ -65,7 +65,7 @@
             >
               {{ item.name }}
             </td>
-            @if ("transcription" in item) {
+            @if (hasTranscription(words)) {
               <td
                 class="text-center"
                 [ngbPopover]="popoverContent"

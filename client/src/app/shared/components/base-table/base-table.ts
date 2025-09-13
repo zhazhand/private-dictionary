@@ -79,6 +79,11 @@ export class BaseTable implements OnInit {
     ).length;
   }
 
+  hasTranscription(list: ListItem[]): boolean {
+    return list.some((item: ListItem) => Object.keys(item)
+      .some(key => key==='transcription'));
+  }
+
   deleteCancel(): void {
     const option = { isDeleteCancel: true };
     this.removing.emit(option);

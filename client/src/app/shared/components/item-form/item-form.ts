@@ -1,13 +1,13 @@
-import { Component, inject, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { Component, inject, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {
   trigger,
   state,
   style,
   animate,
   transition,
-} from "@angular/animations";
-import { CommonModule, Location } from "@angular/common";
+} from '@angular/animations';
+import { CommonModule, Location } from '@angular/common';
 import {
   convenientResourse,
   PageTitle,
@@ -15,50 +15,50 @@ import {
   routePath,
   ToastClassName,
   validationPattern,
-} from "@constants/constants";
+} from '@constants/constants';
 import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
-} from "@angular/forms";
-import { ValidationPattern } from "@interfaces/validation-pattern";
-import { validationErrorMessage } from "@constants/error-messages";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { ConfirmationModal } from "@reusable/modals/confirmation-modal/confirmation-modal";
-import { CommonCRUDService } from "@services/common-crud.service";
-import { ListItem } from "@interfaces/list-item.interface";
-import { ToastService } from "@services/toast.service";
+} from '@angular/forms';
+import { ValidationPattern } from '@interfaces/validation-pattern';
+import { validationErrorMessage } from '@constants/error-messages';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmationModal } from '@reusable/modals/confirmation-modal/confirmation-modal';
+import { CommonCRUDService } from '@services/common-crud.service';
+import { ListItem } from '@interfaces/list-item.interface';
+import { ToastService } from '@services/toast.service';
 
 @Component({
-  selector: "app-item-form",
+  selector: 'app-item-form',
   imports: [CommonModule, ReactiveFormsModule],
   animations: [
-    trigger("showHide", [
-      transition(":enter", [
-        style({ opacity: 0, transform: "translateY(10px)" }),
-        animate("1s", style({ opacity: 1, transform: "translateY(0)" })),
+    trigger('showHide', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(10px)' }),
+        animate('1s', style({ opacity: 1, transform: 'translateY(0)' })),
       ]),
-      transition(":leave", [
-        animate("1s", style({ opacity: 0, transform: "translateY(10px)" })),
+      transition(':leave', [
+        animate('1s', style({ opacity: 0, transform: 'translateY(10px)' })),
       ]),
       state(
-        "shown",
+        'shown',
         style({
           opacity: 1,
         }),
       ),
       state(
-        "hidden",
+        'hidden',
         style({
           opacity: 0,
         }),
       ),
-      transition("* => *", [animate("1s")]),
+      transition('* => *', [animate('1s')]),
     ]),
   ],
-  templateUrl: "./item-form.html",
-  styleUrl: "./item-form.less",
+  templateUrl: './item-form.html',
+  styleUrl: './item-form.less',
 })
 export class ItemForm implements OnInit {
   constructor(
@@ -75,6 +75,7 @@ export class ItemForm implements OnInit {
   pageTitle!: string;
   isNew!: boolean;
   isIrregular!: boolean;
+  isTranscriptionSkipped!: boolean;
   isTranscriptionShown: boolean = true;
   baseURL: string = convenientResourse.baseURL;
   translationDefaultURL: string = convenientResourse.translationDefaultURL;
@@ -87,9 +88,13 @@ export class ItemForm implements OnInit {
     this.parentRoute = this.route.snapshot.url[0].path;
     this.isNew = currentRoute === routePath.new;
     this.isIrregular = this.parentRoute === routePath.irregular;
+    this.isTranscriptionSkipped =
+      this.parentRoute === routePath.phrases ||
+      this.parentRoute === routePath.separable;
     this.id = this.isNew ? null : currentRoute;
     this.pageTitle = PageTitle[this.parentRoute as keyof typeof PageTitle];
     this.form = this.createForm();
+    this.removeTranscriptionControl();
     this.actualizeTranscriptionValidator();
     if (this.id) {
       this.crudService.getById(this.id, this.parentRoute).subscribe({
@@ -114,25 +119,25 @@ export class ItemForm implements OnInit {
   toggleTranscriptionState(): void {
     this.isTranscriptionShown = !this.isTranscriptionShown;
     if (!this.isTranscriptionShown) {
-      this.form.controls["transcription"].setValue("-");
-      this.form.controls["transcription"].markAsUntouched();
+      this.form.controls['transcription'].setValue('-');
+      this.form.controls['transcription'].markAsUntouched();
     } else {
-      this.form.controls["transcription"].setValue(this.item?.transcription);
+      this.form.controls['transcription'].setValue(this.item?.transcription);
     }
     this.actualizeTranscriptionValidator(true, this.isTranscriptionShown);
   }
 
   getWord(): string {
     return this.isIrregular
-      ? this.form.controls["firstForm"].value
-      : this.form.controls["name"].value;
+      ? this.form.controls['firstForm'].value
+      : this.form.controls['name'].value;
   }
 
   calculateColspan(): number {
     if (this.isIrregular) {
       return 4;
     }
-    return this.isTranscriptionShown ? 3 : 2;
+    return this.isTranscriptionShown && !this.isTranscriptionSkipped ? 3 : 2;
   }
 
   getPronunciationLink(): string {
@@ -256,7 +261,7 @@ export class ItemForm implements OnInit {
     const keys = this.isTranscriptionShown
       ? Object.keys(this.form.controls)
       : Object.keys(this.form.controls).filter(
-          (item) => item !== "transcription",
+          (item) => item !== 'transcription',
         );
 
     for (const key of keys) {
@@ -310,31 +315,40 @@ export class ItemForm implements OnInit {
 
   getFormValidationErrors(): string {
     const validationArr: any[] = [];
-    const requiredField = "required";
-    const patternError = "pattern";
+    const requiredField = 'required';
+    const patternError = 'pattern';
     Object.keys(this.form.controls).forEach((key) => {
       validationArr.push({
-        isToched: this.form.get(key)?.touched,
+        isTouched: this.form.get(key)?.touched,
         errors: this.form.get(key)!.errors,
       });
     });
     const errorArr = validationArr
-      .filter((item) => item.isToched)
+      .filter((item) => item.isTouched)
       .map((item) => item.errors && Object.keys(item.errors))
       .flat();
 
     const errorMsgLast = errorArr.some((item) => item === patternError)
       ? validationErrorMessage.pattern
-      : "";
+      : '';
     const errorMsgFirst =
       errorArr.filter((item) => item === requiredField).length === 1 &&
       !errorMsgLast
         ? validationErrorMessage.required.one
         : errorArr.filter((item) => item === requiredField).length === 0
-          ? ""
+          ? ''
           : validationErrorMessage.required.all;
 
     return `${errorMsgFirst}${errorMsgLast}`;
+  }
+
+  removeTranscriptionControl(): void {
+    if (!this.isTranscriptionSkipped) {
+      return;
+    }
+    if (this.form.contains('transcription')) {
+      this.form.removeControl('transcription');
+    }
   }
 
   actualizeTranscriptionValidator(
@@ -345,8 +359,8 @@ export class ItemForm implements OnInit {
       return;
     }
     if (!this.isTranscriptionShown) {
-      this.form.controls["transcription"].removeValidators(Validators.required);
-      this.form.controls["transcription"].updateValueAndValidity();
+      this.form.controls['transcription'].removeValidators(Validators.required);
+      this.form.controls['transcription'].updateValueAndValidity();
       return;
     }
 
@@ -355,10 +369,10 @@ export class ItemForm implements OnInit {
     }
 
     if (isFieldShown) {
-      this.form.controls["transcription"].addValidators(Validators.required);
+      this.form.controls['transcription'].addValidators(Validators.required);
     } else {
-      this.form.controls["transcription"].removeValidators(Validators.required);
+      this.form.controls['transcription'].removeValidators(Validators.required);
     }
-    this.form.controls["transcription"].updateValueAndValidity();
+    this.form.controls['transcription'].updateValueAndValidity();
   }
 }
