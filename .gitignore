@@ -2,6 +2,8 @@
 .vscode/*
 .history/*
 
+.idea/
+
 node_modules
 config/keys.dev.js
 config/pass.txt

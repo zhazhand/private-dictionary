@@ -1,136 +1,249 @@
 <div class="container pl-3 pr-3 pt-1">
   <app-toggle-switcher
-    [val1]="'ua'"
-    [val2]="'eng'"
+    [val1]="ukrainianVersion"
+    [val2]="englishVersion"
     (takenValue)="setLanguage($event)"
   />
+  @switch (selectedLanguage) {
+    @case (ukrainianVersion) {
+      <ng-container *ngTemplateOutlet="ua" />
+    }
+    @case (englishVersion) {
+      <ng-container *ngTemplateOutlet="eng" />
+    }
+    @default {
+      <ng-container *ngTemplateOutlet="eng" />
+    }}
+</div>
+
+<ng-template #ua>
   <div>
-    <h2>О приложении</h2>
+    <h2>Про додаток</h2>
     <section class="mt-sm-5 mb-sm-5">
-      <p class="description">Здравствуйте, уважаемый посетитель.</p>
+      <p class="description">Привіт, шановний відвідувачу!</p>
       <p class="description">
-        Для того, чтобы воспользоваться приложением, нужно войти под своим
-        логином и паролем (пункт меню <span class="anchor">Enter</span> >
-        <span class="anchor">Auth</span>). Логин - Ваш email, пароль - не менее
-        6 символов.<br />
-        Если же Вы не зарегистрированы, то, соответственно, сначала нужно пройти
-        регистрацию (пункт меню <span class="anchor">Enter</span> >
-        <span class="anchor">Registr</span>), а потом войти под своим логином и
-        паролем.
+        Для того, щоб скористатися додатком, потрібно увійти під своїм логіном та
+        паролем (пункт меню <span class="anchor">Login</span>).
+        Логин - email, пароль - має бути не менше 6 символів.<br />
+        Якщо ж ти ще не зареєстрован, то спочатку потрібно пройти
+        реєстрацію (пункт меню <span class="anchor">Registration</span>), а потім увійти під своїм логіном та паролем.
       </p>
       <p class="description">
-        Идея данного приложения - сформировать индивидуальный словарь (который
-        будет постоянно меняться). В данный словарь следует добавлять слова
-        (фразы), которые, по какой-то причине, не поддаются быстрому
-        запоминанию. По мере запоминания, эти слова из списка можно удалять
-        (бессмысленно хранить в списке слова, которые помнишьтвердо).<br />
-        Для удобства пользования, приложение разбито на несколько категорий
-        (пункты меню). На основной вкладке раздел неправильные глаголы (<span
-          class="anchor"
-          >Irregular verbs</span
-        >) и личный словарь (<span class="anchor">Private vocabulary</span>). На
-        вкладке дополнительно (<span class="anchor">Additionally</span>)
-        находятся разделы: глаголы,требующие после себя герундий (<span
-          class="anchor"
-          >Gerund</span
-        >), глаголы,требующие после себя инфинитив (<span class="anchor"
-          >Infinitive</span
-        >), раздельные фразовые глаголы (<span class="anchor">Separable</span>),
-        глаголы состояния (<span class="anchor">Stative</span>) и часто
-        употребляемые фразы (<span class="anchor">Phrases</span>).<br />
+        Ідея цього додатку - сформувати індивідуальний словник (який буде постійно змінюватися). У цей словник слід
+        додавати слова (фрази), які з якоїсь причини не піддаються швидкому запам'ятовуванню.
+        У міру запам'ятовування ці слова зі списку можна видаляти
+        (не має сенсу зберігати у списку слова, які пам'ятаєш твердо).<br />
+        Для зручності користування додаток розбит на декілька категорій (пунктів меню).<br />
+        На основній вкладці розділ неправильні дієслова (пункт меню <span
+        class="anchor"
+      >Irregular verbs</span
+      >) та індивідуальний словник (пункт меню <span class="anchor">Private vocabulary</span>).<br />
+        На вкладці додатково (пункт меню <span class="anchor">Additionally</span>)
+        знаходяться розділи: дієслова, що вимагають після себе герундій (пункт меню <span
+        class="anchor"
+      >Gerund</span
+      >), дієслова, що вимагають після себе інфінітив (пункт меню <span class="anchor"
+      >Infinitive</span
+      >), роздільні фразові дієслова (пункт меню <span class="anchor">Separable phrasal verbs</span>),
+        дієслова стану (пункт меню <span class="anchor">Stative verbs</span>) і часто вживані фрази
+        (пункт меню <span class="anchor">Phrases</span>).<br />
       </p>
       <ul class="description">
-        Формировать список в каждой из категорий можно двумя способами:
-        <li>добавлять по одному слову;</li>
-        <li>загрузить дефолтный список, а потом отредактировать его;</li>
+        Формувати список у кожній з категорій можна двома способами:
+        <li>додавати по одному слову;</li>
+        <li>завантажувати дефолтний список, а потім редагувати його;</li>
       </ul>
       <p class="description">
-        Ниже расположены основные правила пользования данным приложением.
+        Нижче наведено основні правила користування цім додатком.
       </p>
     </section>
     <hr class="mb-sm-5" />
   </div>
   <div>
     <section class="mt-sm-5 mb-sm-5">
-      <h4>Добавление</h4>
+      <h4>Додавання</h4>
       <p class="description">
-        Добавление нового элемента списка (слова или фразы) - кнопка
-        <span class="btn btn-success btn-sm">Add new</span> . Стоит обратить
-        внимание, что при добавлении некоторых элементов (неправильные глаголы,
-        личный словарь), поле транскрипция является обязательным для заполнения.
-        Если же транскрипция не имеет значения - то в поле ввода можно поместить
-        пробел, "-" или любой другой символ.
+        Додавання нового елемента списку (слова чи фрази) – кнопка
+        <span class="btn btn-success btn-sm">Add new</span> . Варто звернути увагу, що при додаванні або редагуванні
+        елементів у деяких розділах поле транскрипція є обов'язковим для заповнення. В інших випадках це поле є
+        опціональним - його можна прибрати, знявши відповідну галочку (тоді в полі транскрипція запишеться символ "-").
       </p>
       <p class="description">
-        Также следует обратить внимание: при добавлении слова в личный словарь
-        (раздел Private vocabulary) удобно воспользоваться ссылкой
-        <mark class="anchor">Convenient resource</mark>. Для этого нужно ввести
-        слово (поле new word), а затем перейти по ссылке. После этого, в
-        открывшейся новой вкладке, можно скопировать американский или английский
-        вариант транскрипции данного слова и его перевод и поместить их в
-        соответствующие поля личного словаря.
+        Також слід звернути увагу: при додаванні слова (або редагуванні існуючого) зручно скористатися помічником
+        <mark class="anchor">Convenient resource</mark>. У цьому випадку, при натисканні на посилання
+        <mark class="anchor">transcription</mark>, у новій вкладці відкриється сторінка, на якій можна скопіювати
+        транскрипцію для відповідного слова, при натисканні на посилання <mark class="anchor">pronunciation</mark>,
+        у новій вкладці відкриється сторінка з американською та англійською вимовою відповідного слова.
       </p>
       <p class="description">
-        Для того, чтобы вернуться к исходному списку, можно воспользоваться
-        кнопкой <span class="btn btn-danger btn-sm">Return</span> , кнопкой
-        браузера "назад", либо перейти к другому пункту меню.
+        Щоб повернутися до вихідного списку, можна скористатися кнопкою
+        <span class="btn btn-primary btn-sm">Return</span> .
       </p>
     </section>
     <hr />
     <section class="mt-sm-5 mb-sm-5">
-      <h4>Редактирование и удаление</h4>
+      <h4>Редагування та видалення</h4>
       <p class="description">
-        Для редактирования или удаления элемента списка необходимо кликнуть по
-        соответствующей строке таблицы и, после перехода на страницу
-        редактирования, либо отредактировать данные и нажать на кнопку
-        <span class="btn btn-success btn-sm">Save</span> , либо, для удаления
-        слова, нажать на кнопку
+        Для редагування або видалення елемента списку необхідно клікнути на відповідний рядок таблиці та,
+        після переходу на сторінку редагування, або відредагувати дані та натиснути на кнопку
+        <span class="btn btn-success btn-sm">Save</span> , або, щоб видалити слово, натиснути на кнопку
         <span class="btn btn-danger btn-sm">Delete</span> .
       </p>
     </section>
     <hr />
     <section class="mt-sm-5 mb-sm-5">
-      <h4>Сортировка списка</h4>
+      <h4>Сортування списку</h4>
       <p class="description">
-        Сортировать список можно либо по алфавиту (order by alphabet) либо по
-        дате (order by date) - в этом случае вверху списка будут последние
-        добавленные элементы.
+        Сортувати список можна або за алфавітом (order by alphabet) або за датою (order by date) - у цьому
+        випадку зверху списку будуть останні додані елементи.
       </p>
     </section>
     <hr />
     <section class="mt-sm-5 mb-sm-5">
-      <h4>Поиск (фильтрация) по списку</h4>
+      <h4>Пошук (фільтрація) за списком</h4>
       <p class="description">
-        Для фильтрации списка можно пользоваться полем <mark>search</mark>, куда
-        нужно ввести условие фильтрации (первую букву либо начальную часть
-        слова). Для очистки поля поиска нужно использовать кнопку с изображением
-        совка.
+        Для фільтрації списку можна скористатися полем <mark>search</mark>, куди необхідно запровадити умова
+        фільтрації (першу літеру чи початкову частину слова). Для очищення поля пошуку потрібно використовувати
+        кнопку із зображенням щітки.
       </p>
     </section>
     <hr />
     <section class="mt-sm-5 mb-sm-5">
-      <h4>Удаление списка</h4>
+      <h4>Видалення списку</h4>
       <p class="description">
-        Удаление списка - кнопка
-        <span class="btn btn-danger btn-sm">Delete list</span> . Есть два
-        варианта: удалить список полностью (<mark>completely</mark>), либо
-        только его часть (<mark>selectively</mark>).
+        Для видалення списку - кнопка <span class="btn btn-danger btn-sm">Delete list</span> . Є два варіанти:
+        видалити список повністю <span class="btn btn-dark btn-sm">Completely</span> , або тільки його
+        частину <span class="btn btn-dark btn-sm">Selectively</span> .
       </p>
       <p class="description">
-        При выборе варианта удаления
-        <span class="btn btn-info btn-sm">Selectively</span> , необходимо
-        отметить галочками те слова, которые нужно удалить.
+        Вибираючи варіант видалення <mark>selectively</mark>, необхідно позначити ті
+        слова, які потрібно видалити.<br>
+        Варто звернути увагу, що видалена буде відфільтрована (за полем <mark>search</mark>) частина списку.
       </p>
     </section>
     <hr />
     <section class="mt-sm-5 mb-sm-5">
-      <h4>Загрузка дефолтного списка</h4>
+      <h4>Завантаження дефолтного списку</h4>
       <p class="description">
-        Если список элементов пуст можно загрузить некий дефолтный список (и при
-        необходимости отредактировать его). Для этого нужно воспользоваться
-        кнопкой
-        <span class="btn btn-outline-success">Download default list</span>
+        Якщо список елементів порожній, можна завантажити дефолтний список (і при необхідності відредагувати його).
+        Для цього потрібно скористатися кнопкою <span class="btn btn-outline-success">Download default list</span>
       </p>
     </section>
   </div>
-</div>
+</ng-template>
+
+<ng-template #eng>
+  <div>
+    <h2>About the app</h2>
+    <section class="mt-sm-5 mb-sm-5">
+      <p class="description">Hi there, dear visitor!</p>
+      <p class="description">
+        To use the application, you need to log in using your login and password (menu item <span class="anchor">Login</span>).
+        The login is your email, and the password must be at least 6 characters long.<br />
+        If you are not registered, you first need to register (menu item <span class="anchor">Registration</span>),
+        and then log in using your login and password.
+      </p>
+      <p class="description">
+        The main idea of this application is to create a personal dictionary (which will be constantly updated).
+        To this dictionary you should add words (phrases) that for some reason are not easy to remember.
+        As you memorize these words, you can remove them from the list (there is no point in keeping words
+        that you remember well in the list).<br />
+        For ease of use, the application is divided into several categories (menu items).<br />
+        On the main tab, there is a section for irregular verbs (menu item <span
+        class="anchor"
+      >Irregular verbs</span
+      >) and a personal dictionary (menu item <span class="anchor">Private vocabulary</span>).<br />
+        On the additional tab (menu item <span class="anchor">Additionally</span>)
+        there are sections: verbs that require a gerund after them (menu item <span
+        class="anchor"
+      >Gerund</span
+      >), verbs that require an infinitive after them (menu item <span class="anchor"
+      >Infinitive</span
+      >), separable phrasal verbs (menu item <span class="anchor">Separable phrasal verbs</span>),
+        stative verbs (menu item <span class="anchor">Stative verbs</span>) and frequently used phrases
+        (menu item <span class="anchor">Phrases</span>).<br />
+      </p>
+      <ul class="description">
+        There are two ways to form a list in each category:
+        <li>add one word at a time;</li>
+        <li>load the default list and then edit it;</li>
+      </ul>
+      <p class="description">
+        Below are the basic rules for using this application.
+      </p>
+    </section>
+    <hr class="mb-sm-5" />
+  </div>
+  <div>
+    <section class="mt-sm-5 mb-sm-5">
+      <h4>Adding</h4>
+      <p class="description">
+        Adding a new list item (word or phrase) - button
+        <span class="btn btn-success btn-sm">Add new</span> . It is worth noting that when adding or editing elements
+        in some sections, the transcription field is required to be filled in. In all other cases, this field
+        is optional - it can be removed by unchecking the corresponding item
+        (then the transcription field will contain a "-" symbol).
+      </p>
+      <p class="description">
+        Also notice: when adding a word (or editing an existing one), it is convenient to use the assistant
+        <mark class="anchor">Convenient resource</mark>. In this case, when you click on the link
+        <mark class="anchor">transcription</mark>, a page will open in a new tab, where you can copy the transcription
+        for the corresponding word, when you click on the link <mark class="anchor">pronunciation</mark>, a page
+        with the American and English pronunciation of the corresponding word will open in a new tab.
+      </p>
+      <p class="description">
+        To return to the original list, you can use the button <span class="btn btn-primary btn-sm">Return</span> .
+      </p>
+    </section>
+    <hr />
+    <section class="mt-sm-5 mb-sm-5">
+      <h4>Editing and deleting</h4>
+      <p class="description">
+        To edit or delete a list item, you need to click on the corresponding table row and, after going to
+        the editing page, edit the data and click the button
+        <span class="btn btn-success btn-sm">Save</span> , or, to delete a word, click on the button
+        <span class="btn btn-danger btn-sm">Delete</span> .
+      </p>
+    </section>
+    <hr />
+    <section class="mt-sm-5 mb-sm-5">
+      <h4>Sorting the list</h4>
+      <p class="description">
+        You can sort the list either alphabetically (order by alphabet) or by date (order by date) - in this case,
+        the most recently added items will be at the top of the list.
+      </p>
+    </section>
+    <hr />
+    <section class="mt-sm-5 mb-sm-5">
+      <h4>Search (filter) by list</h4>
+      <p class="description">
+        To filter the list, you can use the field <mark>search</mark>, where you need to enter the filtering
+        condition (the first letter or the initial part of the word).
+        To clear the search field, you need to use the button with the image of a brush.
+      </p>
+    </section>
+    <hr />
+    <section class="mt-sm-5 mb-sm-5">
+      <h4>Deleting a list</h4>
+      <p class="description">
+        To delete list - click on button
+        <span class="btn btn-danger btn-sm">Delete list</span> . There are two options: delete the list completely
+        <span class="btn btn-dark btn-sm">Completely</span> , or only part of it
+        <span class="btn btn-dark btn-sm">Selectively</span> .
+      </p>
+      <p class="description">
+        When choosing the delete option
+        <mark>selectively</mark>, you need to mark the words that need to be deleted.<br>
+        It is worth noting that the filtered (by field <mark>search</mark>) part of the list will be deleted..
+      </p>
+    </section>
+    <hr />
+    <section class="mt-sm-5 mb-sm-5">
+      <h4>Loading default list</h4>
+      <p class="description">
+        If the list of elements is empty, you can load a default list (and edit it if necessary).
+        To do this, use the button <span class="btn btn-outline-success">Download default list</span>
+      </p>
+    </section>
+  </div>
+</ng-template>
