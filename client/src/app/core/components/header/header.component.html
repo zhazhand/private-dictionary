@@ -48,7 +48,7 @@
       }
       @if (isUserAuthenticated | async) {
         <li class="nav-item">
-          <button type="button" class="logout-btn" (click)="logOut()">
+          <button type="button" class="logout-btn" (click)="logOut()" title="Exit">
             <svg width="30px" height="30px" viewBox="110 0 300 300">
               <use href="assets/svg/logout.svg"></use>
             </svg>
