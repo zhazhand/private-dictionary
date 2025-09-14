@@ -1,10 +1,10 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { DefaultListService } from "@services/get-default-list.service";
-import { BaseTable } from "@reusable/base-table/base-table";
-import { ControlPanel } from "@reusable/control-panel/control-panel";
-import { LoaderComponent } from "@reusable/loader/loader.component";
-import { EmptyListBlock } from "@reusable/empty-list-block/empty-list-block";
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DefaultListService } from '@services/get-default-list.service';
+import { BaseTable } from '@reusable/base-table/base-table';
+import { ControlPanel } from '@reusable/control-panel/control-panel';
+import { LoaderComponent } from '@reusable/loader/loader.component';
+import { EmptyListBlock } from '@reusable/empty-list-block/empty-list-block';
 import {
   PageTitle,
   ToastClassName,
@@ -12,18 +12,18 @@ import {
   defaultSearchParametr,
   irregularSearchParametr,
   routePath,
-} from "@constants/constants";
-import { ListItem } from "@interfaces/list-item.interface";
-import { switchMap } from "rxjs/operators";
-import { searchSubstringMatches } from "app/shared/utils";
-import { RemovingOption } from "@interfaces/removing-option.interface";
-import { CommonCRUDService } from "@services/common-crud.service";
-import { ToastService } from "@services/toast.service";
-import { GroupeOption } from "@interfaces/groupe-option.interface";
-import { ProtectiveScreen } from "@reusable/protective-screen/protective-screen";
+} from '@constants/constants';
+import { ListItem } from '@interfaces/list-item.interface';
+import { switchMap } from 'rxjs/operators';
+import { searchSubstringMatches } from 'app/shared/utils';
+import { RemovingOption } from '@interfaces/removing-option.interface';
+import { CommonCRUDService } from '@services/common-crud.service';
+import { ToastService } from '@services/toast.service';
+import { GroupeOption } from '@interfaces/groupe-option.interface';
+import { ProtectiveScreen } from '@reusable/protective-screen/protective-screen';
 
 @Component({
-  selector: "app-base-page",
+  selector: 'app-base-page',
   imports: [
     LoaderComponent,
     BaseTable,
@@ -31,8 +31,8 @@ import { ProtectiveScreen } from "@reusable/protective-screen/protective-screen"
     EmptyListBlock,
     ProtectiveScreen,
   ],
-  templateUrl: "./base-page.html",
-  styleUrl: "./base-page.less",
+  templateUrl: './base-page.html',
+  styleUrl: './base-page.less',
 })
 export class BasePage implements OnInit {
   constructor(
@@ -50,7 +50,7 @@ export class BasePage implements OnInit {
   hideLoader: boolean = true;
   isProtectiveScreen: boolean = false;
   thName: string = defaultColumnName;
-  search: string = "";
+  search: string = '';
   paramSearch!: string;
   orderBy!: string;
   pageTitle!: string;
@@ -76,7 +76,7 @@ export class BasePage implements OnInit {
   }
 
   onProcessRemoving(option: RemovingOption): void {
-    if (option.isDeleteComplitely) {
+    if (option.isDeleteCompletely) {
       this.deleteCompletely();
       this.controlPanel.clearField();
       return;
@@ -164,7 +164,7 @@ export class BasePage implements OnInit {
     });
 
     this.isProtectiveScreen = true;
-    this.hideLoader=false;
+    this.hideLoader = false;
     this.deleteGroupe(option);
   }
 
@@ -176,7 +176,7 @@ export class BasePage implements OnInit {
       });
 
     this.isProtectiveScreen = true;
-    this.hideLoader=false;
+    this.hideLoader = false;
     this.deleteGroupe(option);
   }
 
@@ -202,7 +202,7 @@ export class BasePage implements OnInit {
             className: ToastClassName.error,
           });
           this.isProtectiveScreen = false;
-          this.hideLoader=true;
+          this.hideLoader = true;
         },
         complete: () => this.fetchList(),
       });

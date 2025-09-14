@@ -20,6 +20,7 @@ import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
+  ValidationErrors,
   Validators,
 } from '@angular/forms';
 import { ValidationPattern } from '@interfaces/validation-pattern';
@@ -314,7 +315,9 @@ export class ItemForm implements OnInit {
   }
 
   getFormValidationErrors(): string {
-    const validationArr: any[] = [];
+    const validationArr: Array<
+      { errors: ValidationErrors | null } & { isTouched: boolean | undefined }
+    > = [];
     const requiredField = 'required';
     const patternError = 'pattern';
     Object.keys(this.form.controls).forEach((key) => {
