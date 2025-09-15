@@ -1,8 +1,21 @@
 module.exports = {
   info: {},
   success: {
-    ok: "",
-    created: "",
+    ok: "Ok",
+    list: {
+      created: "Список завантажений",
+      deleted: "Вибрані слова зі списку були видалені",
+    },
+    word: {
+      created: "Слово додано",
+      updated: "Слово було оновлено",
+      deleted: "Слово було видалено",
+    },
+    phrase: {
+      created: "Фраза додана",
+      updated: "Фраза була оновлена",
+      deleted: "Фраза була видалена",
+    },
   },
   redirection: {},
   clientError: {

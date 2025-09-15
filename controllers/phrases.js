@@ -1,5 +1,6 @@
 const Phrase = require("../models/Models").Phrase;
 const errorHandler = require("../utils/errorHandler");
+const message = require("../utils/messages");
 
 module.exports.getAll = async function (req, res) {
   try {
@@ -21,7 +22,7 @@ module.exports.create = async function (req, res) {
           user: req.user.id,
         }).save();
       }
-      res.status(201).json({ message: "Список  фраз загружен" });
+      res.status(201).json({ message: message.success.list.created });
     } catch (e) {
       errorHandler(res, e);
     }
@@ -35,7 +36,7 @@ module.exports.create = async function (req, res) {
         user: req.user.id,
       }).save();
 
-      res.status(201).json({ message: "Слово додано" });
+      res.status(201).json({ message: message.success.phrase.created });
     } catch (e) {
       errorHandler(res, e);
     }
@@ -47,7 +48,7 @@ module.exports.remove = async function (req, res) {
     try {
       await Phrase.findByIdAndDelete({ _id: req.query.id });
       res.status(200).json({
-        message: "Фраза была удалена.",
+        message: message.success.phrase.deleted,
       });
     } catch (e) {
       errorHandler(res, e);
@@ -56,7 +57,7 @@ module.exports.remove = async function (req, res) {
     try {
       await Phrase.deleteMany({ user: req.user, removable: true });
       res.status(200).json({
-        message: "Выбранные фразы из списка были удалены.",
+        message: message.success.list.deleted,
       });
     } catch (e) {
       errorHandler(res, e);
@@ -74,7 +75,7 @@ module.exports.updateGroupe = async function (req, res) {
         { new: true },
       );
     }
-    res.status(200).json({ message: "DONE" });
+    res.status(200).json({ message: message.success.ok });
   } catch (e) {
     errorHandler(res, e);
   }
@@ -88,7 +89,7 @@ module.exports.update = async function (req, res) {
       { new: true },
     );
     res.status(200).json({
-      message: "Слово было оновлено",
+      message: message.success.phrase.updated,
     });
   } catch (e) {
     errorHandler(res, e);

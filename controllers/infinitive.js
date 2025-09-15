@@ -1,5 +1,6 @@
 const Word = require("../models/Models").Infinitive;
 const errorHandler = require("../utils/errorHandler");
+const message = require("../utils/messages");
 
 module.exports.getAll = async function (req, res) {
   try {
@@ -22,7 +23,7 @@ module.exports.create = async function (req, res) {
           user: req.user.id,
         }).save();
       }
-      res.status(201).json({ message: "Список загружен" });
+      res.status(201).json({ message: message.success.list.created });
     } catch (e) {
       errorHandler(res, e);
     }
@@ -36,7 +37,7 @@ module.exports.create = async function (req, res) {
         user: req.user.id,
       }).save();
 
-      res.status(201).json({ message: "Слово додано" });
+      res.status(201).json({ message: message.success.word.created });
     } catch (e) {
       errorHandler(res, e);
     }
@@ -48,7 +49,7 @@ module.exports.remove = async function (req, res) {
     try {
       await Word.findByIdAndDelete({ _id: req.query.id });
       res.status(200).json({
-        message: "Слово было удалена.",
+        message: message.success.word.deleted,
       });
     } catch (e) {
       errorHandler(res, e);
@@ -57,7 +58,7 @@ module.exports.remove = async function (req, res) {
     try {
       await Word.deleteMany({ user: req.user, removable: true });
       res.status(200).json({
-        message: "Выбранные слова из списка были удалены.",
+        message: message.success.list.deleted,
       });
     } catch (e) {
       errorHandler(res, e);
@@ -75,7 +76,7 @@ module.exports.updateGroupe = async function (req, res) {
         { new: true },
       );
     }
-    res.status(200).json({ message: "DONE" });
+    res.status(200).json({ message: message.success.ok });
   } catch (e) {
     errorHandler(res, e);
   }
@@ -89,7 +90,7 @@ module.exports.update = async function (req, res) {
       { new: true },
     );
     res.status(200).json({
-      message: "Слово было оновлено",
+      message: message.success.word.updated,
     });
   } catch (e) {
     errorHandler(res, e);

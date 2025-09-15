@@ -1,4 +1,3 @@
-//Authorization controller
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
@@ -25,13 +24,11 @@ module.exports.login = async function (req, res) {
       );
 
       res.status(200).json({
-        //200 - ctatus ok
         token: `Bearer ${token}`,
         userId: candidate._id,
       });
     } else {
       res.status(401).json({
-        //401 - ctatus unauthorized
         message: message.clientError.unauthorized,
       });
     }
@@ -42,7 +39,6 @@ module.exports.login = async function (req, res) {
   }
 };
 
-//Registration controller
 module.exports.register = async function (req, res) {
   const candidate = await User.findOne({ email: req.body.email });
 
