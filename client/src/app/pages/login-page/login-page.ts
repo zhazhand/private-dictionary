@@ -1,20 +1,20 @@
-import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
-import { ActivatedRoute, Params, Router } from "@angular/router";
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import {
   PageTitle,
   QueryParams,
   routePath,
   ToastClassName,
-} from "@constants/constants";
-import { toastMessage } from "@constants/toast-messages";
-import { User } from "@interfaces/user";
-import { RegistrationAndAuthenticationForm } from "@reusable/registration-and-authentication-form/registration-and-authentication-form";
-import { AuthService } from "@services/auth.service";
-import { ToastService } from "@services/toast.service";
-import { Subscription } from "rxjs";
+} from '@constants/constants';
+import { toastMessage } from '@constants/toast-messages';
+import { User } from '@interfaces/user';
+import { RegistrationAndAuthenticationForm } from '@reusable/registration-and-authentication-form/registration-and-authentication-form';
+import { AuthService } from '@services/auth.service';
+import { ToastService } from '@services/toast.service';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: "app-login-page",
+  selector: 'app-login-page',
   imports: [RegistrationAndAuthenticationForm],
   template: ` <div>
     <app-registration-and-authentication-form
@@ -24,7 +24,6 @@ import { Subscription } from "rxjs";
       (formData)="onSubmit()"
     />
   </div>`,
-  styleUrl: "./login-page.less",
 })
 export class LoginPage implements OnInit, OnDestroy {
   constructor(

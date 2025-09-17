@@ -1,13 +1,13 @@
-import { Component, OnDestroy, ViewChild } from "@angular/core";
-import { Router } from "@angular/router";
-import { PageTitle, routePath, ToastClassName } from "@constants/constants";
-import { AuthService } from "@services/auth.service";
-import { ToastService } from "@services/toast.service";
-import { RegistrationAndAuthenticationForm } from "app/shared/components/registration-and-authentication-form/registration-and-authentication-form";
-import { Subscription } from "rxjs";
+import { Component, OnDestroy, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { PageTitle, routePath, ToastClassName } from '@constants/constants';
+import { AuthService } from '@services/auth.service';
+import { ToastService } from '@services/toast.service';
+import { RegistrationAndAuthenticationForm } from 'app/shared/components/registration-and-authentication-form/registration-and-authentication-form';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: "app-registration-page",
+  selector: 'app-registration-page',
   imports: [RegistrationAndAuthenticationForm],
   template: ` <div>
     <app-registration-and-authentication-form
@@ -17,7 +17,6 @@ import { Subscription } from "rxjs";
       (formData)="onSubmit()"
     />
   </div>`,
-  styleUrl: "./registration-page.less",
 })
 export class RegistrationPage implements OnDestroy {
   constructor(
