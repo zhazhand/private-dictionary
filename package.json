@@ -14,6 +14,10 @@
     "express",
     "angular"
   ],
+  "engines": {
+    "node": "22.19.0",
+    "npm": "10.9.3"
+  },
   "author": "Andrii Zhazhko",
   "license": "ISC",
   "type": "commonjs",
