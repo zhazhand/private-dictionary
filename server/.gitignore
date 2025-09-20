@@ -1,0 +1,8 @@
+# Visual Studio Code
+.vscode/*
+.history/*
+
+.idea/
+
+node_modules
+config/keys.dev.js

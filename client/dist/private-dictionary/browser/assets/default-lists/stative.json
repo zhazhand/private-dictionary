@@ -1,0 +1,356 @@
+[
+  {
+    "name": "know",
+    "transcription": "njuː",
+    "translation": "знати",
+    "type": "thoughts"
+  },
+  {
+    "name": "believe",
+    "transcription": "biˈliːv",
+    "translation": "вірити",
+    "type": "thoughts"
+  },
+  {
+    "name": "understand",
+    "transcription": "andəˈstӕnd",
+    "translation": "розуміти",
+    "type": "thoughts"
+  },
+  {
+    "name": "realize",
+    "transcription": "ˈriəlaiz",
+    "translation": "усвідомлювати",
+    "type": "thoughts"
+  },
+  {
+    "name": "remember",
+    "transcription": "riˈmembə",
+    "translation": "пам’ятати",
+    "type": "thoughts"
+  },
+  {
+    "name": "forget",
+    "transcription": "fəˈɡet",
+    "translation": "забувати",
+    "type": "thoughts"
+  },
+  {
+    "name": "think",
+    "transcription": "think",
+    "translation": "думати (в значенні мати думку)",
+    "type": "thoughts"
+  },
+  {
+    "name": "suppose",
+    "transcription": "səˈpəuz",
+    "translation": "припускати",
+    "type": "thoughts"
+  },
+  {
+    "name": "mean",
+    "transcription": "miːn",
+    "translation": "означати",
+    "type": "thoughts"
+  },
+  {
+    "name": "recognize",
+    "transcription": "ˈrekəɡnaiz",
+    "translation": "впізнавати",
+    "type": "thoughts"
+  },
+  {
+    "name": "doubt",
+    "transcription": "daut",
+    "translation": "сумніватися, вагатися",
+    "type": "thoughts"
+  },
+  {
+    "name": "consider",
+    "transcription": "kənˈsidə",
+    "translation": "розглядати, обмірковувати",
+    "type": "thoughts"
+  },
+  {
+    "name": "guess",
+    "transcription": "ɡes",
+    "translation": "вгадати, гадати, вважати",
+    "type": "thoughts"
+  },
+  {
+    "name": "expect",
+    "transcription": "ikˈspekt",
+    "translation": "чекати",
+    "type": "thoughts"
+  },
+  {
+    "name": "love",
+    "transcription": "lav",
+    "translation": "любити",
+    "type": "emotions"
+  },
+  {
+    "name": "like",
+    "transcription": "laik",
+    "translation": "вподобати",
+    "type": "emotions"
+  },
+  {
+    "name": "dislike",
+    "transcription": "disˈlaik",
+    "translation": "не любити, відчувати огиду",
+    "type": "emotions"
+  },
+  {
+    "name": "hate",
+    "transcription": "heit",
+    "translation": "ненавидіти",
+    "type": "emotions"
+  },
+  {
+    "name": "prefer",
+    "transcription": "priˈfəː",
+    "translation": "віддавати перевагу",
+    "type": "emotions"
+  },
+  {
+    "name": "want",
+    "transcription": "wont",
+    "translation": "хотіти",
+    "type": "emotions"
+  },
+  {
+    "name": "need",
+    "transcription": "niːd",
+    "translation": "потребувати",
+    "type": "emotions"
+  },
+  {
+    "name": "desire",
+    "transcription": "diˈzaiə",
+    "translation": "жадати",
+    "type": "emotions"
+  },
+  {
+    "name": "fear",
+    "transcription": "fiə",
+    "translation": "боятися",
+    "type": "emotions"
+  },
+  {
+    "name": "envy",
+    "transcription": "ˈenvi",
+    "translation": "заздрити",
+    "type": "emotions"
+  },
+  {
+    "name": "care",
+    "transcription": "keə",
+    "translation": "піклуватися, турбуватися",
+    "type": "emotions"
+  },
+  {
+    "name": "adore",
+    "transcription": "əˈdoː",
+    "translation": "любити над усе, палко кохати",
+    "type": "emotions"
+  },
+  {
+    "name": "detest",
+    "transcription": "diˈtest",
+    "translation": "ненавидіти, мати відразу",
+    "type": "emotions"
+  },
+  {
+    "name": "respect",
+    "transcription": "rəˈspekt",
+    "translation": "поважати, шанувати",
+    "type": "emotions"
+  },
+  {
+    "name": "appreciate",
+    "transcription": "əˈpriːʃieit",
+    "translation": "цінувати, визнавати",
+    "type": "emotions"
+  },
+  {
+    "name": "see",
+    "transcription": "siː",
+    "translation": "бачити",
+    "type": "senses"
+  },
+  {
+    "name": "hear",
+    "transcription": "hiə",
+    "translation": "чути",
+    "type": "senses"
+  },
+  {
+    "name": "smell",
+    "transcription": "smel",
+    "translation": "пахнути, нюхати, відчувати запах",
+    "type": "senses"
+  },
+  {
+    "name": "taste",
+    "transcription": "teist",
+    "translation": "мати смак, пробувати, відчувати смак",
+    "type": "senses"
+  },
+  {
+    "name": "feel",
+    "transcription": "fiːl",
+    "translation": "відчувати (на дотик)",
+    "type": "senses"
+  },
+  {
+    "name": "notice",
+    "transcription": "ˈnəutis",
+    "translation": "помічати, звертати увагу",
+    "type": "senses"
+  },
+  {
+    "name": "observe",
+    "transcription": "əbˈzəːv",
+    "translation": "спостерігати",
+    "type": "senses"
+  },
+  {
+    "name": "perceive",
+    "transcription": "pəˈsiːv",
+    "translation": "усвідомлювати, осягати",
+    "type": "senses"
+  },
+  {
+    "name": "have",
+    "transcription": "hӕv",
+    "translation": "мати",
+    "type": "possession"
+  },
+  {
+    "name": "own",
+    "transcription": "əun",
+    "translation": "володіти",
+    "type": "possession"
+  },
+  {
+    "name": "possess",
+    "transcription": "pəˈzes",
+    "translation": "мати в розпорядженні",
+    "type": "possession"
+  },
+  {
+    "name": "belong",
+    "transcription": "biˈloŋ",
+    "translation": "належати",
+    "type": "possession"
+  },
+  {
+    "name": "include",
+    "transcription": "iŋˈkluːd",
+    "translation": "включати",
+    "type": "possession"
+  },
+  {
+    "name": "lack",
+    "transcription": "",
+    "translation": "бути відсутнім, бракувати",
+    "type": "possession"
+  },
+  {
+    "name": "involve",
+    "transcription": "inˈvolv",
+    "translation": "залучати",
+    "type": "possession"
+  },
+  {
+    "name": "require",
+    "transcription": "rəˈkwaiə",
+    "translation": "вимагати",
+    "type": "possession"
+  },
+  {
+    "name": "contain ",
+    "transcription": "kənˈtein",
+    "translation": "містити (мати) в собі, вміщати",
+    "type": "possession"
+  },
+  {
+    "name": "consist (of)",
+    "transcription": "kənˈsist",
+    "translation": "складатися (з)",
+    "type": "possession"
+  },
+  {
+    "name": "be",
+    "transcription": "biː",
+    "translation": "бути",
+    "type": "other"
+  },
+  {
+    "name": "seem",
+    "transcription": "siːm",
+    "translation": "здаватися",
+    "type": "other"
+  },
+  {
+    "name": "appear",
+    "transcription": "əˈpiə",
+    "translation": "мати вигляд",
+    "type": "other"
+  },
+  {
+    "name": "cost",
+    "transcription": "kost",
+    "translation": "коштувати",
+    "type": "other"
+  },
+  {
+    "name": "fit",
+    "transcription": "fit",
+    "translation": "підходити",
+    "type": "other"
+  },
+  {
+    "name": "matter",
+    "transcription": "ˈmӕtə",
+    "translation": "мати значення",
+    "type": "other"
+  },
+  {
+    "name": "weigh",
+    "transcription": "wei",
+    "translation": "важити",
+    "type": "other"
+  },
+  {
+    "name": "depend (on)",
+    "transcription": "diˈpend",
+    "translation": "залежати (від)",
+    "type": "other"
+  },
+  {
+    "name": "resemble",
+    "transcription": "rəˈzembl",
+    "translation": "нагадувати",
+    "type": "other"
+  },
+  {
+    "name": "suffice",
+    "transcription": "səˈfais",
+    "translation": "бути достатнім, вистачати",
+    "type": "other"
+  },
+  {
+    "name": "suit",
+    "transcription": "suːt",
+    "translation": "відповідати вимогам, влаштовувати",
+    "type": "other"
+  },
+  {
+    "name": "differ",
+    "transcription": "ˈdifə",
+    "translation": "відрізнятися",
+    "type": "other"
+  }
+]

@@ -1,0 +1,272 @@
+[
+  {
+    "name": "admit",
+    "transcription": "admit",
+    "translation": "допускати"
+  },
+  {
+    "name": "advise",
+    "transcription": "ədˈvaiz",
+    "translation": "радити(ся), консультувати(ся)"
+  },
+  {
+    "name": "allow",
+    "transcription": "əˈlau",
+    "translation": "дозволяти"
+  },
+  {
+    "name": "anticipate",
+    "transcription": "ӕnˈtisəpeit",
+    "translation": "передчувати, чекати"
+  },
+  {
+    "name": "appreciate",
+    "transcription": "",
+    "translation": "цінувати, визнавати"
+  },
+  {
+    "name": "avoid",
+    "transcription": "əˈvoid",
+    "translation": "уникати"
+  },
+  {
+    "name": "begin",
+    "transcription": "biˈɡin",
+    "translation": "починати(ся)"
+  },
+  {
+    "name": "can't bear",
+    "transcription": "beə",
+    "translation": "не виносити, не терпіти"
+  },
+  {
+    "name": "can't help",
+    "transcription": "help",
+    "translation": "не уникнути, не втриматися"
+  },
+  {
+    "name": "can't stand",
+    "transcription": "stӕnd",
+    "translation": "не виносити, не терпіти"
+  },
+  {
+    "name": "cease",
+    "transcription": "siːs",
+    "translation": "переставати, припиняти(ся)"
+  },
+  {
+    "name": "complete",
+    "transcription": "kəmˈpliːt",
+    "translation": "закінчувати, завершувати"
+  },
+  {
+    "name": "consider",
+    "transcription": "",
+    "translation": "розглядати, обмірковувати"
+  },
+  {
+    "name": "continue",
+    "transcription": "kənˈtinjuː",
+    "translation": "продовжувати(ся), простягатися"
+  },
+  {
+    "name": "delay",
+    "transcription": "diˈlei",
+    "translation": "відкладати, затримувати"
+  },
+  {
+    "name": "deny",
+    "transcription": "diˈnai",
+    "translation": "заперечувати, відмовляти"
+  },
+  {
+    "name": "despise",
+    "transcription": "diˈspaiz",
+    "translation": "зневажати, ставитися з презирством"
+  },
+  {
+    "name": "discuss",
+    "transcription": "diˈskas",
+    "translation": "обговорювати, розглядати"
+  },
+  {
+    "name": "dislike",
+    "transcription": "disˈlaik",
+    "translation": "не любити, відчувати огиду"
+  },
+  {
+    "name": "don't mind",
+    "transcription": "maind",
+    "translation": "не заперечувати, бути не проти"
+  },
+  {
+    "name": "encourage",
+    "transcription": "inˈkaridʒ",
+    "translation": "підбадьорювати, заохочувати"
+  },
+  {
+    "name": "enjoy",
+    "transcription": "inˈdʒoi",
+    "translation": "мати задоволення"
+  },
+  {
+    "name": "finish",
+    "transcription": "ˈfiniʃ",
+    "translation": "закінчувати, завершувати"
+  },
+  {
+    "name": "forget",
+    "transcription": "",
+    "translation": "забувати"
+  },
+  {
+    "name": "hate",
+    "transcription": "heit",
+    "translation": "ненавидіти"
+  },
+  {
+    "name": "involve",
+    "transcription": "inˈvolv",
+    "translation": "втягати, вплутувати"
+  },
+  {
+    "name": "keep",
+    "transcription": "kiːp",
+    "translation": "тримати, зберігати, продовжувати"
+  },
+  {
+    "name": "like ",
+    "transcription": "laik",
+    "translation": "подобатися, любити"
+  },
+  {
+    "name": "love",
+    "transcription": "lav",
+    "translation": "любити, кохати"
+  },
+  {
+    "name": "mention",
+    "transcription": "ˈmenʃən",
+    "translation": "згадувати, посилатися на"
+  },
+  {
+    "name": "mind",
+    "transcription": "maind",
+    "translation": "мати щось проти, заперечувати"
+  },
+  {
+    "name": "miss",
+    "transcription": "mis",
+    "translation": "спізнитися, пропустити, сумувати за кимсь"
+  },
+  {
+    "name": "need ",
+    "transcription": "niːd",
+    "translation": "потребувати"
+  },
+  {
+    "name": "neglect ",
+    "transcription": "niˈɡlekt",
+    "translation": "нехтувати, зневажати, не турбуватися про"
+  },
+  {
+    "name": "permit",
+    "transcription": "pəˈmit",
+    "translation": "дозволяти"
+  },
+  {
+    "name": "postpone",
+    "transcription": "pəsˈpəun",
+    "translation": "відкладати, відстрочувати"
+  },
+  {
+    "name": "practice",
+    "transcription": "ˈprӕktis",
+    "translation": "практикуватися"
+  },
+  {
+    "name": "prefer",
+    "transcription": "priˈfəː",
+    "translation": "віддавати перевагу"
+  },
+  {
+    "name": "propose",
+    "transcription": "prəˈpəuz",
+    "translation": "пропонувати, вносити пропозицію"
+  },
+  {
+    "name": "quit",
+    "transcription": "kwit",
+    "translation": "залишати, припиняти"
+  },
+  {
+    "name": "recall",
+    "transcription": "riˈkoːl",
+    "translation": "згадувати, воскрешати в пам'яті"
+  },
+  {
+    "name": "recollect",
+    "transcription": "rekəˈlekt",
+    "translation": "згадувати"
+  },
+  {
+    "name": "recommend",
+    "transcription": "rekəˈmend",
+    "translation": "рекомендувати, радити"
+  },
+  {
+    "name": "regret",
+    "transcription": "rəˈɡret",
+    "translation": "жалкувати, шкодувати"
+  },
+  {
+    "name": "remember",
+    "transcription": "riˈmembə",
+    "translation": "пам'ятати, згадувати"
+  },
+  {
+    "name": "require",
+    "transcription": "rəˈkwaiə",
+    "translation": "потребувати, вимагати, наказувати"
+  },
+  {
+    "name": "resent",
+    "transcription": "riˈzent",
+    "translation": "обурюватися"
+  },
+  {
+    "name": "resist",
+    "transcription": "rəˈzist",
+    "translation": "утримуватися"
+  },
+  {
+    "name": "risk",
+    "transcription": "risk",
+    "translation": "ризикувати"
+  },
+  {
+    "name": "start",
+    "transcription": "stɑːt",
+    "translation": "починати"
+  },
+  {
+    "name": "stop",
+    "transcription": "stop",
+    "translation": "зупиняти(ся), припиняти(ся), закінчувати(ся)"
+  },
+  {
+    "name": "suggest",
+    "transcription": "səˈdʒest",
+    "translation": "пропонувати, радити"
+  },
+  {
+    "name": "try",
+    "transcription": "trai",
+    "translation": "старатися, намагатися, перевіряти дослідом"
+  },
+  {
+    "name": "understand",
+    "transcription": "andəˈstӕnd",
+    "translation": "розуміти"
+  }
+]
