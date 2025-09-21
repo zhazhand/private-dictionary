@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "${API_URL}",
+    "target": "https://private-dictionary-backend.onrender.com",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
