@@ -38,7 +38,7 @@ app.use("/api/infinitive", infinitiveRoutes);
 app.use("/api/phrases", phrasesRoutes);
 app.use("/api/stative", stativeRoutes);
 
-if (process.env.NODE_ENV === "production") {
+/*if (process.env.NODE_ENV === "production") {
   app.use(express.static("../client/dist/private-dictionary"));
 
   app.get("*", (req, res) => {
@@ -53,6 +53,6 @@ if (process.env.NODE_ENV === "production") {
       ),
     );
   });
-}
+}*/
 
 module.exports = app;
