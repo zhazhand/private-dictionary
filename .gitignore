@@ -1,8 +1,9 @@
+# Visual Studio Code
+.vscode/*
+.history/*
+
 .idea/
 
-#server
-.server/node_modules
-.server/config/keys.dev.js
-
-#client
-.client/node_modules
+node_modules
+config/keys.dev.js
+config/pass.txt
