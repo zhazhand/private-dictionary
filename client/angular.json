@@ -61,14 +61,15 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "proxyConfig": "src/proxy.conf.json"
+          },
           "configurations": {
             "production": {
-              "buildTarget": "private-dictionary:build:production",
-              "proxyConfig": "src/proxy-prod.conf.json"
+              "buildTarget": "private-dictionary:build:production"
             },
             "development": {
-              "buildTarget": "private-dictionary:build:development",
-              "proxyConfig": "src/proxy.conf.json"
+              "buildTarget": "private-dictionary:build:development"
             }
           },
           "defaultConfiguration": "development"
