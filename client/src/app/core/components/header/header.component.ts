@@ -1,17 +1,17 @@
-import { Component } from "@angular/core";
-import { Observable } from "rxjs";
-import { AuthService } from "@services/auth.service";
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthService } from '@services/auth.service';
 import {
   NgbCollapseModule,
   NgbDropdownModule,
-} from "@ng-bootstrap/ng-bootstrap";
-import { Router, RouterLink, RouterModule } from "@angular/router";
-import { AsyncPipe } from "@angular/common";
-import { MenuItemName, routePath } from "@constants/constants";
-import { ClickOutsideDirective } from "@directives/click-outside";
+} from '@ng-bootstrap/ng-bootstrap';
+import { Router, RouterLink, RouterModule } from '@angular/router';
+import { AsyncPipe } from '@angular/common';
+import { MenuItemName, routePath } from '@constants/constants';
+import { ClickOutsideDirective } from '@directives/click-outside';
 
 @Component({
-  selector: "app-header",
+  selector: 'app-header',
   imports: [
     NgbDropdownModule,
     NgbCollapseModule,
@@ -20,8 +20,8 @@ import { ClickOutsideDirective } from "@directives/click-outside";
     AsyncPipe,
     ClickOutsideDirective,
   ],
-  templateUrl: "./header.component.html",
-  styleUrls: ["./header.component.less"],
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.less'],
 })
 export class HeaderComponent {
   public isUserAuthenticated!: Observable<boolean>;
